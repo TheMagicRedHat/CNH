@@ -1,0 +1,35 @@
+[
+  "2":{
+    "stealth":1,
+    "luckyPoints":1
+  },
+  "3":{
+    "attention":1,
+    "face":1,
+    "stealth":1,
+    "luckyPoints":1,
+    "resolve":1
+  },
+  "4":{
+    "attention":1,
+    "face":1,
+    "stealth":1,
+    "luckyPoints":2,
+    "resolve":1,
+    "primaryAttempt":1,
+    "secondaryAttempt":1,
+    "castingAttempt":1
+  },
+  "5":{
+    "block":1,
+    "dodge":1,
+    "attention":2,
+    "face":2,
+    "stealth":2,
+    "luckyPoints":2,
+    "resolve":2,
+    "primaryAttempt":1,
+    "secondaryAttempt":1,
+    "castingAttempt":1
+  }
+]
