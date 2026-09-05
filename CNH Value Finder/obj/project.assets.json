@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Logan\\Desktop\\Coding\\CNH\\CNH.csproj",
+      "projectUniqueName": "C:\\Users\\Logan\\Desktop\\Coding\\CNH\\CNH Value Finder\\CNH.csproj",
       "projectName": "CNH",
-      "projectPath": "C:\\Users\\Logan\\Desktop\\Coding\\CNH\\CNH.csproj",
+      "projectPath": "C:\\Users\\Logan\\Desktop\\Coding\\CNH\\CNH Value Finder\\CNH.csproj",
       "packagesPath": "C:\\Users\\Logan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Logan\\Desktop\\Coding\\CNH\\obj\\",
+      "outputPath": "C:\\Users\\Logan\\Desktop\\Coding\\CNH\\CNH Value Finder\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Logan\\AppData\\Roaming\\NuGet\\NuGet.Config"
