@@ -6,7 +6,7 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v10.0": {
-      "CNH/0.0.1": {
+      "CNH/1.0.0": {
         "runtime": {
           "CNH.dll": {}
         }
@@ -14,7 +14,7 @@
     }
   },
   "libraries": {
-    "CNH/0.0.1": {
+    "CNH/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
