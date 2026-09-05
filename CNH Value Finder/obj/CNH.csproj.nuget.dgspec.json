@@ -5,10 +5,10 @@
   },
   "projects": {
     "C:\\Users\\Logan\\Desktop\\Coding\\CNH\\CNH Value Finder\\CNH.csproj": {
-      "version": "1.0.0",
+      "version": "0.0.1",
       "restore": {
         "projectUniqueName": "C:\\Users\\Logan\\Desktop\\Coding\\CNH\\CNH Value Finder\\CNH.csproj",
-        "projectName": "CNH",
+        "projectName": "CNH Value Finder",
         "projectPath": "C:\\Users\\Logan\\Desktop\\Coding\\CNH\\CNH Value Finder\\CNH.csproj",
         "packagesPath": "C:\\Users\\Logan\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\Logan\\Desktop\\Coding\\CNH\\CNH Value Finder\\obj\\",
