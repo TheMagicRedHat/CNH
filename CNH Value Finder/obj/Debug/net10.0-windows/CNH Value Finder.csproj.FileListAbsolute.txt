@@ -1,0 +1,17 @@
+C:\Users\Logan\Desktop\Coding\CNH\CNH Value Finder\bin\Debug\net10.0-windows\CNH Value Finder.exe
+C:\Users\Logan\Desktop\Coding\CNH\CNH Value Finder\bin\Debug\net10.0-windows\CNH Value Finder.deps.json
+C:\Users\Logan\Desktop\Coding\CNH\CNH Value Finder\bin\Debug\net10.0-windows\CNH Value Finder.runtimeconfig.json
+C:\Users\Logan\Desktop\Coding\CNH\CNH Value Finder\bin\Debug\net10.0-windows\CNH Value Finder.dll
+C:\Users\Logan\Desktop\Coding\CNH\CNH Value Finder\bin\Debug\net10.0-windows\CNH Value Finder.pdb
+C:\Users\Logan\Desktop\Coding\CNH\CNH Value Finder\obj\Debug\net10.0-windows\CNH_Value_Finder.MainWindowForm.resources
+C:\Users\Logan\Desktop\Coding\CNH\CNH Value Finder\obj\Debug\net10.0-windows\CNH Value Finder.csproj.GenerateResource.cache
+C:\Users\Logan\Desktop\Coding\CNH\CNH Value Finder\obj\Debug\net10.0-windows\CNH Value Finder.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Logan\Desktop\Coding\CNH\CNH Value Finder\obj\Debug\net10.0-windows\CNH Value Finder.AssemblyInfoInputs.cache
+C:\Users\Logan\Desktop\Coding\CNH\CNH Value Finder\obj\Debug\net10.0-windows\CNH Value Finder.AssemblyInfo.cs
+C:\Users\Logan\Desktop\Coding\CNH\CNH Value Finder\obj\Debug\net10.0-windows\CNH Value Finder.csproj.CoreCompileInputs.cache
+C:\Users\Logan\Desktop\Coding\CNH\CNH Value Finder\obj\Debug\net10.0-windows\CNH Value Finder.sourcelink.json
+C:\Users\Logan\Desktop\Coding\CNH\CNH Value Finder\obj\Debug\net10.0-windows\CNH Value Finder.dll
+C:\Users\Logan\Desktop\Coding\CNH\CNH Value Finder\obj\Debug\net10.0-windows\refint\CNH Value Finder.dll
+C:\Users\Logan\Desktop\Coding\CNH\CNH Value Finder\obj\Debug\net10.0-windows\CNH Value Finder.pdb
+C:\Users\Logan\Desktop\Coding\CNH\CNH Value Finder\obj\Debug\net10.0-windows\CNH Value Finder.genruntimeconfig.cache
+C:\Users\Logan\Desktop\Coding\CNH\CNH Value Finder\obj\Debug\net10.0-windows\ref\CNH Value Finder.dll
