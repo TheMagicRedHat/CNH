@@ -315,6 +315,7 @@
             diceRollerTableLayoutPanel.Controls.Add(successSectionDiceRollerPanel, 5, 0);
             diceRollerTableLayoutPanel.Dock = DockStyle.Fill;
             diceRollerTableLayoutPanel.Location = new Point(0, 0);
+            diceRollerTableLayoutPanel.Margin = new Padding(0);
             diceRollerTableLayoutPanel.Name = "diceRollerTableLayoutPanel";
             diceRollerTableLayoutPanel.RowCount = 10;
             diceRollerTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
@@ -339,6 +340,7 @@
             sumSectionDiceRollerPanel.Controls.Add(sumDiceRollerTableLayoutPanel);
             sumSectionDiceRollerPanel.Dock = DockStyle.Fill;
             sumSectionDiceRollerPanel.Location = new Point(3, 3);
+            sumSectionDiceRollerPanel.Margin = new Padding(0);
             sumSectionDiceRollerPanel.Name = "sumSectionDiceRollerPanel";
             diceRollerTableLayoutPanel.SetRowSpan(sumSectionDiceRollerPanel, 10);
             sumSectionDiceRollerPanel.Size = new Size(359, 316);
@@ -362,6 +364,7 @@
             sumDiceRollerTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
             sumDiceRollerTableLayoutPanel.Dock = DockStyle.Fill;
             sumDiceRollerTableLayoutPanel.Location = new Point(0, 0);
+            sumDiceRollerTableLayoutPanel.Margin = new Padding(0);
             sumDiceRollerTableLayoutPanel.Name = "sumDiceRollerTableLayoutPanel";
             sumDiceRollerTableLayoutPanel.RowCount = 10;
             sumDiceRollerTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
@@ -386,6 +389,7 @@
             successSectionDiceRollerPanel.Controls.Add(successDiceRollerTableLayoutPanel);
             successSectionDiceRollerPanel.Dock = DockStyle.Fill;
             successSectionDiceRollerPanel.Location = new Point(368, 3);
+            successSectionDiceRollerPanel.Margin = new Padding(0);
             successSectionDiceRollerPanel.Name = "successSectionDiceRollerPanel";
             diceRollerTableLayoutPanel.SetRowSpan(successSectionDiceRollerPanel, 10);
             successSectionDiceRollerPanel.Size = new Size(366, 316);
@@ -409,6 +413,7 @@
             successDiceRollerTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
             successDiceRollerTableLayoutPanel.Dock = DockStyle.Fill;
             successDiceRollerTableLayoutPanel.Location = new Point(0, 0);
+            successDiceRollerTableLayoutPanel.Margin = new Padding(0);
             successDiceRollerTableLayoutPanel.Name = "successDiceRollerTableLayoutPanel";
             successDiceRollerTableLayoutPanel.RowCount = 10;
             successDiceRollerTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
