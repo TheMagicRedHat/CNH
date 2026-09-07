@@ -11,5 +11,10 @@ namespace CNH_Value_Finder
         {
 
         }
+
+        private void valueFinderUsageTextLabel_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
