@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             overallTableLayoutPanel = new TableLayoutPanel();
             usageTextLabel = new Label();
             runButton = new Button();
@@ -76,6 +77,7 @@
             sumDiceFinderLabel = new Label();
             diceFinderPanel = new Panel();
             bodyTextDiceFinderLabel = new Label();
+            errorProvider = new ErrorProvider(components);
             overallTableLayoutPanel.SuspendLayout();
             advantageStateGroupBox.SuspendLayout();
             functionOptionsTabControl.SuspendLayout();
@@ -93,6 +95,7 @@
             diceFinderTabPage.SuspendLayout();
             diceFinderTableLayoutPanel.SuspendLayout();
             diceFinderPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)errorProvider).BeginInit();
             SuspendLayout();
             // 
             // overallTableLayoutPanel
@@ -248,6 +251,7 @@
             typeDiceTextBox.Size = new Size(80, 25);
             typeDiceTextBox.TabIndex = 3;
             typeDiceTextBox.TextAlign = HorizontalAlignment.Center;
+            typeDiceTextBox.Validating += typeDiceTextBox_Validating;
             // 
             // numDiceTextBox
             // 
@@ -261,11 +265,13 @@
             numDiceTextBox.Size = new Size(80, 25);
             numDiceTextBox.TabIndex = 4;
             numDiceTextBox.TextAlign = HorizontalAlignment.Center;
+            numDiceTextBox.Validating += numDiceTextBox_Validating;
             // 
             // successThresholdTextBox
             // 
             successThresholdTextBox.Anchor = AnchorStyles.Top;
             overallTableLayoutPanel.SetColumnSpan(successThresholdTextBox, 2);
+            successThresholdTextBox.Enabled = false;
             successThresholdTextBox.Font = new Font("Segoe UI", 10F);
             successThresholdTextBox.Location = new Point(440, 48);
             successThresholdTextBox.Margin = new Padding(0);
@@ -274,6 +280,7 @@
             successThresholdTextBox.Size = new Size(80, 25);
             successThresholdTextBox.TabIndex = 5;
             successThresholdTextBox.TextAlign = HorizontalAlignment.Center;
+            successThresholdTextBox.Validating += successThresholdTextBox_Validating;
             // 
             // typeDiceLabel
             // 
@@ -723,7 +730,6 @@
             valueFinderUsageTextLabel.TabIndex = 0;
             valueFinderUsageTextLabel.Text = "Fill in two of the three options below, then press 'Run' at the bottom to find whichever value you left blank";
             valueFinderUsageTextLabel.TextAlign = ContentAlignment.MiddleCenter;
-            valueFinderUsageTextLabel.Click += valueFinderUsageTextLabel_Click;
             // 
             // difficultyValueFinderTextBox
             // 
@@ -732,11 +738,12 @@
             difficultyValueFinderTextBox.Location = new Point(160, 30);
             difficultyValueFinderTextBox.Margin = new Padding(0);
             difficultyValueFinderTextBox.Name = "difficultyValueFinderTextBox";
-            difficultyValueFinderTextBox.PlaceholderText = "1";
+            difficultyValueFinderTextBox.PlaceholderText = "Ex: 1";
             valueFinderTableLayoutPanel.SetRowSpan(difficultyValueFinderTextBox, 2);
             difficultyValueFinderTextBox.Size = new Size(80, 25);
             difficultyValueFinderTextBox.TabIndex = 1;
             difficultyValueFinderTextBox.TextAlign = HorizontalAlignment.Center;
+            difficultyValueFinderTextBox.Validating += difficultyValueFinderTextBox_Validating;
             // 
             // numDiceValueFinderTextBox
             // 
@@ -745,11 +752,12 @@
             numDiceValueFinderTextBox.Location = new Point(360, 30);
             numDiceValueFinderTextBox.Margin = new Padding(0);
             numDiceValueFinderTextBox.Name = "numDiceValueFinderTextBox";
-            numDiceValueFinderTextBox.PlaceholderText = "1";
+            numDiceValueFinderTextBox.PlaceholderText = "Ex: 1";
             valueFinderTableLayoutPanel.SetRowSpan(numDiceValueFinderTextBox, 2);
             numDiceValueFinderTextBox.Size = new Size(80, 25);
             numDiceValueFinderTextBox.TabIndex = 2;
             numDiceValueFinderTextBox.TextAlign = HorizontalAlignment.Center;
+            numDiceValueFinderTextBox.Validating += numDiceValueFinderTextBox_Validating;
             // 
             // successChanceValueFinderTextBox
             // 
@@ -758,11 +766,12 @@
             successChanceValueFinderTextBox.Location = new Point(560, 30);
             successChanceValueFinderTextBox.Margin = new Padding(0);
             successChanceValueFinderTextBox.Name = "successChanceValueFinderTextBox";
-            successChanceValueFinderTextBox.PlaceholderText = "50%";
+            successChanceValueFinderTextBox.PlaceholderText = "Ex: 50%";
             valueFinderTableLayoutPanel.SetRowSpan(successChanceValueFinderTextBox, 2);
             successChanceValueFinderTextBox.Size = new Size(80, 25);
             successChanceValueFinderTextBox.TabIndex = 3;
             successChanceValueFinderTextBox.TextAlign = HorizontalAlignment.Center;
+            successChanceValueFinderTextBox.Validating += successChanceValueFinderTextBox_Validating;
             // 
             // difficultyValueFinderLabel
             // 
@@ -925,6 +934,7 @@
             sumDiceFinderTextBox.Size = new Size(80, 25);
             sumDiceFinderTextBox.TabIndex = 1;
             sumDiceFinderTextBox.TextAlign = HorizontalAlignment.Center;
+            sumDiceFinderTextBox.Validating += sumDiceFinderTextBox_Validating;
             // 
             // sumDiceFinderLabel
             // 
@@ -967,6 +977,10 @@
             bodyTextDiceFinderLabel.Text = "TEMP";
             bodyTextDiceFinderLabel.TextAlign = ContentAlignment.MiddleLeft;
             // 
+            // errorProvider
+            // 
+            errorProvider.ContainerControl = this;
+            // 
             // MainWindowForm
             // 
             AcceptButton = runButton;
@@ -1008,6 +1022,7 @@
             diceFinderTableLayoutPanel.PerformLayout();
             diceFinderPanel.ResumeLayout(false);
             diceFinderPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)errorProvider).EndInit();
             ResumeLayout(false);
         }
 
@@ -1061,5 +1076,6 @@
         private Label sumDiceFinderLabel;
         private Panel diceFinderPanel;
         private Label bodyTextDiceFinderLabel;
+        private ErrorProvider errorProvider;
     }
 }
