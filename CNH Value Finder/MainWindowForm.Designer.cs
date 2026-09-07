@@ -271,7 +271,6 @@
             // 
             successThresholdTextBox.Anchor = AnchorStyles.Top;
             overallTableLayoutPanel.SetColumnSpan(successThresholdTextBox, 2);
-            successThresholdTextBox.Enabled = false;
             successThresholdTextBox.Font = new Font("Segoe UI", 10F);
             successThresholdTextBox.Location = new Point(440, 48);
             successThresholdTextBox.Margin = new Padding(0);
