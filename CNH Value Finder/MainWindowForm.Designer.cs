@@ -329,6 +329,7 @@
             functionOptionsTabControl.SelectedIndex = 0;
             functionOptionsTabControl.Size = new Size(809, 336);
             functionOptionsTabControl.TabIndex = 9;
+            functionOptionsTabControl.SelectedIndexChanged += functionOptionsTabControl_SelectedIndexChanged;
             // 
             // diceRollerTabPage
             // 
