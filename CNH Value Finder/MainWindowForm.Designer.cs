@@ -52,6 +52,12 @@
             bodyTextSuccessDiceRollerLabel = new Label();
             probabilityTablesTabPage = new TabPage();
             probabilityTablesTableLayoutPanel = new TableLayoutPanel();
+            headerTextSumProbabilityTableLabel = new Label();
+            headerTextSuccessProbabilityTableLabel = new Label();
+            sumProbabilityTablePanel = new Panel();
+            bodyTextSumProbabilityTableLabel = new Label();
+            successProbabilityTablePanel = new Panel();
+            bodyTextSuccessProbabilityTableLabel = new Label();
             valueFinderTabPage = new TabPage();
             valueFinderTableLayoutPanel = new TableLayoutPanel();
             overallTableLayoutPanel.SuspendLayout();
@@ -62,6 +68,9 @@
             sumDiceRollerPanel.SuspendLayout();
             successDiceRollerPanel.SuspendLayout();
             probabilityTablesTabPage.SuspendLayout();
+            probabilityTablesTableLayoutPanel.SuspendLayout();
+            sumProbabilityTablePanel.SuspendLayout();
+            successProbabilityTablePanel.SuspendLayout();
             valueFinderTabPage.SuspendLayout();
             SuspendLayout();
             // 
@@ -408,7 +417,7 @@
             bodyTextSumDiceRollerLabel.AutoSize = true;
             bodyTextSumDiceRollerLabel.Location = new Point(0, 0);
             bodyTextSumDiceRollerLabel.Margin = new Padding(0);
-            bodyTextSumDiceRollerLabel.MaximumSize = new Size(434, 0);
+            bodyTextSumDiceRollerLabel.MaximumSize = new Size(402, 0);
             bodyTextSumDiceRollerLabel.Name = "bodyTextSumDiceRollerLabel";
             bodyTextSumDiceRollerLabel.Padding = new Padding(3);
             bodyTextSumDiceRollerLabel.Size = new Size(388, 25);
@@ -435,7 +444,7 @@
             bodyTextSuccessDiceRollerLabel.AutoSize = true;
             bodyTextSuccessDiceRollerLabel.Location = new Point(0, 0);
             bodyTextSuccessDiceRollerLabel.Margin = new Padding(0);
-            bodyTextSuccessDiceRollerLabel.MaximumSize = new Size(434, 0);
+            bodyTextSuccessDiceRollerLabel.MaximumSize = new Size(402, 0);
             bodyTextSuccessDiceRollerLabel.Name = "bodyTextSuccessDiceRollerLabel";
             bodyTextSuccessDiceRollerLabel.Padding = new Padding(3);
             bodyTextSuccessDiceRollerLabel.Size = new Size(388, 25);
@@ -450,7 +459,7 @@
             probabilityTablesTabPage.Location = new Point(4, 24);
             probabilityTablesTabPage.Margin = new Padding(0);
             probabilityTablesTabPage.Name = "probabilityTablesTabPage";
-            probabilityTablesTabPage.Size = new Size(884, 308);
+            probabilityTablesTabPage.Size = new Size(801, 308);
             probabilityTablesTabPage.TabIndex = 1;
             probabilityTablesTabPage.Text = "Probability Tables";
             probabilityTablesTabPage.UseVisualStyleBackColor = true;
@@ -480,6 +489,10 @@
             probabilityTablesTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
             probabilityTablesTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
             probabilityTablesTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            probabilityTablesTableLayoutPanel.Controls.Add(headerTextSumProbabilityTableLabel, 0, 0);
+            probabilityTablesTableLayoutPanel.Controls.Add(headerTextSuccessProbabilityTableLabel, 10, 0);
+            probabilityTablesTableLayoutPanel.Controls.Add(sumProbabilityTablePanel, 0, 2);
+            probabilityTablesTableLayoutPanel.Controls.Add(successProbabilityTablePanel, 10, 2);
             probabilityTablesTableLayoutPanel.Dock = DockStyle.Fill;
             probabilityTablesTableLayoutPanel.Location = new Point(0, 0);
             probabilityTablesTableLayoutPanel.Margin = new Padding(0);
@@ -505,8 +518,90 @@
             probabilityTablesTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
             probabilityTablesTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
             probabilityTablesTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            probabilityTablesTableLayoutPanel.Size = new Size(884, 308);
+            probabilityTablesTableLayoutPanel.Size = new Size(801, 308);
             probabilityTablesTableLayoutPanel.TabIndex = 0;
+            // 
+            // headerTextSumProbabilityTableLabel
+            // 
+            headerTextSumProbabilityTableLabel.Anchor = AnchorStyles.None;
+            headerTextSumProbabilityTableLabel.AutoSize = true;
+            probabilityTablesTableLayoutPanel.SetColumnSpan(headerTextSumProbabilityTableLabel, 10);
+            headerTextSumProbabilityTableLabel.Font = new Font("Segoe UI", 12F);
+            headerTextSumProbabilityTableLabel.Location = new Point(145, 4);
+            headerTextSumProbabilityTableLabel.Name = "headerTextSumProbabilityTableLabel";
+            probabilityTablesTableLayoutPanel.SetRowSpan(headerTextSumProbabilityTableLabel, 2);
+            headerTextSumProbabilityTableLabel.Size = new Size(110, 21);
+            headerTextSumProbabilityTableLabel.TabIndex = 0;
+            headerTextSumProbabilityTableLabel.Text = "Stats for Sums";
+            headerTextSumProbabilityTableLabel.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // headerTextSuccessProbabilityTableLabel
+            // 
+            headerTextSuccessProbabilityTableLabel.Anchor = AnchorStyles.None;
+            headerTextSuccessProbabilityTableLabel.AutoSize = true;
+            probabilityTablesTableLayoutPanel.SetColumnSpan(headerTextSuccessProbabilityTableLabel, 10);
+            headerTextSuccessProbabilityTableLabel.Font = new Font("Segoe UI", 12F);
+            headerTextSuccessProbabilityTableLabel.Location = new Point(530, 4);
+            headerTextSuccessProbabilityTableLabel.Name = "headerTextSuccessProbabilityTableLabel";
+            probabilityTablesTableLayoutPanel.SetRowSpan(headerTextSuccessProbabilityTableLabel, 2);
+            headerTextSuccessProbabilityTableLabel.Size = new Size(140, 21);
+            headerTextSuccessProbabilityTableLabel.TabIndex = 1;
+            headerTextSuccessProbabilityTableLabel.Text = "Stats for Successes";
+            headerTextSuccessProbabilityTableLabel.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // sumProbabilityTablePanel
+            // 
+            sumProbabilityTablePanel.AutoScroll = true;
+            sumProbabilityTablePanel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            probabilityTablesTableLayoutPanel.SetColumnSpan(sumProbabilityTablePanel, 10);
+            sumProbabilityTablePanel.Controls.Add(bodyTextSumProbabilityTableLabel);
+            sumProbabilityTablePanel.Dock = DockStyle.Fill;
+            sumProbabilityTablePanel.Location = new Point(0, 30);
+            sumProbabilityTablePanel.Margin = new Padding(0);
+            sumProbabilityTablePanel.Name = "sumProbabilityTablePanel";
+            probabilityTablesTableLayoutPanel.SetRowSpan(sumProbabilityTablePanel, 18);
+            sumProbabilityTablePanel.Size = new Size(400, 278);
+            sumProbabilityTablePanel.TabIndex = 2;
+            // 
+            // bodyTextSumProbabilityTableLabel
+            // 
+            bodyTextSumProbabilityTableLabel.AutoSize = true;
+            bodyTextSumProbabilityTableLabel.Location = new Point(0, 0);
+            bodyTextSumProbabilityTableLabel.Margin = new Padding(0);
+            bodyTextSumProbabilityTableLabel.MaximumSize = new Size(402, 0);
+            bodyTextSumProbabilityTableLabel.Name = "bodyTextSumProbabilityTableLabel";
+            bodyTextSumProbabilityTableLabel.Padding = new Padding(3);
+            bodyTextSumProbabilityTableLabel.Size = new Size(376, 25);
+            bodyTextSumProbabilityTableLabel.TabIndex = 0;
+            bodyTextSumProbabilityTableLabel.Text = "Fill in the info above, then press 'Run' below to see chances";
+            bodyTextSumProbabilityTableLabel.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // successProbabilityTablePanel
+            // 
+            successProbabilityTablePanel.AutoScroll = true;
+            successProbabilityTablePanel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            probabilityTablesTableLayoutPanel.SetColumnSpan(successProbabilityTablePanel, 10);
+            successProbabilityTablePanel.Controls.Add(bodyTextSuccessProbabilityTableLabel);
+            successProbabilityTablePanel.Dock = DockStyle.Fill;
+            successProbabilityTablePanel.Location = new Point(400, 30);
+            successProbabilityTablePanel.Margin = new Padding(0);
+            successProbabilityTablePanel.Name = "successProbabilityTablePanel";
+            probabilityTablesTableLayoutPanel.SetRowSpan(successProbabilityTablePanel, 18);
+            successProbabilityTablePanel.Size = new Size(401, 278);
+            successProbabilityTablePanel.TabIndex = 3;
+            // 
+            // bodyTextSuccessProbabilityTableLabel
+            // 
+            bodyTextSuccessProbabilityTableLabel.AutoSize = true;
+            bodyTextSuccessProbabilityTableLabel.Location = new Point(0, 0);
+            bodyTextSuccessProbabilityTableLabel.Margin = new Padding(0);
+            bodyTextSuccessProbabilityTableLabel.MaximumSize = new Size(402, 0);
+            bodyTextSuccessProbabilityTableLabel.Name = "bodyTextSuccessProbabilityTableLabel";
+            bodyTextSuccessProbabilityTableLabel.Padding = new Padding(3);
+            bodyTextSuccessProbabilityTableLabel.Size = new Size(376, 25);
+            bodyTextSuccessProbabilityTableLabel.TabIndex = 0;
+            bodyTextSuccessProbabilityTableLabel.Text = "Fill in the info above, then press 'Run' below to see chances";
+            bodyTextSuccessProbabilityTableLabel.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // valueFinderTabPage
             // 
@@ -515,7 +610,7 @@
             valueFinderTabPage.Location = new Point(4, 24);
             valueFinderTabPage.Margin = new Padding(0);
             valueFinderTabPage.Name = "valueFinderTabPage";
-            valueFinderTabPage.Size = new Size(884, 308);
+            valueFinderTabPage.Size = new Size(801, 308);
             valueFinderTabPage.TabIndex = 2;
             valueFinderTabPage.Text = "Value Finder";
             valueFinderTabPage.UseVisualStyleBackColor = true;
@@ -570,7 +665,7 @@
             valueFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
             valueFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
             valueFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            valueFinderTableLayoutPanel.Size = new Size(884, 308);
+            valueFinderTableLayoutPanel.Size = new Size(801, 308);
             valueFinderTableLayoutPanel.TabIndex = 0;
             // 
             // MainWindowForm
@@ -596,6 +691,12 @@
             successDiceRollerPanel.PerformLayout();
             probabilityTablesTabPage.ResumeLayout(false);
             probabilityTablesTabPage.PerformLayout();
+            probabilityTablesTableLayoutPanel.ResumeLayout(false);
+            probabilityTablesTableLayoutPanel.PerformLayout();
+            sumProbabilityTablePanel.ResumeLayout(false);
+            sumProbabilityTablePanel.PerformLayout();
+            successProbabilityTablePanel.ResumeLayout(false);
+            successProbabilityTablePanel.PerformLayout();
             valueFinderTabPage.ResumeLayout(false);
             valueFinderTabPage.PerformLayout();
             ResumeLayout(false);
@@ -629,5 +730,11 @@
         private Panel successDiceRollerPanel;
         private Label bodyTextSumDiceRollerLabel;
         private Label bodyTextSuccessDiceRollerLabel;
+        private Label headerTextSumProbabilityTableLabel;
+        private Label headerTextSuccessProbabilityTableLabel;
+        private Panel sumProbabilityTablePanel;
+        private Label bodyTextSumProbabilityTableLabel;
+        private Panel successProbabilityTablePanel;
+        private Label bodyTextSuccessProbabilityTableLabel;
     }
 }
