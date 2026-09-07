@@ -2,24 +2,27 @@ namespace CNH_Value_Finder
 {
     public partial class MainWindowForm : Form
     {
-        private int typeDice = 6;
-        private int numDice = 1;
-        private int successThreshold = 4;
-        private int difficulty = 0;
-        private int valueFinderNumDice = 0;
-        private double successChance = 0;
-        private int diceSum = 10;
+        private int typeDice = 6; // How many sides the dice have
+        private int numDice = 1; // How many dice there are
+        private int successThreshold = 4; // The lowest possible die face that counts as a Success
+        private int difficulty = 0; // The difficulty of the simulated Attempt
+        private int valueFinderNumDice = 0; // How many dice are used in the simulated Attempt
+        private double successChance = 0; // The overall simulated Attempt's success chance
+        private int diceSum = 10; // The sum of the dice to simulate
 
+        // Standard constructor
         public MainWindowForm()
         {
             InitializeComponent();
         }
 
+        // What happens when the 'Run' button is used
         private void runButton_Click(object sender, EventArgs e)
         {
 
         }
 
+        // Ensures correct functionality when certain tab pages are selected
         private void functionOptionsTabControl_SelectedIndexChanged(object sender, EventArgs e)
         {
             /* Notes for the Value Finder tab page:
@@ -68,6 +71,9 @@ namespace CNH_Value_Finder
                 runButton.Enabled = true;
             }
         }
+
+        // Validation checks for each input text box
+        //------------------------------------------
 
         private void typeDiceTextBox_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
