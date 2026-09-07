@@ -69,6 +69,13 @@
             successChanceValueFinderLabel = new Label();
             valueFinderPanel = new Panel();
             bodyTextValueFinderLabel = new Label();
+            diceFinderTabPage = new TabPage();
+            diceFinderTableLayoutPanel = new TableLayoutPanel();
+            diceFinderUsageTextLabel = new Label();
+            sumDiceFinderTextBox = new TextBox();
+            sumDiceFinderLabel = new Label();
+            diceFinderPanel = new Panel();
+            bodyTextDiceFinderLabel = new Label();
             overallTableLayoutPanel.SuspendLayout();
             advantageStateGroupBox.SuspendLayout();
             functionOptionsTabControl.SuspendLayout();
@@ -83,6 +90,9 @@
             valueFinderTabPage.SuspendLayout();
             valueFinderTableLayoutPanel.SuspendLayout();
             valueFinderPanel.SuspendLayout();
+            diceFinderTabPage.SuspendLayout();
+            diceFinderTableLayoutPanel.SuspendLayout();
+            diceFinderPanel.SuspendLayout();
             SuspendLayout();
             // 
             // overallTableLayoutPanel
@@ -310,6 +320,7 @@
             functionOptionsTabControl.Controls.Add(diceRollerTabPage);
             functionOptionsTabControl.Controls.Add(probabilityDisplaysTabPage);
             functionOptionsTabControl.Controls.Add(valueFinderTabPage);
+            functionOptionsTabControl.Controls.Add(diceFinderTabPage);
             functionOptionsTabControl.Dock = DockStyle.Fill;
             functionOptionsTabControl.Location = new Point(0, 120);
             functionOptionsTabControl.Margin = new Padding(0);
@@ -819,6 +830,142 @@
             bodyTextValueFinderLabel.Text = "TEMP";
             bodyTextValueFinderLabel.TextAlign = ContentAlignment.MiddleLeft;
             // 
+            // diceFinderTabPage
+            // 
+            diceFinderTabPage.Controls.Add(diceFinderTableLayoutPanel);
+            diceFinderTabPage.Font = new Font("Segoe UI", 10F);
+            diceFinderTabPage.Location = new Point(4, 24);
+            diceFinderTabPage.Margin = new Padding(0);
+            diceFinderTabPage.Name = "diceFinderTabPage";
+            diceFinderTabPage.Size = new Size(801, 308);
+            diceFinderTabPage.TabIndex = 3;
+            diceFinderTabPage.Text = "Dice Finder";
+            diceFinderTabPage.UseVisualStyleBackColor = true;
+            // 
+            // diceFinderTableLayoutPanel
+            // 
+            diceFinderTableLayoutPanel.AutoSize = true;
+            diceFinderTableLayoutPanel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            diceFinderTableLayoutPanel.ColumnCount = 20;
+            diceFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            diceFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            diceFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            diceFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            diceFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            diceFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            diceFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            diceFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            diceFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            diceFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            diceFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            diceFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            diceFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            diceFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            diceFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            diceFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            diceFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            diceFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            diceFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            diceFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            diceFinderTableLayoutPanel.Controls.Add(diceFinderUsageTextLabel, 0, 0);
+            diceFinderTableLayoutPanel.Controls.Add(sumDiceFinderTextBox, 9, 2);
+            diceFinderTableLayoutPanel.Controls.Add(sumDiceFinderLabel, 9, 4);
+            diceFinderTableLayoutPanel.Controls.Add(diceFinderPanel, 0, 5);
+            diceFinderTableLayoutPanel.Dock = DockStyle.Fill;
+            diceFinderTableLayoutPanel.Location = new Point(0, 0);
+            diceFinderTableLayoutPanel.Margin = new Padding(0);
+            diceFinderTableLayoutPanel.Name = "diceFinderTableLayoutPanel";
+            diceFinderTableLayoutPanel.RowCount = 20;
+            diceFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            diceFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            diceFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            diceFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            diceFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            diceFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            diceFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            diceFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            diceFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            diceFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            diceFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            diceFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            diceFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            diceFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            diceFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            diceFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            diceFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            diceFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            diceFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            diceFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            diceFinderTableLayoutPanel.Size = new Size(801, 308);
+            diceFinderTableLayoutPanel.TabIndex = 0;
+            // 
+            // diceFinderUsageTextLabel
+            // 
+            diceFinderUsageTextLabel.AutoSize = true;
+            diceFinderTableLayoutPanel.SetColumnSpan(diceFinderUsageTextLabel, 20);
+            diceFinderUsageTextLabel.Dock = DockStyle.Fill;
+            diceFinderUsageTextLabel.Location = new Point(0, 0);
+            diceFinderUsageTextLabel.Margin = new Padding(0);
+            diceFinderUsageTextLabel.Name = "diceFinderUsageTextLabel";
+            diceFinderTableLayoutPanel.SetRowSpan(diceFinderUsageTextLabel, 2);
+            diceFinderUsageTextLabel.Size = new Size(801, 30);
+            diceFinderUsageTextLabel.TabIndex = 0;
+            diceFinderUsageTextLabel.Text = "Enter a sum, then press 'Run' at the bottom to find the different ways to reach that sum";
+            diceFinderUsageTextLabel.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // sumDiceFinderTextBox
+            // 
+            sumDiceFinderTextBox.Anchor = AnchorStyles.Top;
+            diceFinderTableLayoutPanel.SetColumnSpan(sumDiceFinderTextBox, 2);
+            sumDiceFinderTextBox.Location = new Point(360, 30);
+            sumDiceFinderTextBox.Margin = new Padding(0);
+            sumDiceFinderTextBox.Name = "sumDiceFinderTextBox";
+            sumDiceFinderTextBox.PlaceholderText = "10";
+            sumDiceFinderTextBox.Size = new Size(80, 25);
+            sumDiceFinderTextBox.TabIndex = 1;
+            sumDiceFinderTextBox.TextAlign = HorizontalAlignment.Center;
+            // 
+            // sumDiceFinderLabel
+            // 
+            sumDiceFinderLabel.Anchor = AnchorStyles.None;
+            sumDiceFinderLabel.AutoSize = true;
+            diceFinderTableLayoutPanel.SetColumnSpan(sumDiceFinderLabel, 2);
+            sumDiceFinderLabel.Font = new Font("Segoe UI", 9F);
+            sumDiceFinderLabel.Location = new Point(360, 60);
+            sumDiceFinderLabel.Margin = new Padding(0);
+            sumDiceFinderLabel.Name = "sumDiceFinderLabel";
+            sumDiceFinderLabel.Size = new Size(80, 15);
+            sumDiceFinderLabel.TabIndex = 2;
+            sumDiceFinderLabel.Text = "Sum to Reach";
+            sumDiceFinderLabel.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // diceFinderPanel
+            // 
+            diceFinderPanel.AutoScroll = true;
+            diceFinderPanel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            diceFinderTableLayoutPanel.SetColumnSpan(diceFinderPanel, 20);
+            diceFinderPanel.Controls.Add(bodyTextDiceFinderLabel);
+            diceFinderPanel.Dock = DockStyle.Fill;
+            diceFinderPanel.Location = new Point(0, 75);
+            diceFinderPanel.Margin = new Padding(0);
+            diceFinderPanel.Name = "diceFinderPanel";
+            diceFinderTableLayoutPanel.SetRowSpan(diceFinderPanel, 15);
+            diceFinderPanel.Size = new Size(801, 233);
+            diceFinderPanel.TabIndex = 3;
+            // 
+            // bodyTextDiceFinderLabel
+            // 
+            bodyTextDiceFinderLabel.AutoSize = true;
+            bodyTextDiceFinderLabel.Location = new Point(0, 0);
+            bodyTextDiceFinderLabel.Margin = new Padding(0);
+            bodyTextDiceFinderLabel.MaximumSize = new Size(801, 0);
+            bodyTextDiceFinderLabel.Name = "bodyTextDiceFinderLabel";
+            bodyTextDiceFinderLabel.Padding = new Padding(3);
+            bodyTextDiceFinderLabel.Size = new Size(50, 25);
+            bodyTextDiceFinderLabel.TabIndex = 0;
+            bodyTextDiceFinderLabel.Text = "TEMP";
+            bodyTextDiceFinderLabel.TextAlign = ContentAlignment.MiddleLeft;
+            // 
             // MainWindowForm
             // 
             AcceptButton = runButton;
@@ -854,6 +1001,12 @@
             valueFinderTableLayoutPanel.PerformLayout();
             valueFinderPanel.ResumeLayout(false);
             valueFinderPanel.PerformLayout();
+            diceFinderTabPage.ResumeLayout(false);
+            diceFinderTabPage.PerformLayout();
+            diceFinderTableLayoutPanel.ResumeLayout(false);
+            diceFinderTableLayoutPanel.PerformLayout();
+            diceFinderPanel.ResumeLayout(false);
+            diceFinderPanel.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -900,5 +1053,12 @@
         private Label successChanceValueFinderLabel;
         private Panel valueFinderPanel;
         private Label bodyTextValueFinderLabel;
+        private TabPage diceFinderTabPage;
+        private TableLayoutPanel diceFinderTableLayoutPanel;
+        private Label diceFinderUsageTextLabel;
+        private TextBox sumDiceFinderTextBox;
+        private Label sumDiceFinderLabel;
+        private Panel diceFinderPanel;
+        private Label bodyTextDiceFinderLabel;
     }
 }
