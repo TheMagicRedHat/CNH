@@ -16,5 +16,27 @@ namespace CNH_Value_Finder
         {
 
         }
+
+        private void functionOptionsTabControl_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (functionOptionsTabControl.SelectedTab == valueFinderTabPage)
+            {
+                numDiceValueFinderTextBox.Text = numDiceTextBox.Text;
+                numDiceTextBox.Text = "";
+                numDiceTextBox.Visible = false;
+                numDiceTextBox.Enabled = false;
+                numDiceLabel.Visible = false;
+            } else
+            {
+                if (numDiceValueFinderTextBox.Text != "")
+                {
+                    numDiceTextBox.Text = numDiceValueFinderTextBox.Text;
+                }
+                numDiceValueFinderTextBox.Text = "";
+                numDiceTextBox.Visible = true;
+                numDiceTextBox.Enabled = true;
+                numDiceLabel.Visible = true;
+            }
+        }
     }
 }
