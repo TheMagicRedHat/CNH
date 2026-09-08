@@ -100,14 +100,29 @@ namespace CNH_Value_Finder
                     x = 1;
                 }
                 // Assign variables and enable everything since we passed validation
-                // NOTE - Can only edit the Success Threshold textbox once we have a dice type (needed for error-checking)
                 typeDice = x;
+                // Change the Success Threshold textbox's default value if it doesn't have any user input
+                // Also enable editing the Success Threshold textbox since we have a valid dice type for error checking
+                if (string.IsNullOrEmpty(successThresholdTextBox.Text))
+                {
+                    if (typeDice % 2 == 0)
+                    {
+                        x = (typeDice / 2) + 1;
+                    }
+                    else
+                    {
+                        x = (int)Math.Ceiling((double)typeDice / 2);
+                    }
+                    successThreshold = x;
+                    successThresholdTextBox.PlaceholderText = successThreshold.ToString();
+                }
                 successThresholdTextBox.Enabled = true;
                 runButton.Enabled = true;
                 errorProvider.SetError(typeDiceTextBox, "");
             }
             catch (Exception ex)
             {
+                // Disable the Success Threshold textbox, since it needs a valid dice type for error checking
                 successThresholdTextBox.Enabled = false;
                 runButton.Enabled = false;
                 errorProvider.SetError(typeDiceTextBox, "Invalid value - Enter an integer greater than 0 optionally preceeded by a 'd'");
@@ -162,6 +177,7 @@ namespace CNH_Value_Finder
                     {
                         x = (int)Math.Ceiling((double)typeDice / 2);
                     }
+                    successThresholdTextBox.PlaceholderText = x.ToString();
                 }
                 else
                 {
