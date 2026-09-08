@@ -99,10 +99,11 @@ namespace CNH_Value_Finder
                     }
                 }
                 // Now add the roll to the output and increment sum and successes appropriately
+                string rollText = $" Roll {(i % numDice) + 1}: {roll}\n";
                 if (i < numDice)
                 {
-                    sumOutputText1 += $"  Roll {(i % numDice) + 1}: {roll}\n";
-                    successOutputText1 += $"  Roll {(i % numDice) + 1}: {roll}\n";
+                    sumOutputText1 += rollText;
+                    successOutputText1 += rollText;
                     sum1 += roll;
                     if (roll >= successThreshold)
                     {
@@ -111,8 +112,8 @@ namespace CNH_Value_Finder
                 }
                 else
                 {
-                    sumOutputText2 += $"  Roll {(i % numDice) + 1}: {roll}\n";
-                    successOutputText2 += $"  Roll {(i % numDice) + 1}: {roll}\n";
+                    sumOutputText2 += rollText;
+                    successOutputText2 += rollText;
                     sum2 += roll;
                     if (roll >= successThreshold)
                     {
