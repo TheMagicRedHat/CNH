@@ -14,6 +14,19 @@
             "related": ".xml"
           }
         }
+      },
+      "ExtendedNumerics.BigRational/3000.0.2.132": {
+        "type": "package",
+        "compile": {
+          "lib/net7.0/ExtendedNumerics.BigRational.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net7.0/ExtendedNumerics.BigRational.dll": {
+            "related": ".xml"
+          }
+        }
       }
     }
   },
@@ -52,11 +65,41 @@
         "lib/netstandard2.1/ExtendedNumerics.BigDecimal.xml",
         "real.png"
       ]
+    },
+    "ExtendedNumerics.BigRational/3000.0.2.132": {
+      "sha512": "Hb5jQsseiLtRhk+O132hkq3ibO4/6v6WyPu714GwYtHje3HNWoItnaNy7DVhcA8wanhwku6sUk40R8/fBiX7tA==",
+      "type": "package",
+      "path": "extendednumerics.bigrational/3000.0.2.132",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "extendednumerics.bigrational.3000.0.2.132.nupkg.sha512",
+        "extendednumerics.bigrational.nuspec",
+        "lib/net45/ExtendedNumerics.BigRational.dll",
+        "lib/net45/ExtendedNumerics.BigRational.xml",
+        "lib/net46/ExtendedNumerics.BigRational.dll",
+        "lib/net46/ExtendedNumerics.BigRational.xml",
+        "lib/net48/ExtendedNumerics.BigRational.dll",
+        "lib/net48/ExtendedNumerics.BigRational.xml",
+        "lib/net5.0/ExtendedNumerics.BigRational.dll",
+        "lib/net5.0/ExtendedNumerics.BigRational.xml",
+        "lib/net6.0/ExtendedNumerics.BigRational.dll",
+        "lib/net6.0/ExtendedNumerics.BigRational.xml",
+        "lib/net7.0/ExtendedNumerics.BigRational.dll",
+        "lib/net7.0/ExtendedNumerics.BigRational.xml",
+        "lib/netcoreapp3.1/ExtendedNumerics.BigRational.dll",
+        "lib/netcoreapp3.1/ExtendedNumerics.BigRational.xml",
+        "lib/netstandard2.1/ExtendedNumerics.BigRational.dll",
+        "lib/netstandard2.1/ExtendedNumerics.BigRational.xml",
+        "rational.png"
+      ]
     }
   },
   "projectFileDependencyGroups": {
     "net10.0-windows": [
-      "ExtendedNumerics.BigDecimal >= 3003.2.0.161"
+      "ExtendedNumerics.BigDecimal >= 3003.2.0.161",
+      "ExtendedNumerics.BigRational >= 3000.0.2.132"
     ]
   },
   "packageFolders": {
@@ -115,6 +158,10 @@
           "ExtendedNumerics.BigDecimal": {
             "target": "Package",
             "version": "[3003.2.0.161, )"
+          },
+          "ExtendedNumerics.BigRational": {
+            "target": "Package",
+            "version": "[3000.0.2.132, )"
           }
         },
         "imports": [

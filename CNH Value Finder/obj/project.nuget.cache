@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "Kvv81MxjxL4=",
+  "dgSpecHash": "XXn7j797GdE=",
   "success": true,
   "projectFilePath": "C:\\Users\\Logan\\Desktop\\Coding\\CNH\\CNH Value Finder\\CNH Value Finder.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Logan\\.nuget\\packages\\extendednumerics.bigdecimal\\3003.2.0.161\\extendednumerics.bigdecimal.3003.2.0.161.nupkg.sha512"
+    "C:\\Users\\Logan\\.nuget\\packages\\extendednumerics.bigdecimal\\3003.2.0.161\\extendednumerics.bigdecimal.3003.2.0.161.nupkg.sha512",
+    "C:\\Users\\Logan\\.nuget\\packages\\extendednumerics.bigrational\\3000.0.2.132\\extendednumerics.bigrational.3000.0.2.132.nupkg.sha512"
   ],
   "logs": []
 }

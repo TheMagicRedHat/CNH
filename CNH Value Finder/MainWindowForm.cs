@@ -23,9 +23,9 @@ namespace CNH_Value_Finder
          * Implementation of the Combination mathematical function
          * @param n <int> The total number of items to 'choose' from
          * @param k <int> The number of items 'chosen'
-         * @return <BigDecimal> The number of ways to pick k items from n total items (order doesn't matter)
+         * @return <BigInteger> The number of ways to pick k items from n total items (order doesn't matter)
          */
-        private static BigDecimal Choose(int n, int k)
+        private static BigInteger Choose(BigInteger n, BigInteger k)
         {
             // For invalid combinations, return 0 immediately
             if (k > n || n < 0 || k < 0)
@@ -37,16 +37,16 @@ namespace CNH_Value_Finder
                 return 1;
             }
             // Otherwise calculate the number of combinations
-            BigDecimal returnValue = 1;
+            BigInteger returnValue = 1;
             // Can use symmetry of combinations around n-k for faster computation
             if (k > n - k)
             {
                 k = n - k;
             }
             // Perform the combination math
-            for (int i = 1; i <= k; i++)
+            for (BigInteger i = 1; i <= k; i++)
             {
-                returnValue *= n--;
+                returnValue *= n - k + i;
                 returnValue /= i;
             }
             return returnValue;
@@ -96,7 +96,6 @@ namespace CNH_Value_Finder
          */
         private double[] GenerateSumDistribution()
         {
-            ExtendedNumerics.BigDecimal.AlwaysTruncate = true;
             // Establish the base probability distribution (ignore Advantage/Disadvantage)
             double[] baseDistribution = new double[(typeDice * numDice) + 1];
             for (int sum = 0; sum < baseDistribution.Length; sum++)
@@ -111,10 +110,14 @@ namespace CNH_Value_Finder
                     //        BUT, since this number grows *very* quickly, it is *far* better to use the derived formula
                     //        The only downside is that the formula is unintuitive and somewhat inscrutable
                     //        This is mostly due to the fact that each die can only contribute up to <largest face value> to the sum
+                    BigInteger numerator = 0;
                     for (int i = 0; i <= Math.Floor((double)(sum - numDice) / typeDice); i++)
                     {
-                        baseDistribution[sum] += (double)BigDecimal.Round((Math.Pow(-1, i) * Choose(numDice, i) * Choose(sum - 1 - (typeDice * i), numDice - 1)) / BigDecimal.Pow(typeDice, numDice), 20);
+                        numerator += BigInteger.Pow(-1, i) * Choose(numDice, i) * Choose(sum - 1 - (typeDice * i), numDice - 1);
                     }
+                    BigInteger denominator = BigInteger.Pow(typeDice, numDice);
+                    BigRational probability = new BigRational(numerator, denominator);
+                    baseDistribution[sum] = Math.Round((double)probability, 15);
                 }
             }
             // If there's no Advantage/Disadvantage, then we're done
@@ -136,7 +139,8 @@ namespace CNH_Value_Finder
                 {
                     if (i >= numDice)
                     {
-                        finalDistribution[i] = (Math.Pow(baseDistribution[i], 2)) + (2 * baseDistribution[i] * baseDistribution[numDice..i].Sum());
+                        double value = (Math.Pow(baseDistribution[i], 2)) + (2 * baseDistribution[i] * baseDistribution[numDice..i].Sum());
+                        finalDistribution[i] = Math.Round(value, 15);
                     }
                 }
             }
@@ -152,7 +156,8 @@ namespace CNH_Value_Finder
                 {
                     if (i >= numDice)
                     {
-                        finalDistribution[i] = (Math.Pow(baseDistribution[i], 2)) + (2 * baseDistribution[i] * baseDistribution[(i + 1)..].Sum());
+                        double value = (Math.Pow(baseDistribution[i], 2)) + (2 * baseDistribution[i] * baseDistribution[(i + 1)..].Sum());
+                        finalDistribution[i] = Math.Round(value, 15);
                     }
                 }
             }
@@ -164,15 +169,15 @@ namespace CNH_Value_Finder
          */
         private double[] GenerateSuccessDistribution()
         {
-            ExtendedNumerics.BigDecimal.AlwaysTruncate = true;
             // Odds that any single die roll is a Success
-            double successProbability = (double)(typeDice + 1 - successThreshold) / typeDice;
+            BigRational successProbability = new BigRational((typeDice + 1 - successThreshold), typeDice);
             // Establish the base probability distribution (ignore Advantage/Disadvantage)
             double[] baseDistribution = new double[numDice + 1];
             for (int i = 0; i < baseDistribution.Length; i++)
             {
                 // Value is standard binomial probability formula for each amount of Successes
-                baseDistribution[i] = (double)BigDecimal.Round(Choose(numDice, i) * (BigDecimal.Pow(successProbability, i)) * (BigDecimal.Pow(1 - successProbability, numDice - i)), 20);
+                BigRational value = new BigRational(Choose(numDice, i) * (BigRational.Pow(successProbability, i)) * (BigRational.Pow(1 - successProbability, numDice - i)));
+                baseDistribution[i] = Math.Round((double)value, 15);
             }
             // If there's no Advantage/Disadvantage, then we're done
             if (NeutralRadioButton.Checked == true)
@@ -191,7 +196,8 @@ namespace CNH_Value_Finder
             {
                 for (int i = 0; i < finalDistribution.Length; i++)
                 {
-                    finalDistribution[i] = (Math.Pow(baseDistribution[i], 2)) + (2 * baseDistribution[i] * baseDistribution[..i].Sum());
+                    double value = (Math.Pow(baseDistribution[i], 2)) + (2 * baseDistribution[i] * baseDistribution[..i].Sum());
+                    finalDistribution[i] = Math.Round(value, 15);
                 }
             }
             // For Disadvantage, the new distribution for any given amount of successes is:
@@ -204,7 +210,8 @@ namespace CNH_Value_Finder
             {
                 for (int i = 0; i < finalDistribution.Length; i++)
                 {
-                    finalDistribution[i] = (Math.Pow(baseDistribution[i], 2)) + (2 * baseDistribution[i] * baseDistribution[(i + 1)..].Sum());
+                    double value = (Math.Pow(baseDistribution[i], 2)) + (2 * baseDistribution[i] * baseDistribution[(i + 1)..].Sum());
+                    finalDistribution[i] = Math.Round(value, 15);
                 }
             }
             return finalDistribution;

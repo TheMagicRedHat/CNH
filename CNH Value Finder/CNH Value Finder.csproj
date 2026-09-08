@@ -11,6 +11,7 @@
 
   <ItemGroup>
     <PackageReference Include="ExtendedNumerics.BigDecimal" Version="3003.2.0.161" />
+    <PackageReference Include="ExtendedNumerics.BigRational" Version="3000.0.2.132" />
   </ItemGroup>
 
 </Project>

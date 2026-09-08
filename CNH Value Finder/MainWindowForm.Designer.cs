@@ -507,7 +507,6 @@
             BodyTextSumDiceRollerLabel.AutoSize = true;
             BodyTextSumDiceRollerLabel.Location = new Point(0, 0);
             BodyTextSumDiceRollerLabel.Margin = new Padding(0);
-            BodyTextSumDiceRollerLabel.MaximumSize = new Size(383, 0);
             BodyTextSumDiceRollerLabel.Name = "BodyTextSumDiceRollerLabel";
             BodyTextSumDiceRollerLabel.Padding = new Padding(3);
             BodyTextSumDiceRollerLabel.Size = new Size(6, 25);
@@ -533,7 +532,6 @@
             BodyTextSuccessDiceRollerLabel.AutoSize = true;
             BodyTextSuccessDiceRollerLabel.Location = new Point(0, 0);
             BodyTextSuccessDiceRollerLabel.Margin = new Padding(0);
-            BodyTextSuccessDiceRollerLabel.MaximumSize = new Size(383, 0);
             BodyTextSuccessDiceRollerLabel.Name = "BodyTextSuccessDiceRollerLabel";
             BodyTextSuccessDiceRollerLabel.Padding = new Padding(3);
             BodyTextSuccessDiceRollerLabel.Size = new Size(6, 25);
@@ -688,7 +686,6 @@
             BodyTextSumProbabilityDisplayLabel.AutoSize = true;
             BodyTextSumProbabilityDisplayLabel.Location = new Point(0, 0);
             BodyTextSumProbabilityDisplayLabel.Margin = new Padding(0);
-            BodyTextSumProbabilityDisplayLabel.MaximumSize = new Size(383, 0);
             BodyTextSumProbabilityDisplayLabel.Name = "BodyTextSumProbabilityDisplayLabel";
             BodyTextSumProbabilityDisplayLabel.Padding = new Padding(3);
             BodyTextSumProbabilityDisplayLabel.Size = new Size(6, 25);
@@ -714,7 +711,6 @@
             BodyTextSuccessProbabilityDisplayLabel.AutoSize = true;
             BodyTextSuccessProbabilityDisplayLabel.Location = new Point(0, 0);
             BodyTextSuccessProbabilityDisplayLabel.Margin = new Padding(0);
-            BodyTextSuccessProbabilityDisplayLabel.MaximumSize = new Size(383, 0);
             BodyTextSuccessProbabilityDisplayLabel.Name = "BodyTextSuccessProbabilityDisplayLabel";
             BodyTextSuccessProbabilityDisplayLabel.Padding = new Padding(3);
             BodyTextSuccessProbabilityDisplayLabel.Size = new Size(6, 25);
@@ -914,7 +910,6 @@
             // 
             BodyTextValueFinderLabel.AutoSize = true;
             BodyTextValueFinderLabel.Location = new Point(0, 0);
-            BodyTextValueFinderLabel.MaximumSize = new Size(785, 0);
             BodyTextValueFinderLabel.Name = "BodyTextValueFinderLabel";
             BodyTextValueFinderLabel.Padding = new Padding(3);
             BodyTextValueFinderLabel.Size = new Size(6, 25);
@@ -1050,7 +1045,6 @@
             BodyTextDiceFinderLabel.AutoSize = true;
             BodyTextDiceFinderLabel.Location = new Point(0, 0);
             BodyTextDiceFinderLabel.Margin = new Padding(0);
-            BodyTextDiceFinderLabel.MaximumSize = new Size(785, 0);
             BodyTextDiceFinderLabel.Name = "BodyTextDiceFinderLabel";
             BodyTextDiceFinderLabel.Padding = new Padding(3);
             BodyTextDiceFinderLabel.Size = new Size(6, 25);

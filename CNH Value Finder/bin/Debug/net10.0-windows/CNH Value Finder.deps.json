@@ -8,7 +8,8 @@
     ".NETCoreApp,Version=v10.0": {
       "CNH Value Finder/1.0.0": {
         "dependencies": {
-          "ExtendedNumerics.BigDecimal": "3003.2.0.161"
+          "ExtendedNumerics.BigDecimal": "3003.2.0.161",
+          "ExtendedNumerics.BigRational": "3000.0.2.132"
         },
         "runtime": {
           "CNH Value Finder.dll": {}
@@ -19,6 +20,14 @@
           "lib/net8.0/ExtendedNumerics.BigDecimal.dll": {
             "assemblyVersion": "3003.2.0.161",
             "fileVersion": "3003.2.0.161"
+          }
+        }
+      },
+      "ExtendedNumerics.BigRational/3000.0.2.132": {
+        "runtime": {
+          "lib/net7.0/ExtendedNumerics.BigRational.dll": {
+            "assemblyVersion": "3000.0.2.132",
+            "fileVersion": "3000.0.2.132"
           }
         }
       }
@@ -36,6 +45,13 @@
       "sha512": "sha512-VMTiP6rMaghsAILVw+2W7FzReJH0kuF+YU9/4u110IWtsCWe+5HvzJqWxyknd860zFEbA9N37+qk5IjRLdF5UQ==",
       "path": "extendednumerics.bigdecimal/3003.2.0.161",
       "hashPath": "extendednumerics.bigdecimal.3003.2.0.161.nupkg.sha512"
+    },
+    "ExtendedNumerics.BigRational/3000.0.2.132": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Hb5jQsseiLtRhk+O132hkq3ibO4/6v6WyPu714GwYtHje3HNWoItnaNy7DVhcA8wanhwku6sUk40R8/fBiX7tA==",
+      "path": "extendednumerics.bigrational/3000.0.2.132",
+      "hashPath": "extendednumerics.bigrational.3000.0.2.132.nupkg.sha512"
     }
   }
 }
