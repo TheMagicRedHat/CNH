@@ -16,10 +16,245 @@ namespace CNH_Value_Finder
             InitializeComponent();
         }
 
+        // All of the code for simulating dice rolls
+        private void runDiceRoller()
+        {
+            Random rand = new Random();
+            string sumOutputText1 = "-----\nRolls\n";
+            string sumOutputText2 = "-----\nRolls\n";
+            string successOutputText1 = "-----\nRolls\n";
+            string successOutputText2 = "-----\nRolls\n";
+            int sum1 = 0;
+            int sum2 = 0;
+            int successes1 = 0;
+            int successes2 = 0;
+            bool critSuccess = false;
+            bool ogCritSuccess = false;
+            bool critFail = false;
+            bool ogCritFail = false;
+            // Need to roll every dice an extra time when doing Advantage/Disadvantage
+            //  So, multiply the number of loops by 2 when doing Advantage/Disadvantage
+            int loopAmount = 1;
+            if (neutralRadioButton.Checked != true)
+            {
+                loopAmount = 2;
+            }
+            // For each die that needs to be rolled
+            // NOTE - Need to loop through the whole thing again when doing Advantage/Disadvantage
+            //        Since Advantage/Disadvantage apply to the roll as a whole, we *cannot* just roll
+            //         each die twice and pick the better/worse result
+            for (int i = 0; i < numDice * loopAmount; i++)
+            {
+                // Reset the crit flags when starting a new set of dice rolls
+                // Also remembers if first set of rolls crit
+                if (i == numDice)
+                {
+                    ogCritSuccess = critSuccess;
+                    ogCritFail = critFail;
+                    critSuccess = false;
+                    critFail = false;
+                }
+                // Roll the die
+                int roll;
+                // When using one-sided dice, no need for random
+                if (typeDice == 1)
+                {
+                    roll = 1;
+                }
+                // Otherwise "roll the die" by generating a random valid number
+                else
+                {
+                    roll = rand.Next(1, typeDice + 1);
+                }
+                // Keep track of the first two dice rolled for crit purposes
+                // NOTE - When using one-sided dice, there are no crits
+                if (numDice >= 2 & typeDice > 1)
+                {
+                    // Check the first die of the overall roll
+                    if (i % numDice == 0)
+                    {
+                        // Set a flag if it's the max or min possible value
+                        if (roll == typeDice)
+                        {
+                            critSuccess = true;
+                        }
+                        else if (roll == 1)
+                        {
+                            critFail = true;
+                        }
+                    }
+                    // Check the second die of the overall roll
+                    else if (i % numDice == 1)
+                    {
+                        // If the first die was valid for a crit AND this die is too, keep the crit
+                        // Otherwise, reset it to false
+                        if (critSuccess & roll != typeDice)
+                        {
+                            critSuccess = false;
+                        }
+                        if (critFail & roll != 1)
+                        {
+                            critFail = false;
+                        }
+                    }
+                }
+                // Now add the roll to the output and increment sum and successes appropriately
+                if (i < numDice)
+                {
+                    sumOutputText1 += $"  Roll {(i % numDice) + 1}: {roll}\n";
+                    successOutputText1 += $"  Roll {(i % numDice) + 1}: {roll}\n";
+                    sum1 += roll;
+                    if (roll >= successThreshold)
+                    {
+                        successes1++;
+                    }
+                }
+                else
+                {
+                    sumOutputText2 += $"  Roll {(i % numDice) + 1}: {roll}\n";
+                    successOutputText2 += $"  Roll {(i % numDice) + 1}: {roll}\n";
+                    sum2 += roll;
+                    if (roll >= successThreshold)
+                    {
+                        successes2++;
+                    }
+                }
+            }
+            // Check which set of results to use based on Advantage State
+            // Auto-assign the correct values to the outputText1 variables
+            // Advantage
+            if (advantageRadioButton.Checked == true)
+            {
+                bool sumUsesSecondSet = false;
+                bool successesUsesSecondSet = false;
+                // Since we assume first set of rolls by default, we only need to update the values if:
+                //  The second set of rolls crit and the first didn't OR
+                //  Both sets crit and the second set had more successes OR
+                //  Neither set crit and the second set had more successes
+                if ((critSuccess & !ogCritSuccess) || (critSuccess == ogCritSuccess & successes2 > successes1))
+                {
+                    successesUsesSecondSet = true;
+                }
+                // Since we assume first set of rolls by default, we only need to update the values if:
+                //  The second set of rolls had a higher sum than the first
+                if (sum2 > sum1)
+                {
+                    sumUsesSecondSet = true;
+                }
+                // Set the appropriate text
+                // If there's a tie, try to match Sum and Successes together
+                if (sumUsesSecondSet || (sum1 == sum2 & successesUsesSecondSet))
+                {
+                    sumOutputText1 = sumOutputText1 = $"Total Sum: {sum2}\n{sumOutputText2}";
+                }
+                else
+                {
+                    sumOutputText1 = $"Total Sum: {sum1}\n{sumOutputText1}";
+                }
+                if (successesUsesSecondSet || (critSuccess == ogCritSuccess & successes1 == successes2 & sumUsesSecondSet))
+                {
+                    successOutputText1 = $"Total Successes: {successes2}\n{successOutputText2}";
+                }
+                else
+                {
+                    successOutputText1 = $"Total Successes: {successes1}\n{successOutputText1}";
+                }
+                // Optionally add a Crit notification to the beginning if there was one
+                if ((successesUsesSecondSet & critSuccess) || (!successesUsesSecondSet & ogCritSuccess))
+                {
+                    successOutputText1 = $"Critical Success!\n{successOutputText1}";
+                }
+                else if ((successesUsesSecondSet & critFail) || (!successesUsesSecondSet & ogCritFail))
+                {
+                    successOutputText1 = $"Critical Fail!\n{successOutputText1}";
+                }
+            }
+            // Disadvantage
+            else if (disadvantageRadioButton.Checked == true)
+            {
+                bool sumUsesSecondSet = false;
+                bool successesUsesSecondSet = false;
+                // Since we assume first set of rolls by default, we only need to update the values if:
+                //  The second set of rolls crit and the first didn't OR
+                //  Both sets crit and the second set had fewer successes OR
+                //  Neither set crit and the second set had fewer successes
+                if ((critFail & !ogCritFail) || (critFail == ogCritFail & successes2 < successes1))
+                {
+                    successesUsesSecondSet = true;
+                }
+                // Since we assume first set of rolls by default, we only need to update the values if:
+                //  The second set of rolls had a lower sum than the first
+                if (sum2 < sum1)
+                {
+                    sumUsesSecondSet = true;
+                }
+                // Set the appropriate text
+                // If there's a tie, try to match Sum and Successes together
+                if (sumUsesSecondSet || (sum1 == sum2 & successesUsesSecondSet))
+                {
+                    sumOutputText1 = sumOutputText1 = $"Total Sum: {sum2}\n{sumOutputText2}";
+                }
+                else
+                {
+                    sumOutputText1 = $"Total Sum: {sum1}\n{sumOutputText1}";
+                }
+                if (successesUsesSecondSet || (critSuccess == ogCritSuccess & successes1 == successes2 & sumUsesSecondSet))
+                {
+                    successOutputText1 = $"Total Successes: {successes2}\n{successOutputText2}";
+                }
+                else
+                {
+                    successOutputText1 = $"Total Successes: {successes1}\n{successOutputText1}";
+                }
+                // Optionally add a Crit notification to the beginning if there was one
+                if ((successesUsesSecondSet & critSuccess) || (!successesUsesSecondSet & ogCritSuccess))
+                {
+                    successOutputText1 = $"Critical Success!\n{successOutputText1}";
+                }
+                else if ((successesUsesSecondSet & critFail) || (!successesUsesSecondSet & ogCritFail))
+                {
+                    successOutputText1 = $"Critical Fail!\n{successOutputText1}";
+                }
+            }
+            // No Advantage/Disadvantage, so just go with first set of dice rolls
+            else
+            {
+                sumOutputText1 = $"Total Sum: {sum1}\n{sumOutputText1}";
+                successOutputText1 = $"Total Successes: {successes1}\n{successOutputText1}";
+                // Optionally add a Crit notification to the beginning if there was one
+                if (critSuccess)
+                {
+                    successOutputText1 = $"Critical Success!\n{successOutputText1}";
+                }
+                else if (critFail)
+                {
+                    successOutputText1 = $"Critical Fail!\n{successOutputText1}";
+                }
+            }
+            // Display the results
+            bodyTextSumDiceRollerLabel.Text = sumOutputText1;
+            bodyTextSuccessDiceRollerLabel.Text = successOutputText1;
+        }
+
         // What happens when the 'Run' button is used
         private void runButton_Click(object sender, EventArgs e)
         {
-
+            if (functionOptionsTabControl.SelectedTab == diceRollerTabPage)
+            {
+                runDiceRoller();
+            }
+            else if (functionOptionsTabControl.SelectedTab == probabilityDisplaysTabPage)
+            {
+                return;
+            }
+            else if (functionOptionsTabControl.SelectedTab == valueFinderTabPage)
+            {
+                return;
+            }
+            else if (functionOptionsTabControl.SelectedTab == diceFinderTabPage)
+            {
+                return;
+            }
         }
 
         // Ensures correct functionality when certain tab pages are selected
