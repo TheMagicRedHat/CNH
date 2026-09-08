@@ -15,3 +15,6 @@ C:\Users\Logan\Desktop\Coding\CNH\CNH Value Finder\obj\Debug\net10.0-windows\ref
 C:\Users\Logan\Desktop\Coding\CNH\CNH Value Finder\obj\Debug\net10.0-windows\CNH Value Finder.pdb
 C:\Users\Logan\Desktop\Coding\CNH\CNH Value Finder\obj\Debug\net10.0-windows\CNH Value Finder.genruntimeconfig.cache
 C:\Users\Logan\Desktop\Coding\CNH\CNH Value Finder\obj\Debug\net10.0-windows\ref\CNH Value Finder.dll
+C:\Users\Logan\Desktop\Coding\CNH\CNH Value Finder\obj\Debug\net10.0-windows\CNH Value Finder.csproj.AssemblyReference.cache
+C:\Users\Logan\Desktop\Coding\CNH\CNH Value Finder\bin\Debug\net10.0-windows\ExtendedNumerics.BigDecimal.dll
+C:\Users\Logan\Desktop\Coding\CNH\CNH Value Finder\obj\Debug\net10.0-windows\CNH Valu.5FEF60B9.Up2Date

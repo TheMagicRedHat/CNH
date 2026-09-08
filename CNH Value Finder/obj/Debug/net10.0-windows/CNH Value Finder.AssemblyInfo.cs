@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CNH Value Finder")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cab61bffd27aec7dda5dd22bfbfb7adada350c61")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fe1fa01cbaba0cb9aab374482f089d4eb67f6a72")]
 [assembly: System.Reflection.AssemblyProductAttribute("CNH Value Finder")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CNH Value Finder")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

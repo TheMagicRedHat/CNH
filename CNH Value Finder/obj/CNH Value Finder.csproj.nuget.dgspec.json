@@ -52,6 +52,12 @@
         "net10.0-windows": {
           "framework": "net10.0-windows7.0",
           "targetAlias": "net10.0-windows",
+          "dependencies": {
+            "ExtendedNumerics.BigDecimal": {
+              "target": "Package",
+              "version": "[3003.2.0.161, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
