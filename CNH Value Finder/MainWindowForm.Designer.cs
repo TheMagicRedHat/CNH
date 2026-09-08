@@ -45,20 +45,24 @@
             functionOptionsTabControl = new TabControl();
             diceRollerTabPage = new TabPage();
             diceRollerTableLayoutPanel = new TableLayoutPanel();
+            usageTextSuccessDiceRollerLabel = new Label();
+            usageTextSumDiceRollerLabel = new Label();
             headerTextSumDiceRollerLabel = new Label();
             headerTextSuccessDiceRollerLabel = new Label();
             sumDiceRollerPanel = new Panel();
-            usageTextSumDiceRollerLabel = new Label();
+            bodyTextSumDiceRollerLabel = new Label();
             successDiceRollerPanel = new Panel();
-            usageTextSuccessDiceRollerLabel = new Label();
+            bodyTextSuccessDiceRollerLabel = new Label();
             probabilityDisplaysTabPage = new TabPage();
             probabilityDisplayTableLayoutPanel = new TableLayoutPanel();
+            usageTextSuccessProbabilityDisplayLabel = new Label();
+            usageTextSumProbabilityDisplayLabel = new Label();
             headerTextSumProbabilityDisplayLabel = new Label();
             headerTextSuccessProbabilityDisplayLabel = new Label();
             sumProbabilityDisplayPanel = new Panel();
-            usageTextSumProbabilityDisplayLabel = new Label();
+            bodyTextSumProbabilityDisplayLabel = new Label();
             successProbabilityDisplayPanel = new Panel();
-            usageTextSuccessProbabilityDisplayLabel = new Label();
+            bodyTextSuccessProbabilityDisplayLabel = new Label();
             valueFinderTabPage = new TabPage();
             valueFinderTableLayoutPanel = new TableLayoutPanel();
             valueFinderUsageTextLabel = new Label();
@@ -78,10 +82,6 @@
             diceFinderPanel = new Panel();
             bodyTextDiceFinderLabel = new Label();
             errorProvider = new ErrorProvider(components);
-            bodyTextSumDiceRollerLabel = new Label();
-            bodyTextSuccessDiceRollerLabel = new Label();
-            bodyTextSumProbabilityDisplayLabel = new Label();
-            bodyTextSuccessProbabilityDisplayLabel = new Label();
             overallTableLayoutPanel.SuspendLayout();
             advantageStateGroupBox.SuspendLayout();
             functionOptionsTabControl.SuspendLayout();
@@ -188,6 +188,7 @@
             runButton.TabIndex = 1;
             runButton.Text = "Run";
             runButton.UseVisualStyleBackColor = true;
+            runButton.Click += runButton_Click;
             // 
             // advantageStateGroupBox
             // 
@@ -429,6 +430,36 @@
             diceRollerTableLayoutPanel.Size = new Size(801, 308);
             diceRollerTableLayoutPanel.TabIndex = 0;
             // 
+            // usageTextSuccessDiceRollerLabel
+            // 
+            usageTextSuccessDiceRollerLabel.Anchor = AnchorStyles.None;
+            usageTextSuccessDiceRollerLabel.AutoSize = true;
+            diceRollerTableLayoutPanel.SetColumnSpan(usageTextSuccessDiceRollerLabel, 10);
+            usageTextSuccessDiceRollerLabel.Location = new Point(409, 35);
+            usageTextSuccessDiceRollerLabel.Margin = new Padding(0);
+            usageTextSuccessDiceRollerLabel.MaximumSize = new Size(402, 0);
+            usageTextSuccessDiceRollerLabel.Name = "usageTextSuccessDiceRollerLabel";
+            diceRollerTableLayoutPanel.SetRowSpan(usageTextSuccessDiceRollerLabel, 2);
+            usageTextSuccessDiceRollerLabel.Size = new Size(382, 19);
+            usageTextSuccessDiceRollerLabel.TabIndex = 0;
+            usageTextSuccessDiceRollerLabel.Text = "Fill in the info above, then press 'Run' below to roll some dice";
+            usageTextSuccessDiceRollerLabel.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // usageTextSumDiceRollerLabel
+            // 
+            usageTextSumDiceRollerLabel.Anchor = AnchorStyles.None;
+            usageTextSumDiceRollerLabel.AutoSize = true;
+            diceRollerTableLayoutPanel.SetColumnSpan(usageTextSumDiceRollerLabel, 10);
+            usageTextSumDiceRollerLabel.Location = new Point(9, 35);
+            usageTextSumDiceRollerLabel.Margin = new Padding(0);
+            usageTextSumDiceRollerLabel.MaximumSize = new Size(402, 0);
+            usageTextSumDiceRollerLabel.Name = "usageTextSumDiceRollerLabel";
+            diceRollerTableLayoutPanel.SetRowSpan(usageTextSumDiceRollerLabel, 2);
+            usageTextSumDiceRollerLabel.Size = new Size(382, 19);
+            usageTextSumDiceRollerLabel.TabIndex = 0;
+            usageTextSumDiceRollerLabel.Text = "Fill in the info above, then press 'Run' below to roll some dice";
+            usageTextSumDiceRollerLabel.TextAlign = ContentAlignment.MiddleCenter;
+            // 
             // headerTextSumDiceRollerLabel
             // 
             headerTextSumDiceRollerLabel.Anchor = AnchorStyles.None;
@@ -471,20 +502,17 @@
             sumDiceRollerPanel.Size = new Size(400, 248);
             sumDiceRollerPanel.TabIndex = 2;
             // 
-            // usageTextSumDiceRollerLabel
+            // bodyTextSumDiceRollerLabel
             // 
-            usageTextSumDiceRollerLabel.Anchor = AnchorStyles.None;
-            usageTextSumDiceRollerLabel.AutoSize = true;
-            diceRollerTableLayoutPanel.SetColumnSpan(usageTextSumDiceRollerLabel, 10);
-            usageTextSumDiceRollerLabel.Location = new Point(9, 35);
-            usageTextSumDiceRollerLabel.Margin = new Padding(0);
-            usageTextSumDiceRollerLabel.MaximumSize = new Size(402, 0);
-            usageTextSumDiceRollerLabel.Name = "usageTextSumDiceRollerLabel";
-            diceRollerTableLayoutPanel.SetRowSpan(usageTextSumDiceRollerLabel, 2);
-            usageTextSumDiceRollerLabel.Size = new Size(382, 19);
-            usageTextSumDiceRollerLabel.TabIndex = 0;
-            usageTextSumDiceRollerLabel.Text = "Fill in the info above, then press 'Run' below to roll some dice";
-            usageTextSumDiceRollerLabel.TextAlign = ContentAlignment.MiddleCenter;
+            bodyTextSumDiceRollerLabel.AutoSize = true;
+            bodyTextSumDiceRollerLabel.Location = new Point(0, 0);
+            bodyTextSumDiceRollerLabel.Margin = new Padding(0);
+            bodyTextSumDiceRollerLabel.MaximumSize = new Size(402, 0);
+            bodyTextSumDiceRollerLabel.Name = "bodyTextSumDiceRollerLabel";
+            bodyTextSumDiceRollerLabel.Padding = new Padding(3);
+            bodyTextSumDiceRollerLabel.Size = new Size(6, 25);
+            bodyTextSumDiceRollerLabel.TabIndex = 0;
+            bodyTextSumDiceRollerLabel.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // successDiceRollerPanel
             // 
@@ -500,20 +528,17 @@
             successDiceRollerPanel.Size = new Size(401, 248);
             successDiceRollerPanel.TabIndex = 3;
             // 
-            // usageTextSuccessDiceRollerLabel
+            // bodyTextSuccessDiceRollerLabel
             // 
-            usageTextSuccessDiceRollerLabel.Anchor = AnchorStyles.None;
-            usageTextSuccessDiceRollerLabel.AutoSize = true;
-            diceRollerTableLayoutPanel.SetColumnSpan(usageTextSuccessDiceRollerLabel, 10);
-            usageTextSuccessDiceRollerLabel.Location = new Point(409, 35);
-            usageTextSuccessDiceRollerLabel.Margin = new Padding(0);
-            usageTextSuccessDiceRollerLabel.MaximumSize = new Size(402, 0);
-            usageTextSuccessDiceRollerLabel.Name = "usageTextSuccessDiceRollerLabel";
-            diceRollerTableLayoutPanel.SetRowSpan(usageTextSuccessDiceRollerLabel, 2);
-            usageTextSuccessDiceRollerLabel.Size = new Size(382, 19);
-            usageTextSuccessDiceRollerLabel.TabIndex = 0;
-            usageTextSuccessDiceRollerLabel.Text = "Fill in the info above, then press 'Run' below to roll some dice";
-            usageTextSuccessDiceRollerLabel.TextAlign = ContentAlignment.MiddleCenter;
+            bodyTextSuccessDiceRollerLabel.AutoSize = true;
+            bodyTextSuccessDiceRollerLabel.Location = new Point(0, 0);
+            bodyTextSuccessDiceRollerLabel.Margin = new Padding(0);
+            bodyTextSuccessDiceRollerLabel.MaximumSize = new Size(402, 0);
+            bodyTextSuccessDiceRollerLabel.Name = "bodyTextSuccessDiceRollerLabel";
+            bodyTextSuccessDiceRollerLabel.Padding = new Padding(3);
+            bodyTextSuccessDiceRollerLabel.Size = new Size(6, 25);
+            bodyTextSuccessDiceRollerLabel.TabIndex = 0;
+            bodyTextSuccessDiceRollerLabel.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // probabilityDisplaysTabPage
             // 
@@ -586,6 +611,36 @@
             probabilityDisplayTableLayoutPanel.Size = new Size(801, 308);
             probabilityDisplayTableLayoutPanel.TabIndex = 0;
             // 
+            // usageTextSuccessProbabilityDisplayLabel
+            // 
+            usageTextSuccessProbabilityDisplayLabel.Anchor = AnchorStyles.None;
+            usageTextSuccessProbabilityDisplayLabel.AutoSize = true;
+            probabilityDisplayTableLayoutPanel.SetColumnSpan(usageTextSuccessProbabilityDisplayLabel, 10);
+            usageTextSuccessProbabilityDisplayLabel.Location = new Point(415, 35);
+            usageTextSuccessProbabilityDisplayLabel.Margin = new Padding(0);
+            usageTextSuccessProbabilityDisplayLabel.MaximumSize = new Size(402, 0);
+            usageTextSuccessProbabilityDisplayLabel.Name = "usageTextSuccessProbabilityDisplayLabel";
+            probabilityDisplayTableLayoutPanel.SetRowSpan(usageTextSuccessProbabilityDisplayLabel, 2);
+            usageTextSuccessProbabilityDisplayLabel.Size = new Size(370, 19);
+            usageTextSuccessProbabilityDisplayLabel.TabIndex = 0;
+            usageTextSuccessProbabilityDisplayLabel.Text = "Fill in the info above, then press 'Run' below to see chances";
+            usageTextSuccessProbabilityDisplayLabel.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // usageTextSumProbabilityDisplayLabel
+            // 
+            usageTextSumProbabilityDisplayLabel.Anchor = AnchorStyles.None;
+            usageTextSumProbabilityDisplayLabel.AutoSize = true;
+            probabilityDisplayTableLayoutPanel.SetColumnSpan(usageTextSumProbabilityDisplayLabel, 10);
+            usageTextSumProbabilityDisplayLabel.Location = new Point(15, 35);
+            usageTextSumProbabilityDisplayLabel.Margin = new Padding(0);
+            usageTextSumProbabilityDisplayLabel.MaximumSize = new Size(402, 0);
+            usageTextSumProbabilityDisplayLabel.Name = "usageTextSumProbabilityDisplayLabel";
+            probabilityDisplayTableLayoutPanel.SetRowSpan(usageTextSumProbabilityDisplayLabel, 2);
+            usageTextSumProbabilityDisplayLabel.Size = new Size(370, 19);
+            usageTextSumProbabilityDisplayLabel.TabIndex = 0;
+            usageTextSumProbabilityDisplayLabel.Text = "Fill in the info above, then press 'Run' below to see chances";
+            usageTextSumProbabilityDisplayLabel.TextAlign = ContentAlignment.MiddleCenter;
+            // 
             // headerTextSumProbabilityDisplayLabel
             // 
             headerTextSumProbabilityDisplayLabel.Anchor = AnchorStyles.None;
@@ -628,20 +683,17 @@
             sumProbabilityDisplayPanel.Size = new Size(400, 248);
             sumProbabilityDisplayPanel.TabIndex = 2;
             // 
-            // usageTextSumProbabilityDisplayLabel
+            // bodyTextSumProbabilityDisplayLabel
             // 
-            usageTextSumProbabilityDisplayLabel.Anchor = AnchorStyles.None;
-            usageTextSumProbabilityDisplayLabel.AutoSize = true;
-            probabilityDisplayTableLayoutPanel.SetColumnSpan(usageTextSumProbabilityDisplayLabel, 10);
-            usageTextSumProbabilityDisplayLabel.Location = new Point(15, 35);
-            usageTextSumProbabilityDisplayLabel.Margin = new Padding(0);
-            usageTextSumProbabilityDisplayLabel.MaximumSize = new Size(402, 0);
-            usageTextSumProbabilityDisplayLabel.Name = "usageTextSumProbabilityDisplayLabel";
-            probabilityDisplayTableLayoutPanel.SetRowSpan(usageTextSumProbabilityDisplayLabel, 2);
-            usageTextSumProbabilityDisplayLabel.Size = new Size(370, 19);
-            usageTextSumProbabilityDisplayLabel.TabIndex = 0;
-            usageTextSumProbabilityDisplayLabel.Text = "Fill in the info above, then press 'Run' below to see chances";
-            usageTextSumProbabilityDisplayLabel.TextAlign = ContentAlignment.MiddleCenter;
+            bodyTextSumProbabilityDisplayLabel.AutoSize = true;
+            bodyTextSumProbabilityDisplayLabel.Location = new Point(0, 0);
+            bodyTextSumProbabilityDisplayLabel.Margin = new Padding(0);
+            bodyTextSumProbabilityDisplayLabel.MaximumSize = new Size(402, 0);
+            bodyTextSumProbabilityDisplayLabel.Name = "bodyTextSumProbabilityDisplayLabel";
+            bodyTextSumProbabilityDisplayLabel.Padding = new Padding(3);
+            bodyTextSumProbabilityDisplayLabel.Size = new Size(6, 25);
+            bodyTextSumProbabilityDisplayLabel.TabIndex = 0;
+            bodyTextSumProbabilityDisplayLabel.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // successProbabilityDisplayPanel
             // 
@@ -657,20 +709,17 @@
             successProbabilityDisplayPanel.Size = new Size(401, 248);
             successProbabilityDisplayPanel.TabIndex = 3;
             // 
-            // usageTextSuccessProbabilityDisplayLabel
+            // bodyTextSuccessProbabilityDisplayLabel
             // 
-            usageTextSuccessProbabilityDisplayLabel.Anchor = AnchorStyles.None;
-            usageTextSuccessProbabilityDisplayLabel.AutoSize = true;
-            probabilityDisplayTableLayoutPanel.SetColumnSpan(usageTextSuccessProbabilityDisplayLabel, 10);
-            usageTextSuccessProbabilityDisplayLabel.Location = new Point(415, 35);
-            usageTextSuccessProbabilityDisplayLabel.Margin = new Padding(0);
-            usageTextSuccessProbabilityDisplayLabel.MaximumSize = new Size(402, 0);
-            usageTextSuccessProbabilityDisplayLabel.Name = "usageTextSuccessProbabilityDisplayLabel";
-            probabilityDisplayTableLayoutPanel.SetRowSpan(usageTextSuccessProbabilityDisplayLabel, 2);
-            usageTextSuccessProbabilityDisplayLabel.Size = new Size(370, 19);
-            usageTextSuccessProbabilityDisplayLabel.TabIndex = 0;
-            usageTextSuccessProbabilityDisplayLabel.Text = "Fill in the info above, then press 'Run' below to see chances";
-            usageTextSuccessProbabilityDisplayLabel.TextAlign = ContentAlignment.MiddleCenter;
+            bodyTextSuccessProbabilityDisplayLabel.AutoSize = true;
+            bodyTextSuccessProbabilityDisplayLabel.Location = new Point(0, 0);
+            bodyTextSuccessProbabilityDisplayLabel.Margin = new Padding(0);
+            bodyTextSuccessProbabilityDisplayLabel.MaximumSize = new Size(402, 0);
+            bodyTextSuccessProbabilityDisplayLabel.Name = "bodyTextSuccessProbabilityDisplayLabel";
+            bodyTextSuccessProbabilityDisplayLabel.Padding = new Padding(3);
+            bodyTextSuccessProbabilityDisplayLabel.Size = new Size(6, 25);
+            bodyTextSuccessProbabilityDisplayLabel.TabIndex = 0;
+            bodyTextSuccessProbabilityDisplayLabel.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // valueFinderTabPage
             // 
@@ -868,9 +917,8 @@
             bodyTextValueFinderLabel.MaximumSize = new Size(801, 0);
             bodyTextValueFinderLabel.Name = "bodyTextValueFinderLabel";
             bodyTextValueFinderLabel.Padding = new Padding(3);
-            bodyTextValueFinderLabel.Size = new Size(50, 25);
+            bodyTextValueFinderLabel.Size = new Size(6, 25);
             bodyTextValueFinderLabel.TabIndex = 0;
-            bodyTextValueFinderLabel.Text = "TEMP";
             bodyTextValueFinderLabel.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // diceFinderTabPage
@@ -1005,66 +1053,13 @@
             bodyTextDiceFinderLabel.MaximumSize = new Size(801, 0);
             bodyTextDiceFinderLabel.Name = "bodyTextDiceFinderLabel";
             bodyTextDiceFinderLabel.Padding = new Padding(3);
-            bodyTextDiceFinderLabel.Size = new Size(50, 25);
+            bodyTextDiceFinderLabel.Size = new Size(6, 25);
             bodyTextDiceFinderLabel.TabIndex = 0;
-            bodyTextDiceFinderLabel.Text = "TEMP";
             bodyTextDiceFinderLabel.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // errorProvider
             // 
             errorProvider.ContainerControl = this;
-            // 
-            // bodyTextSumDiceRollerLabel
-            // 
-            bodyTextSumDiceRollerLabel.AutoSize = true;
-            bodyTextSumDiceRollerLabel.Location = new Point(0, 0);
-            bodyTextSumDiceRollerLabel.Margin = new Padding(0);
-            bodyTextSumDiceRollerLabel.MaximumSize = new Size(402, 0);
-            bodyTextSumDiceRollerLabel.Name = "bodyTextSumDiceRollerLabel";
-            bodyTextSumDiceRollerLabel.Padding = new Padding(3);
-            bodyTextSumDiceRollerLabel.Size = new Size(50, 25);
-            bodyTextSumDiceRollerLabel.TabIndex = 0;
-            bodyTextSumDiceRollerLabel.Text = "TEMP";
-            bodyTextSumDiceRollerLabel.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // bodyTextSuccessDiceRollerLabel
-            // 
-            bodyTextSuccessDiceRollerLabel.AutoSize = true;
-            bodyTextSuccessDiceRollerLabel.Location = new Point(0, 0);
-            bodyTextSuccessDiceRollerLabel.Margin = new Padding(0);
-            bodyTextSuccessDiceRollerLabel.MaximumSize = new Size(402, 0);
-            bodyTextSuccessDiceRollerLabel.Name = "bodyTextSuccessDiceRollerLabel";
-            bodyTextSuccessDiceRollerLabel.Padding = new Padding(3);
-            bodyTextSuccessDiceRollerLabel.Size = new Size(50, 25);
-            bodyTextSuccessDiceRollerLabel.TabIndex = 0;
-            bodyTextSuccessDiceRollerLabel.Text = "TEMP";
-            bodyTextSuccessDiceRollerLabel.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // bodyTextSumProbabilityDisplayLabel
-            // 
-            bodyTextSumProbabilityDisplayLabel.AutoSize = true;
-            bodyTextSumProbabilityDisplayLabel.Location = new Point(0, 0);
-            bodyTextSumProbabilityDisplayLabel.Margin = new Padding(0);
-            bodyTextSumProbabilityDisplayLabel.MaximumSize = new Size(402, 0);
-            bodyTextSumProbabilityDisplayLabel.Name = "bodyTextSumProbabilityDisplayLabel";
-            bodyTextSumProbabilityDisplayLabel.Padding = new Padding(3);
-            bodyTextSumProbabilityDisplayLabel.Size = new Size(50, 25);
-            bodyTextSumProbabilityDisplayLabel.TabIndex = 0;
-            bodyTextSumProbabilityDisplayLabel.Text = "TEMP";
-            bodyTextSumProbabilityDisplayLabel.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // bodyTextSuccessProbabilityDisplayLabel
-            // 
-            bodyTextSuccessProbabilityDisplayLabel.AutoSize = true;
-            bodyTextSuccessProbabilityDisplayLabel.Location = new Point(0, 0);
-            bodyTextSuccessProbabilityDisplayLabel.Margin = new Padding(0);
-            bodyTextSuccessProbabilityDisplayLabel.MaximumSize = new Size(402, 0);
-            bodyTextSuccessProbabilityDisplayLabel.Name = "bodyTextSuccessProbabilityDisplayLabel";
-            bodyTextSuccessProbabilityDisplayLabel.Padding = new Padding(3);
-            bodyTextSuccessProbabilityDisplayLabel.Size = new Size(50, 25);
-            bodyTextSuccessProbabilityDisplayLabel.TabIndex = 0;
-            bodyTextSuccessProbabilityDisplayLabel.Text = "TEMP";
-            bodyTextSuccessProbabilityDisplayLabel.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // MainWindowForm
             // 
