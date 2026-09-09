@@ -9,4 +9,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="ExtendedNumerics.BigRational" Version="3000.0.2.132" />
+  </ItemGroup>
+
 </Project>

@@ -1,3 +1,6 @@
+using ExtendedNumerics;
+using System.Numerics;
+
 namespace CNH_Value_Finder
 {
     public partial class MainWindowForm : Form
@@ -16,8 +19,206 @@ namespace CNH_Value_Finder
             InitializeComponent();
         }
 
+        /* Calculates the number of ways to choose k items from n total items where order doesn't matter
+         * Implementation of the Combination mathematical function
+         * @param n <int> The total number of items to 'choose' from
+         * @param k <int> The number of items 'chosen'
+         * @return <BigInteger> The number of ways to pick k items from n total items (order doesn't matter)
+         */
+        private static BigInteger Choose(BigInteger n, BigInteger k)
+        {
+            // For invalid combinations, return 0 immediately
+            if (k > n || n < 0 || k < 0)
+            {
+                return 0;
+            }
+            if (k == 0 || k == n)
+            {
+                return 1;
+            }
+            // Otherwise calculate the number of combinations
+            BigInteger returnValue = 1;
+            // Can use symmetry of combinations around n-k for faster computation
+            if (k > n - k)
+            {
+                k = n - k;
+            }
+            // Perform the combination math
+            for (BigInteger i = 1; i <= k; i++)
+            {
+                returnValue *= n - k + i;
+                returnValue /= i;
+            }
+            return returnValue;
+        }
+
+        /* Calculates an average value of a probability distribution array where each element
+         *  is the probability of its own position
+         * @param probabilities <double[]> The probability distribution array to find the average of
+         * @return <double> The average value of the probability distribution array
+         */
+        private static double Average(double[] probabilities)
+        {
+            // Average value can be found by summing the products of values with their probabilities
+            double average = 0.0;
+            for (int i = 0; i < probabilities.Length; i++)
+            {
+                average += probabilities[i] * i;
+            }
+            return average;
+        }
+
+        /* Calculates a standard deviation value of a probability distribution array where each element
+         *  is the probability of its own position
+         * @param probabilities <double[]> The probability distribution array to find the standard deviation of
+         * @return <double> The standard deviation value of the probability distribution array
+         */
+        private static double StandardDeviation(double[] probabilities)
+        {
+            // Standard deviation value can be found by taking the square root of
+            //  the sum of
+            //   the products of an element's probability and
+            //    the squares of
+            //     the differences between each value and the average
+            // NOTE - Roughly 68% of values are within 1 standard deviation
+            //        Roughly 95% of values are within 2 standard deviations
+            double average = Average(probabilities);
+            double stdDeviation = 0.0;
+            for (int i = 0; i < probabilities.Length; i++)
+            {
+                stdDeviation += probabilities[i] * Math.Pow(i - average, 2);
+            }
+            return Math.Pow(stdDeviation, 0.5);
+        }
+
+        /* Generate an array of the probability distribution for the range of possible sums with the current number of dice
+         * @return <double[]> The array of probabilities where the position of each value corresponds to a total sum
+         */
+        private double[] GenerateSumDistribution()
+        {
+            // Establish the base probability distribution (ignore Advantage/Disadvantage)
+            double[] baseDistribution = new double[(typeDice * numDice) + 1];
+            for (int sum = 0; sum < baseDistribution.Length; sum++)
+            {
+                // Initialize value to 0
+                // The first set of values stay 0 since you can't roll a sum less than the number of dice used
+                baseDistribution[sum] = 0.0;
+                if (sum >= numDice)
+                {
+                    // Value is the number of combinations that yield the exact sum divided by the total number of possible sums
+                    // NOTE - There is a fairly easy recursive implementation for finding the number of combinations for an exact sum
+                    //        BUT, since this number grows *very* quickly, it is *far* better to use the derived formula
+                    //        The only downside is that the formula is unintuitive and somewhat inscrutable
+                    //        This is mostly due to the fact that each die can only contribute up to <largest face value> to the sum
+                    BigInteger numerator = 0;
+                    for (int i = 0; i <= Math.Floor((double)(sum - numDice) / typeDice); i++)
+                    {
+                        numerator += BigInteger.Pow(-1, i) * Choose(numDice, i) * Choose(sum - 1 - (typeDice * i), numDice - 1);
+                    }
+                    BigInteger denominator = BigInteger.Pow(typeDice, numDice);
+                    BigRational probability = new BigRational(numerator, denominator);
+                    baseDistribution[sum] = Math.Round((double)probability, 15);
+                }
+            }
+            // If there's no Advantage/Disadvantage, then we're done
+            if (NeutralRadioButton.Checked == true)
+            {
+                return baseDistribution;
+            }
+            // If there's Advantage/Disadvantage, we need a new distribution
+            double[] finalDistribution = new double[(typeDice * numDice) + 1];
+            // For Advantage, the new distribution for any given sum is:
+            //  The probability of rolling that sum twice (base probability squared)
+            //  PLUS
+            //   Twice (one for each overall roll) the probability of rolling that sum
+            //   MULTIPLIED BY
+            //   The sum of the probabilities of all valid fewer dice sums (which would be replaced)
+            if (AdvantageRadioButton.Checked == true)
+            {
+                for (int i = 0; i < finalDistribution.Length; i++)
+                {
+                    if (i >= numDice)
+                    {
+                        double value = (Math.Pow(baseDistribution[i], 2)) + (2 * baseDistribution[i] * baseDistribution[numDice..i].Sum());
+                        finalDistribution[i] = Math.Round(value, 15);
+                    }
+                }
+            }
+            // For Disadvantage, the new distribution for any given sum is:
+            //  The probability of rolling that sum twice (base probability squared)
+            //  PLUS
+            //   Twice (one for each overall roll) the probability of rolling that sum
+            //   MULTIPLIED BY
+            //   The sum of the probabilities of all valid greater dice sums (which would be replaced)
+            else
+            {
+                for (int i = 0; i < finalDistribution.Length; i++)
+                {
+                    if (i >= numDice)
+                    {
+                        double value = (Math.Pow(baseDistribution[i], 2)) + (2 * baseDistribution[i] * baseDistribution[(i + 1)..].Sum());
+                        finalDistribution[i] = Math.Round(value, 15);
+                    }
+                }
+            }
+            return finalDistribution;
+        }
+
+        /* Generate an array of the probability distribution for the range of possible Successes with the current number of dice
+         * @return <double[]> The array of probabilities where the position of each value corresponds to that many successes
+         */
+        private double[] GenerateSuccessDistribution()
+        {
+            // Odds that any single die roll is a Success
+            BigRational successProbability = new BigRational((typeDice + 1 - successThreshold), typeDice);
+            // Establish the base probability distribution (ignore Advantage/Disadvantage)
+            double[] baseDistribution = new double[numDice + 1];
+            for (int i = 0; i < baseDistribution.Length; i++)
+            {
+                // Value is standard binomial probability formula for each amount of Successes
+                BigRational value = new BigRational(Choose(numDice, i) * (BigRational.Pow(successProbability, i)) * (BigRational.Pow(1 - successProbability, numDice - i)));
+                baseDistribution[i] = Math.Round((double)value, 15);
+            }
+            // If there's no Advantage/Disadvantage, then we're done
+            if (NeutralRadioButton.Checked == true)
+            {
+                return baseDistribution;
+            }
+            // If there's Advantage/Disadvantage, we need a new distribution
+            double[] finalDistribution = new double[numDice + 1];
+            // For Advantage, the new distribution for any given amount of successes is:
+            //  The probability of rolling that many successes twice (base probability squared)
+            //  PLUS
+            //   Twice (one for each Attempt roll) the probability of rolling that many successes
+            //   MULTIPLIED BY
+            //   The sum of the probabilities of all fewer numbers of successes (which would be replaced)
+            if (AdvantageRadioButton.Checked == true)
+            {
+                for (int i = 0; i < finalDistribution.Length; i++)
+                {
+                    double value = (Math.Pow(baseDistribution[i], 2)) + (2 * baseDistribution[i] * baseDistribution[..i].Sum());
+                    finalDistribution[i] = Math.Round(value, 15);
+                }
+            }
+            // For Disadvantage, the new distribution for any given amount of successes is:
+            //  The probability of rolling that many successes twice (base probability squared)
+            //  PLUS
+            //   Twice (one for each Attempt roll) the probability of rolling that many successes
+            //   MULTIPLIED BY
+            //   The sum of the probabilities of all greater numbers of successes (which would be replaced)
+            else
+            {
+                for (int i = 0; i < finalDistribution.Length; i++)
+                {
+                    double value = (Math.Pow(baseDistribution[i], 2)) + (2 * baseDistribution[i] * baseDistribution[(i + 1)..].Sum());
+                    finalDistribution[i] = Math.Round(value, 15);
+                }
+            }
+            return finalDistribution;
+        }
+
         // All of the code for simulating dice rolls
-        private void runDiceRoller()
+        private void RunDiceRoller()
         {
             Random rand = new Random();
             string sumOutputText1 = "-----\nRolls\n";
@@ -35,7 +236,7 @@ namespace CNH_Value_Finder
             // Need to roll every dice an extra time when doing Advantage/Disadvantage
             //  So, multiply the number of loops by 2 when doing Advantage/Disadvantage
             int loopAmount = 1;
-            if (neutralRadioButton.Checked != true)
+            if (NeutralRadioButton.Checked != true)
             {
                 loopAmount = 2;
             }
@@ -124,7 +325,7 @@ namespace CNH_Value_Finder
             // Check which set of results to use based on Advantage State
             // Auto-assign the correct values to the outputText1 variables
             // Advantage
-            if (advantageRadioButton.Checked == true)
+            if (AdvantageRadioButton.Checked == true)
             {
                 bool sumUsesSecondSet = false;
                 bool successesUsesSecondSet = false;
@@ -146,7 +347,7 @@ namespace CNH_Value_Finder
                 // If there's a tie, try to match Sum and Successes together
                 if (sumUsesSecondSet || (sum1 == sum2 & successesUsesSecondSet))
                 {
-                    sumOutputText1 = sumOutputText1 = $"Total Sum: {sum2}\n{sumOutputText2}";
+                    sumOutputText1 = $"Total Sum: {sum2}\n{sumOutputText2}";
                 }
                 else
                 {
@@ -171,7 +372,7 @@ namespace CNH_Value_Finder
                 }
             }
             // Disadvantage
-            else if (disadvantageRadioButton.Checked == true)
+            else if (DisadvantageRadioButton.Checked == true)
             {
                 bool sumUsesSecondSet = false;
                 bool successesUsesSecondSet = false;
@@ -233,56 +434,163 @@ namespace CNH_Value_Finder
                 }
             }
             // Display the results
-            bodyTextSumDiceRollerLabel.Text = sumOutputText1;
-            bodyTextSuccessDiceRollerLabel.Text = successOutputText1;
+            BodyTextSumDiceRollerLabel.Text = sumOutputText1;
+            BodyTextSuccessDiceRollerLabel.Text = successOutputText1;
+        }
+
+        // All of the code for calculating and displaying all possible dice results
+        private void RunProbabilityDisplays()
+        {
+            // Find sum average and standard deviation
+            double[] sumDistribution = GenerateSumDistribution();
+            double average = Average(sumDistribution);
+            double stdDeviation = StandardDeviation(sumDistribution);
+            // Convert the sum average info to text
+            string sumOutputText = " Roughly 68% of all Sums will be within 1 Std. Dev.\n Roughly 95% of all Sums will be within 2 Std. Devs.\n";
+            sumOutputText = $"{sumOutputText}Useful Stats\n Average Sum: {average.ToString("F2")}\n";
+            // Find the range of values within 1 standard deviation and correct them if they're out-of-bounds
+            double stdDeviationUp = average + stdDeviation;
+            double stdDeviationDown = average - stdDeviation;
+            if (stdDeviationUp > typeDice * numDice)
+            {
+                stdDeviationUp = typeDice * numDice;
+            }
+            if (stdDeviationDown < numDice)
+            {
+                stdDeviationDown = numDice;
+            }
+            // Convert the 1-standard-deviation info to text
+            sumOutputText = $"{sumOutputText} Range of Sums Within 1 Std. Deviation: {stdDeviationDown.ToString("F2")} to {stdDeviationUp.ToString("F2")}\n";
+            // Find the range of values within 2 standard deviations and correct them if they're out-of-bounds
+            stdDeviationUp = average + (2 * stdDeviation);
+            stdDeviationDown = average - (2 * stdDeviation);
+            if (stdDeviationUp > typeDice * numDice)
+            {
+                stdDeviationUp = typeDice * numDice;
+            }
+            if (stdDeviationDown < numDice)
+            {
+                stdDeviationDown = numDice;
+            }
+            // Convert the 2-standard-deviations info to text
+            sumOutputText = $"{sumOutputText} Range of Sums Within 2 Std. Deviations: {stdDeviationDown.ToString("F2")} to {stdDeviationUp.ToString("F2")}\n";
+            // Convert the sum distribution to text
+            sumOutputText = $"{sumOutputText}Results Distribution\n";
+            for (int i = 0; i < sumDistribution.Length; i++)
+            {
+                if (i >= numDice)
+                {
+                    sumOutputText = $"{sumOutputText} Sum of {i}: {sumDistribution[i].ToString("P")}\n";
+                }
+            }
+            // Repeat the process with successes now
+            double[] successDistribution = GenerateSuccessDistribution();
+            average = Average(successDistribution);
+            stdDeviation = StandardDeviation(successDistribution);
+            // Convert the success average info to text
+            string successOutputText = " Roughly 68% of all Attempts will be within 1 Std. Dev.\n Roughly 95% of all Attempts will be within 2 Std. Devs.\n";
+            successOutputText = $"{successOutputText}Useful Stats\n Average Num Successes: {average.ToString("F2")}\n";
+            // Find the range of values within 1 standard deviation and correct them if they're out-of-bounds
+            stdDeviationUp = average + stdDeviation;
+            stdDeviationDown = average - stdDeviation;
+            if (stdDeviationUp > numDice)
+            {
+                stdDeviationUp = numDice;
+            }
+            if (stdDeviationDown < 0)
+            {
+                stdDeviationDown = 0.0;
+            }
+            // Convert the 1-standard-deviation info to text
+            successOutputText = $"{successOutputText} Range of Successes Within 1 Std. Deviation: {stdDeviationDown.ToString("F2")} to {stdDeviationUp.ToString("F2")}\n";
+            // Find the range of values within 2 standard deviations and correct them if they're out-of-bounds
+            stdDeviationUp = average + (2 * stdDeviation);
+            stdDeviationDown = average - (2 * stdDeviation);
+            if (stdDeviationUp > numDice)
+            {
+                stdDeviationUp = numDice;
+            }
+            if (stdDeviationDown < 0)
+            {
+                stdDeviationDown = 0.0;
+            }
+            // Convert the 2-standard-deviations info to text
+            successOutputText = $"{successOutputText} Range of Successes Within 2 Std. Deviations: {stdDeviationDown.ToString("F2")} to {stdDeviationUp.ToString("F2")}\n";
+            successOutputText = $"{successOutputText}Results Distribution\n";
+            for (int i = 0; i < successDistribution.Length; i++)
+            {
+                if (i == 1)
+                {
+                    successOutputText = $"{successOutputText} 1 Success:    {successDistribution[i].ToString("P")}\n";
+                }
+                else
+                {
+                    successOutputText = $"{successOutputText} {i} Successes: {successDistribution[i].ToString("P")}\n";
+                }
+            }
+            // Display the results
+            BodyTextSumProbabilityDisplayLabel.Text = sumOutputText;
+            BodyTextSuccessProbabilityDisplayLabel.Text = successOutputText;
+        }
+
+        // All of the code for calculating various desired CNH values
+        private void RunValueFinder()
+        {
+            return;
+        }
+
+        // All of the code for calculating various ways to reach a dice sum
+        private void RunDiceFinder()
+        {
+            return;
         }
 
         // What happens when the 'Run' button is used
-        private void runButton_Click(object sender, EventArgs e)
+        private void RunButton_Click(object sender, EventArgs e)
         {
-            if (functionOptionsTabControl.SelectedTab == diceRollerTabPage)
+            if (FunctionOptionsTabControl.SelectedTab == DiceRollerTabPage)
             {
-                runDiceRoller();
+                RunDiceRoller();
             }
-            else if (functionOptionsTabControl.SelectedTab == probabilityDisplaysTabPage)
+            else if (FunctionOptionsTabControl.SelectedTab == ProbabilityDisplaysTabPage)
             {
-                return;
+                RunProbabilityDisplays();
             }
-            else if (functionOptionsTabControl.SelectedTab == valueFinderTabPage)
+            else if (FunctionOptionsTabControl.SelectedTab == ValueFinderTabPage)
             {
-                return;
+                RunValueFinder();
             }
-            else if (functionOptionsTabControl.SelectedTab == diceFinderTabPage)
+            else if (FunctionOptionsTabControl.SelectedTab == DiceFinderTabPage)
             {
-                return;
+                RunDiceFinder();
             }
         }
 
         // Ensures correct functionality when certain tab pages are selected
-        private void functionOptionsTabControl_SelectedIndexChanged(object sender, EventArgs e)
+        private void FunctionOptionsTabControl_SelectedIndexChanged(object sender, EventArgs e)
         {
             /* Notes for the Value Finder tab page:
              *  The 'Number of Dice' text box needs to "move" into the tab page
              *   This is accomplished via copying the common version's settings and resetting and hiding it
              *  The 'Run' button can *only* be enabled if exactly one of the three options is empty
              */
-            if (functionOptionsTabControl.SelectedTab == valueFinderTabPage)
+            if (FunctionOptionsTabControl.SelectedTab == ValueFinderTabPage)
             {
                 // Copy settings
-                numDiceValueFinderTextBox.Text = numDiceTextBox.Text;
+                NumDiceValueFinderTextBox.Text = NumDiceTextBox.Text;
                 // Reset
-                numDiceTextBox.Text = "";
+                NumDiceTextBox.Text = "";
                 // Hide
-                numDiceTextBox.Visible = false;
-                numDiceTextBox.Enabled = false;
-                numDiceLabel.Visible = false;
+                NumDiceTextBox.Visible = false;
+                NumDiceTextBox.Enabled = false;
+                NumDiceLabel.Visible = false;
                 // Maybe enable 'Run' button, under the right conditions
-                runButton.Enabled = false;
+                RunButton.Enabled = false;
                 if ((difficulty == 0 & valueFinderNumDice != 0 & successChance != 0) ||
                     (difficulty != 0 & valueFinderNumDice == 0 & successChance != 0) ||
                     (difficulty != 0 & valueFinderNumDice != 0 & successChance == 0))
                 {
-                    runButton.Enabled = true;
+                    RunButton.Enabled = true;
                 }
             }
             /* When switching off of the Value Finder tab page:
@@ -293,42 +601,42 @@ namespace CNH_Value_Finder
             else
             {
                 // Copy settings
-                if (!string.IsNullOrEmpty(numDiceValueFinderTextBox.Text))
+                if (!string.IsNullOrEmpty(NumDiceValueFinderTextBox.Text))
                 {
-                    numDiceTextBox.Text = numDiceValueFinderTextBox.Text;
+                    NumDiceTextBox.Text = NumDiceValueFinderTextBox.Text;
                 }
                 // Reset
-                numDiceValueFinderTextBox.Text = "";
+                NumDiceValueFinderTextBox.Text = "";
                 // Show
-                numDiceTextBox.Visible = true;
-                numDiceTextBox.Enabled = true;
-                numDiceLabel.Visible = true;
+                NumDiceTextBox.Visible = true;
+                NumDiceTextBox.Enabled = true;
+                NumDiceLabel.Visible = true;
                 // Re-enable 'Run' button
-                runButton.Enabled = true;
+                RunButton.Enabled = true;
             }
         }
 
         // Validation checks for each input text box
         //------------------------------------------
 
-        private void typeDiceTextBox_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        private void TypeDiceTextBox_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
             try
             {
                 int x;
                 // Default value of d6
-                if (string.IsNullOrEmpty(typeDiceTextBox.Text))
+                if (string.IsNullOrEmpty(TypeDiceTextBox.Text))
                 {
                     x = 6;
                 }
                 // Since we only use the number, strip the 'd' if it exists
-                else if (Char.ToLower(typeDiceTextBox.Text[0]) == 'd')
+                else if (Char.ToLower(TypeDiceTextBox.Text[0]) == 'd')
                 {
-                    x = Int32.Parse(typeDiceTextBox.Text.Substring(1));
+                    x = Int32.Parse(TypeDiceTextBox.Text.Substring(1));
                 }
                 else
                 {
-                    x = Int32.Parse(typeDiceTextBox.Text);
+                    x = Int32.Parse(TypeDiceTextBox.Text);
                 }
                 // Auto assign variable to closest acceptable value when input is out-of-bounds
                 if (x < 1)
@@ -339,7 +647,7 @@ namespace CNH_Value_Finder
                 typeDice = x;
                 // Change the Success Threshold textbox's default value if it doesn't have any user input
                 // Also enable editing the Success Threshold textbox since we have a valid dice type for error checking
-                if (string.IsNullOrEmpty(successThresholdTextBox.Text))
+                if (string.IsNullOrEmpty(SuccessThresholdTextBox.Text))
                 {
                     if (typeDice % 2 == 0)
                     {
@@ -350,34 +658,34 @@ namespace CNH_Value_Finder
                         x = (int)Math.Ceiling((double)typeDice / 2);
                     }
                     successThreshold = x;
-                    successThresholdTextBox.PlaceholderText = successThreshold.ToString();
+                    SuccessThresholdTextBox.PlaceholderText = successThreshold.ToString();
                 }
-                successThresholdTextBox.Enabled = true;
-                runButton.Enabled = true;
-                errorProvider.SetError(typeDiceTextBox, "");
+                SuccessThresholdTextBox.Enabled = true;
+                RunButton.Enabled = true;
+                ErrorProvider.SetError(TypeDiceTextBox, "");
             }
             catch (Exception ex)
             {
                 // Disable the Success Threshold textbox, since it needs a valid dice type for error checking
-                successThresholdTextBox.Enabled = false;
-                runButton.Enabled = false;
-                errorProvider.SetError(typeDiceTextBox, "Invalid value - Enter an integer greater than 0 optionally preceeded by a 'd'");
+                SuccessThresholdTextBox.Enabled = false;
+                RunButton.Enabled = false;
+                ErrorProvider.SetError(TypeDiceTextBox, "Invalid value - Enter an integer greater than 0 optionally preceeded by a 'd'");
             }
         }
 
-        private void numDiceTextBox_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        private void NumDiceTextBox_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
             try
             {
                 int x;
                 // Default value of 1 die
-                if (string.IsNullOrEmpty(numDiceTextBox.Text))
+                if (string.IsNullOrEmpty(NumDiceTextBox.Text))
                 {
                     x = 1;
                 }
                 else
                 {
-                    x = Int32.Parse(numDiceTextBox.Text);
+                    x = Int32.Parse(NumDiceTextBox.Text);
                 }
                 // Auto assign variable to closest acceptable value when input is out-of-bounds
                 if (x < 1)
@@ -386,24 +694,24 @@ namespace CNH_Value_Finder
                 }
                 // Assign variables and enable everything since we passed validation
                 numDice = x;
-                runButton.Enabled = true;
-                errorProvider.SetError(numDiceTextBox, "");
+                RunButton.Enabled = true;
+                ErrorProvider.SetError(NumDiceTextBox, "");
             }
             catch (Exception ex)
             {
-                runButton.Enabled = false;
-                errorProvider.SetError(numDiceTextBox, "Invalid value - Enter an integer greater than 0");
+                RunButton.Enabled = false;
+                ErrorProvider.SetError(NumDiceTextBox, "Invalid value - Enter an integer greater than 0");
             }
         }
 
-        private void successThresholdTextBox_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        private void SuccessThresholdTextBox_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
             try
             {
                 int x;
                 // Default value of the smallest number in the upper half of the dice type
                 //  Ex: '4' for 'd6', '5' for 'd8', '11' for 'd20'
-                if (string.IsNullOrEmpty(successThresholdTextBox.Text))
+                if (string.IsNullOrEmpty(SuccessThresholdTextBox.Text))
                 {
                     if (typeDice % 2 == 0)
                     {
@@ -413,11 +721,11 @@ namespace CNH_Value_Finder
                     {
                         x = (int)Math.Ceiling((double)typeDice / 2);
                     }
-                    successThresholdTextBox.PlaceholderText = x.ToString();
+                    SuccessThresholdTextBox.PlaceholderText = x.ToString();
                 }
                 else
                 {
-                    x = Int32.Parse(successThresholdTextBox.Text);
+                    x = Int32.Parse(SuccessThresholdTextBox.Text);
                 }
                 // Auto assign variable to closest acceptable value when input is out-of-bounds
                 if (x < 1)
@@ -430,12 +738,12 @@ namespace CNH_Value_Finder
                 }
                 // Assign variables and enable everything since we passed validation
                 successThreshold = x;
-                runButton.Enabled = true;
-                errorProvider.SetError(successThresholdTextBox, "");
+                RunButton.Enabled = true;
+                ErrorProvider.SetError(SuccessThresholdTextBox, "");
             }
             catch (Exception ex)
             {
-                runButton.Enabled = false;
+                RunButton.Enabled = false;
                 // Customize error message since "Enter an integer between 1 and 1" sounds clunky
                 String errorString;
                 if (typeDice == 1)
@@ -446,24 +754,24 @@ namespace CNH_Value_Finder
                 {
                     errorString = $"Invalid value - Enter an integer between 1 and {typeDice}, inclusive";
                 }
-                errorProvider.SetError(successThresholdTextBox, errorString);
+                ErrorProvider.SetError(SuccessThresholdTextBox, errorString);
             }
         }
 
-        private void difficultyValueFinderTextBox_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        private void DifficultyValueFinderTextBox_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
             try
             {
                 int x;
                 // If this textbox is empty, assign a value of 0
                 // NOTE - This is used for checking which value needs to be calculated
-                if (string.IsNullOrEmpty(difficultyValueFinderTextBox.Text))
+                if (string.IsNullOrEmpty(DifficultyValueFinderTextBox.Text))
                 {
                     x = 0;
                 }
                 else
                 {
-                    x = Int32.Parse(difficultyValueFinderTextBox.Text);
+                    x = Int32.Parse(DifficultyValueFinderTextBox.Text);
                     // Auto assign variable to closest acceptable value when input is out-of-bounds
                     if (x < 1)
                     {
@@ -472,36 +780,36 @@ namespace CNH_Value_Finder
                 }
                 // Assign variables and enable the 'Run' button if *exactly* one of the Value Finder options is empty, since we passed validation
                 difficulty = x;
-                runButton.Enabled = false;
+                RunButton.Enabled = false;
                 if ((difficulty == 0 & valueFinderNumDice != 0 & successChance != 0) ||
                     (difficulty != 0 & valueFinderNumDice == 0 & successChance != 0) ||
                     (difficulty != 0 & valueFinderNumDice != 0 & successChance == 0))
                 {
-                    runButton.Enabled = true;
+                    RunButton.Enabled = true;
                 }
-                errorProvider.SetError(difficultyValueFinderTextBox, "");
+                ErrorProvider.SetError(DifficultyValueFinderTextBox, "");
             }
             catch (Exception ex)
             {
-                runButton.Enabled = false;
-                errorProvider.SetError(difficultyValueFinderTextBox, "Invalid value - Enter an integer greater than 0");
+                RunButton.Enabled = false;
+                ErrorProvider.SetError(DifficultyValueFinderTextBox, "Invalid value - Enter an integer greater than 0");
             }
         }
 
-        private void numDiceValueFinderTextBox_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        private void NumDiceValueFinderTextBox_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
             try
             {
                 int x;
                 // If this textbox is empty, assign a value of 0
                 // NOTE - This is used for checking which value needs to be calculated
-                if (string.IsNullOrEmpty(numDiceValueFinderTextBox.Text))
+                if (string.IsNullOrEmpty(NumDiceValueFinderTextBox.Text))
                 {
                     x = 0;
                 }
                 else
                 {
-                    x = Int32.Parse(numDiceValueFinderTextBox.Text);
+                    x = Int32.Parse(NumDiceValueFinderTextBox.Text);
                     // Auto assign variable to closest acceptable value when input is out-of-bounds
                     if (x < 1)
                     {
@@ -510,37 +818,37 @@ namespace CNH_Value_Finder
                 }
                 // Assign variables and enable the 'Run' button if *exactly* one of the Value Finder options is empty, since we passed validation
                 valueFinderNumDice = x;
-                runButton.Enabled = false;
+                RunButton.Enabled = false;
                 if ((difficulty == 0 & valueFinderNumDice != 0 & successChance != 0) ||
                     (difficulty != 0 & valueFinderNumDice == 0 & successChance != 0) ||
                     (difficulty != 0 & valueFinderNumDice != 0 & successChance == 0))
                 {
-                    runButton.Enabled = true;
+                    RunButton.Enabled = true;
                 }
-                errorProvider.SetError(numDiceValueFinderTextBox, "");
+                ErrorProvider.SetError(NumDiceValueFinderTextBox, "");
             }
             catch (Exception ex)
             {
-                runButton.Enabled = false;
-                errorProvider.SetError(numDiceValueFinderTextBox, "Invalid value - Enter an integer greater than 0");
+                RunButton.Enabled = false;
+                ErrorProvider.SetError(NumDiceValueFinderTextBox, "Invalid value - Enter an integer greater than 0");
             }
         }
 
-        private void successChanceValueFinderTextBox_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        private void SuccessChanceValueFinderTextBox_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
             try
             {
                 double x;
                 // If this textbox is empty, assign a value of 0
                 // NOTE - This is used for checking which value needs to be calculated
-                if (string.IsNullOrEmpty(successChanceValueFinderTextBox.Text))
+                if (string.IsNullOrEmpty(SuccessChanceValueFinderTextBox.Text))
                 {
                     x = 0;
                 }
                 // If user input has a '%' symbol at the end, strip it and treat the value as a percent (divide by 100)
-                else if (successChanceValueFinderTextBox.Text[successChanceValueFinderTextBox.Text.Length - 1] == '%')
+                else if (SuccessChanceValueFinderTextBox.Text[SuccessChanceValueFinderTextBox.Text.Length - 1] == '%')
                 {
-                    x = Double.Parse(successChanceValueFinderTextBox.Text.Substring(0, successChanceValueFinderTextBox.Text.Length - 1));
+                    x = Double.Parse(SuccessChanceValueFinderTextBox.Text.Substring(0, SuccessChanceValueFinderTextBox.Text.Length - 1));
                     x = x / 100;
                     // Auto assign variable to closest acceptable value when input is out-of-bounds
                     if (x <= 0)
@@ -554,7 +862,7 @@ namespace CNH_Value_Finder
                 }
                 else
                 {
-                    x = Double.Parse(successChanceValueFinderTextBox.Text);
+                    x = Double.Parse(SuccessChanceValueFinderTextBox.Text);
                     // If user input doesn't have a '%' at the end, assume values >= 1 are percentage form and treat them as such (divide by 100)
                     if (x >= 1)
                     {
@@ -572,35 +880,35 @@ namespace CNH_Value_Finder
                 }
                 // Assign variables and enable the 'Run' button if *exactly* one of the Value Finder options is empty, since we passed validation
                 successChance = x;
-                runButton.Enabled = false;
+                RunButton.Enabled = false;
                 if ((difficulty == 0 & valueFinderNumDice != 0 & successChance != 0) ||
                     (difficulty != 0 & valueFinderNumDice == 0 & successChance != 0) ||
                     (difficulty != 0 & valueFinderNumDice != 0 & successChance == 0))
                 {
-                    runButton.Enabled = true;
+                    RunButton.Enabled = true;
                 }
-                errorProvider.SetError(successChanceValueFinderTextBox, "");
+                ErrorProvider.SetError(SuccessChanceValueFinderTextBox, "");
             }
             catch (Exception ex)
             {
-                runButton.Enabled = false;
-                errorProvider.SetError(successChanceValueFinderTextBox, "Invalid value - Enter a number between 0 and 100, exclusive, optionally followed by a '%'");
+                RunButton.Enabled = false;
+                ErrorProvider.SetError(SuccessChanceValueFinderTextBox, "Invalid value - Enter a number between 0 and 100, exclusive, optionally followed by a '%'");
             }
         }
 
-        private void sumDiceFinderTextBox_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        private void SumDiceFinderTextBox_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
             try
             {
                 int x;
                 // Default value of a dice sum of 1
-                if (string.IsNullOrEmpty(sumDiceFinderTextBox.Text))
+                if (string.IsNullOrEmpty(SumDiceFinderTextBox.Text))
                 {
                     x = 1;
                 }
                 else
                 {
-                    x = Int32.Parse(sumDiceFinderTextBox.Text);
+                    x = Int32.Parse(SumDiceFinderTextBox.Text);
                 }
                 // Auto assign variable to closest acceptable value when input is out-of-bounds
                 if (x < 1)
@@ -609,13 +917,13 @@ namespace CNH_Value_Finder
                 }
                 // Assign variables and enable everything since we passed validation
                 diceSum = x;
-                runButton.Enabled = true;
-                errorProvider.SetError(sumDiceFinderTextBox, "");
+                RunButton.Enabled = true;
+                ErrorProvider.SetError(SumDiceFinderTextBox, "");
             }
             catch (Exception ex)
             {
-                runButton.Enabled = false;
-                errorProvider.SetError(sumDiceFinderTextBox, "Invalid value - Enter an integer greater than 0");
+                RunButton.Enabled = false;
+                ErrorProvider.SetError(SumDiceFinderTextBox, "Invalid value - Enter an integer greater than 0");
             }
         }
     }

@@ -29,1137 +29,1131 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            overallTableLayoutPanel = new TableLayoutPanel();
-            overallUsageTextLabel = new Label();
-            runButton = new Button();
-            advantageStateGroupBox = new GroupBox();
-            disadvantageRadioButton = new RadioButton();
-            neutralRadioButton = new RadioButton();
-            advantageRadioButton = new RadioButton();
-            typeDiceTextBox = new TextBox();
-            numDiceTextBox = new TextBox();
-            successThresholdTextBox = new TextBox();
-            typeDiceLabel = new Label();
-            numDiceLabel = new Label();
-            successThresholdLabel = new Label();
-            functionOptionsTabControl = new TabControl();
-            diceRollerTabPage = new TabPage();
-            diceRollerTableLayoutPanel = new TableLayoutPanel();
-            usageTextSuccessDiceRollerLabel = new Label();
-            usageTextSumDiceRollerLabel = new Label();
-            headerTextSumDiceRollerLabel = new Label();
-            headerTextSuccessDiceRollerLabel = new Label();
-            sumDiceRollerPanel = new Panel();
-            bodyTextSumDiceRollerLabel = new Label();
-            successDiceRollerPanel = new Panel();
-            bodyTextSuccessDiceRollerLabel = new Label();
-            probabilityDisplaysTabPage = new TabPage();
-            probabilityDisplayTableLayoutPanel = new TableLayoutPanel();
-            usageTextSuccessProbabilityDisplayLabel = new Label();
-            usageTextSumProbabilityDisplayLabel = new Label();
-            headerTextSumProbabilityDisplayLabel = new Label();
-            headerTextSuccessProbabilityDisplayLabel = new Label();
-            sumProbabilityDisplayPanel = new Panel();
-            bodyTextSumProbabilityDisplayLabel = new Label();
-            successProbabilityDisplayPanel = new Panel();
-            bodyTextSuccessProbabilityDisplayLabel = new Label();
-            valueFinderTabPage = new TabPage();
-            valueFinderTableLayoutPanel = new TableLayoutPanel();
-            valueFinderUsageTextLabel = new Label();
-            difficultyValueFinderTextBox = new TextBox();
-            numDiceValueFinderTextBox = new TextBox();
-            successChanceValueFinderTextBox = new TextBox();
-            difficultyValueFinderLabel = new Label();
-            numDiceValueFinderLabel = new Label();
-            successChanceValueFinderLabel = new Label();
-            valueFinderPanel = new Panel();
-            bodyTextValueFinderLabel = new Label();
-            diceFinderTabPage = new TabPage();
-            diceFinderTableLayoutPanel = new TableLayoutPanel();
-            diceFinderUsageTextLabel = new Label();
-            sumDiceFinderTextBox = new TextBox();
-            sumDiceFinderLabel = new Label();
-            diceFinderPanel = new Panel();
-            bodyTextDiceFinderLabel = new Label();
-            errorProvider = new ErrorProvider(components);
-            overallTableLayoutPanel.SuspendLayout();
-            advantageStateGroupBox.SuspendLayout();
-            functionOptionsTabControl.SuspendLayout();
-            diceRollerTabPage.SuspendLayout();
-            diceRollerTableLayoutPanel.SuspendLayout();
-            sumDiceRollerPanel.SuspendLayout();
-            successDiceRollerPanel.SuspendLayout();
-            probabilityDisplaysTabPage.SuspendLayout();
-            probabilityDisplayTableLayoutPanel.SuspendLayout();
-            sumProbabilityDisplayPanel.SuspendLayout();
-            successProbabilityDisplayPanel.SuspendLayout();
-            valueFinderTabPage.SuspendLayout();
-            valueFinderTableLayoutPanel.SuspendLayout();
-            valueFinderPanel.SuspendLayout();
-            diceFinderTabPage.SuspendLayout();
-            diceFinderTableLayoutPanel.SuspendLayout();
-            diceFinderPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)errorProvider).BeginInit();
+            OverallTableLayoutPanel = new TableLayoutPanel();
+            OverallUsageTextLabel = new Label();
+            RunButton = new Button();
+            AdvantageStateGroupBox = new GroupBox();
+            DisadvantageRadioButton = new RadioButton();
+            NeutralRadioButton = new RadioButton();
+            AdvantageRadioButton = new RadioButton();
+            TypeDiceTextBox = new TextBox();
+            NumDiceTextBox = new TextBox();
+            SuccessThresholdTextBox = new TextBox();
+            TypeDiceLabel = new Label();
+            NumDiceLabel = new Label();
+            SuccessThresholdLabel = new Label();
+            FunctionOptionsTabControl = new TabControl();
+            DiceRollerTabPage = new TabPage();
+            DiceRollerTableLayoutPanel = new TableLayoutPanel();
+            UsageTextSuccessDiceRollerLabel = new Label();
+            UsageTextSumDiceRollerLabel = new Label();
+            HeaderTextSumDiceRollerLabel = new Label();
+            HeaderTextSuccessDiceRollerLabel = new Label();
+            SumDiceRollerPanel = new Panel();
+            BodyTextSumDiceRollerLabel = new Label();
+            SuccessDiceRollerPanel = new Panel();
+            BodyTextSuccessDiceRollerLabel = new Label();
+            ProbabilityDisplaysTabPage = new TabPage();
+            ProbabilityDisplayTableLayoutPanel = new TableLayoutPanel();
+            UsageTextSuccessProbabilityDisplayLabel = new Label();
+            UsageTextSumProbabilityDisplayLabel = new Label();
+            HeaderTextSumProbabilityDisplayLabel = new Label();
+            HeaderTextSuccessProbabilityDisplayLabel = new Label();
+            SumProbabilityDisplayPanel = new Panel();
+            BodyTextSumProbabilityDisplayLabel = new Label();
+            SuccessProbabilityDisplayPanel = new Panel();
+            BodyTextSuccessProbabilityDisplayLabel = new Label();
+            ValueFinderTabPage = new TabPage();
+            ValueFinderTableLayoutPanel = new TableLayoutPanel();
+            ValueFinderUsageTextLabel = new Label();
+            DifficultyValueFinderTextBox = new TextBox();
+            NumDiceValueFinderTextBox = new TextBox();
+            SuccessChanceValueFinderTextBox = new TextBox();
+            DifficultyValueFinderLabel = new Label();
+            NumDiceValueFinderLabel = new Label();
+            SuccessChanceValueFinderLabel = new Label();
+            ValueFinderPanel = new Panel();
+            BodyTextValueFinderLabel = new Label();
+            DiceFinderTabPage = new TabPage();
+            DiceFinderTableLayoutPanel = new TableLayoutPanel();
+            DiceFinderUsageTextLabel = new Label();
+            SumDiceFinderTextBox = new TextBox();
+            SumDiceFinderLabel = new Label();
+            DiceFinderPanel = new Panel();
+            BodyTextDiceFinderLabel = new Label();
+            ErrorProvider = new ErrorProvider(components);
+            OverallTableLayoutPanel.SuspendLayout();
+            AdvantageStateGroupBox.SuspendLayout();
+            FunctionOptionsTabControl.SuspendLayout();
+            DiceRollerTabPage.SuspendLayout();
+            DiceRollerTableLayoutPanel.SuspendLayout();
+            SumDiceRollerPanel.SuspendLayout();
+            SuccessDiceRollerPanel.SuspendLayout();
+            ProbabilityDisplaysTabPage.SuspendLayout();
+            ProbabilityDisplayTableLayoutPanel.SuspendLayout();
+            SumProbabilityDisplayPanel.SuspendLayout();
+            SuccessProbabilityDisplayPanel.SuspendLayout();
+            ValueFinderTabPage.SuspendLayout();
+            ValueFinderTableLayoutPanel.SuspendLayout();
+            ValueFinderPanel.SuspendLayout();
+            DiceFinderTabPage.SuspendLayout();
+            DiceFinderTableLayoutPanel.SuspendLayout();
+            DiceFinderPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)ErrorProvider).BeginInit();
             SuspendLayout();
             // 
-            // overallTableLayoutPanel
-            // 
-            overallTableLayoutPanel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            overallTableLayoutPanel.ColumnCount = 20;
-            overallTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            overallTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            overallTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            overallTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            overallTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            overallTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            overallTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            overallTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            overallTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            overallTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            overallTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            overallTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            overallTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            overallTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            overallTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            overallTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            overallTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            overallTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            overallTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            overallTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            overallTableLayoutPanel.Controls.Add(overallUsageTextLabel, 0, 0);
-            overallTableLayoutPanel.Controls.Add(runButton, 9, 19);
-            overallTableLayoutPanel.Controls.Add(advantageStateGroupBox, 14, 1);
-            overallTableLayoutPanel.Controls.Add(typeDiceTextBox, 3, 2);
-            overallTableLayoutPanel.Controls.Add(numDiceTextBox, 7, 2);
-            overallTableLayoutPanel.Controls.Add(successThresholdTextBox, 11, 2);
-            overallTableLayoutPanel.Controls.Add(typeDiceLabel, 3, 3);
-            overallTableLayoutPanel.Controls.Add(numDiceLabel, 6, 3);
-            overallTableLayoutPanel.Controls.Add(successThresholdLabel, 10, 3);
-            overallTableLayoutPanel.Controls.Add(functionOptionsTabControl, 0, 5);
-            overallTableLayoutPanel.Location = new Point(9, 9);
-            overallTableLayoutPanel.Margin = new Padding(0);
-            overallTableLayoutPanel.Name = "overallTableLayoutPanel";
-            overallTableLayoutPanel.RowCount = 20;
-            overallTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            overallTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            overallTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            overallTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            overallTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            overallTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            overallTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            overallTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            overallTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            overallTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            overallTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            overallTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            overallTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            overallTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            overallTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            overallTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            overallTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            overallTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            overallTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            overallTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            overallTableLayoutPanel.Size = new Size(809, 499);
-            overallTableLayoutPanel.TabIndex = 0;
-            // 
-            // overallUsageTextLabel
-            // 
-            overallUsageTextLabel.Anchor = AnchorStyles.None;
-            overallUsageTextLabel.AutoSize = true;
-            overallTableLayoutPanel.SetColumnSpan(overallUsageTextLabel, 20);
-            overallUsageTextLabel.Font = new Font("Segoe UI", 10F);
-            overallUsageTextLabel.Location = new Point(139, 2);
-            overallUsageTextLabel.Name = "overallUsageTextLabel";
-            overallUsageTextLabel.Size = new Size(531, 19);
-            overallUsageTextLabel.TabIndex = 0;
-            overallUsageTextLabel.Text = "Welcome to the CNH Value Finder! Fill in the basic info, then pick a tab to get started!";
-            overallUsageTextLabel.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // runButton
-            // 
-            runButton.Anchor = AnchorStyles.None;
-            runButton.AutoSize = true;
-            overallTableLayoutPanel.SetColumnSpan(runButton, 2);
-            runButton.Location = new Point(381, 465);
-            runButton.MinimumSize = new Size(34, 20);
-            runButton.Name = "runButton";
-            runButton.Size = new Size(38, 25);
-            runButton.TabIndex = 1;
-            runButton.Text = "Run";
-            runButton.UseVisualStyleBackColor = true;
-            runButton.Click += runButton_Click;
-            // 
-            // advantageStateGroupBox
-            // 
-            advantageStateGroupBox.Anchor = AnchorStyles.Top;
-            advantageStateGroupBox.AutoSize = true;
-            advantageStateGroupBox.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            overallTableLayoutPanel.SetColumnSpan(advantageStateGroupBox, 4);
-            advantageStateGroupBox.Controls.Add(disadvantageRadioButton);
-            advantageStateGroupBox.Controls.Add(neutralRadioButton);
-            advantageStateGroupBox.Controls.Add(advantageRadioButton);
-            advantageStateGroupBox.Location = new Point(586, 27);
-            advantageStateGroupBox.MinimumSize = new Size(107, 0);
-            advantageStateGroupBox.Name = "advantageStateGroupBox";
-            overallTableLayoutPanel.SetRowSpan(advantageStateGroupBox, 4);
-            advantageStateGroupBox.Size = new Size(107, 79);
-            advantageStateGroupBox.TabIndex = 2;
-            advantageStateGroupBox.TabStop = false;
-            advantageStateGroupBox.Text = "Advantage State";
-            // 
-            // disadvantageRadioButton
-            // 
-            disadvantageRadioButton.AutoSize = true;
-            disadvantageRadioButton.Dock = DockStyle.Fill;
-            disadvantageRadioButton.Location = new Point(3, 57);
-            disadvantageRadioButton.Name = "disadvantageRadioButton";
-            disadvantageRadioButton.Size = new Size(101, 19);
-            disadvantageRadioButton.TabIndex = 2;
-            disadvantageRadioButton.TabStop = true;
-            disadvantageRadioButton.Text = "Disadvantage";
-            disadvantageRadioButton.UseVisualStyleBackColor = true;
-            // 
-            // neutralRadioButton
-            // 
-            neutralRadioButton.AutoSize = true;
-            neutralRadioButton.Checked = true;
-            neutralRadioButton.Dock = DockStyle.Top;
-            neutralRadioButton.Location = new Point(3, 38);
-            neutralRadioButton.Name = "neutralRadioButton";
-            neutralRadioButton.Size = new Size(101, 19);
-            neutralRadioButton.TabIndex = 1;
-            neutralRadioButton.TabStop = true;
-            neutralRadioButton.Text = "Neutral";
-            neutralRadioButton.UseVisualStyleBackColor = true;
-            // 
-            // advantageRadioButton
-            // 
-            advantageRadioButton.AutoSize = true;
-            advantageRadioButton.Dock = DockStyle.Top;
-            advantageRadioButton.Location = new Point(3, 19);
-            advantageRadioButton.Name = "advantageRadioButton";
-            advantageRadioButton.Size = new Size(101, 19);
-            advantageRadioButton.TabIndex = 0;
-            advantageRadioButton.Text = "Advantage";
-            advantageRadioButton.UseVisualStyleBackColor = true;
-            // 
-            // typeDiceTextBox
-            // 
-            typeDiceTextBox.Anchor = AnchorStyles.Top;
-            overallTableLayoutPanel.SetColumnSpan(typeDiceTextBox, 2);
-            typeDiceTextBox.Font = new Font("Segoe UI", 10F);
-            typeDiceTextBox.Location = new Point(120, 48);
-            typeDiceTextBox.Margin = new Padding(0);
-            typeDiceTextBox.Name = "typeDiceTextBox";
-            typeDiceTextBox.PlaceholderText = "d6";
-            typeDiceTextBox.Size = new Size(80, 25);
-            typeDiceTextBox.TabIndex = 3;
-            typeDiceTextBox.TextAlign = HorizontalAlignment.Center;
-            typeDiceTextBox.Validating += typeDiceTextBox_Validating;
-            // 
-            // numDiceTextBox
-            // 
-            numDiceTextBox.Anchor = AnchorStyles.Top;
-            overallTableLayoutPanel.SetColumnSpan(numDiceTextBox, 2);
-            numDiceTextBox.Font = new Font("Segoe UI", 10F);
-            numDiceTextBox.Location = new Point(280, 48);
-            numDiceTextBox.Margin = new Padding(0);
-            numDiceTextBox.Name = "numDiceTextBox";
-            numDiceTextBox.PlaceholderText = "1";
-            numDiceTextBox.Size = new Size(80, 25);
-            numDiceTextBox.TabIndex = 4;
-            numDiceTextBox.TextAlign = HorizontalAlignment.Center;
-            numDiceTextBox.Validating += numDiceTextBox_Validating;
-            // 
-            // successThresholdTextBox
-            // 
-            successThresholdTextBox.Anchor = AnchorStyles.Top;
-            overallTableLayoutPanel.SetColumnSpan(successThresholdTextBox, 2);
-            successThresholdTextBox.Font = new Font("Segoe UI", 10F);
-            successThresholdTextBox.Location = new Point(440, 48);
-            successThresholdTextBox.Margin = new Padding(0);
-            successThresholdTextBox.Name = "successThresholdTextBox";
-            successThresholdTextBox.PlaceholderText = "4";
-            successThresholdTextBox.Size = new Size(80, 25);
-            successThresholdTextBox.TabIndex = 5;
-            successThresholdTextBox.TextAlign = HorizontalAlignment.Center;
-            successThresholdTextBox.Validating += successThresholdTextBox_Validating;
-            // 
-            // typeDiceLabel
-            // 
-            typeDiceLabel.Anchor = AnchorStyles.None;
-            typeDiceLabel.AutoSize = true;
-            overallTableLayoutPanel.SetColumnSpan(typeDiceLabel, 2);
-            typeDiceLabel.Location = new Point(124, 76);
-            typeDiceLabel.Margin = new Padding(0);
-            typeDiceLabel.Name = "typeDiceLabel";
-            typeDiceLabel.Size = new Size(72, 15);
-            typeDiceLabel.TabIndex = 6;
-            typeDiceLabel.Text = "Type of Dice";
-            typeDiceLabel.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // numDiceLabel
-            // 
-            numDiceLabel.Anchor = AnchorStyles.None;
-            numDiceLabel.AutoSize = true;
-            overallTableLayoutPanel.SetColumnSpan(numDiceLabel, 4);
-            numDiceLabel.Location = new Point(274, 76);
-            numDiceLabel.Margin = new Padding(0);
-            numDiceLabel.Name = "numDiceLabel";
-            numDiceLabel.Size = new Size(91, 15);
-            numDiceLabel.TabIndex = 7;
-            numDiceLabel.Text = "Number of Dice";
-            numDiceLabel.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // successThresholdLabel
-            // 
-            successThresholdLabel.Anchor = AnchorStyles.None;
-            successThresholdLabel.AutoSize = true;
-            overallTableLayoutPanel.SetColumnSpan(successThresholdLabel, 4);
-            successThresholdLabel.Location = new Point(428, 76);
-            successThresholdLabel.Margin = new Padding(0);
-            successThresholdLabel.Name = "successThresholdLabel";
-            successThresholdLabel.Size = new Size(104, 15);
-            successThresholdLabel.TabIndex = 8;
-            successThresholdLabel.Text = "Success Threshold";
-            successThresholdLabel.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // functionOptionsTabControl
-            // 
-            overallTableLayoutPanel.SetColumnSpan(functionOptionsTabControl, 20);
-            functionOptionsTabControl.Controls.Add(diceRollerTabPage);
-            functionOptionsTabControl.Controls.Add(probabilityDisplaysTabPage);
-            functionOptionsTabControl.Controls.Add(valueFinderTabPage);
-            functionOptionsTabControl.Controls.Add(diceFinderTabPage);
-            functionOptionsTabControl.Dock = DockStyle.Fill;
-            functionOptionsTabControl.Location = new Point(0, 120);
-            functionOptionsTabControl.Margin = new Padding(0);
-            functionOptionsTabControl.Name = "functionOptionsTabControl";
-            overallTableLayoutPanel.SetRowSpan(functionOptionsTabControl, 14);
-            functionOptionsTabControl.SelectedIndex = 0;
-            functionOptionsTabControl.Size = new Size(809, 336);
-            functionOptionsTabControl.TabIndex = 9;
-            functionOptionsTabControl.SelectedIndexChanged += functionOptionsTabControl_SelectedIndexChanged;
-            // 
-            // diceRollerTabPage
-            // 
-            diceRollerTabPage.Controls.Add(diceRollerTableLayoutPanel);
-            diceRollerTabPage.Font = new Font("Segoe UI", 10F);
-            diceRollerTabPage.Location = new Point(4, 24);
-            diceRollerTabPage.Margin = new Padding(0);
-            diceRollerTabPage.Name = "diceRollerTabPage";
-            diceRollerTabPage.Size = new Size(801, 308);
-            diceRollerTabPage.TabIndex = 0;
-            diceRollerTabPage.Text = "Dice Roller";
-            diceRollerTabPage.UseVisualStyleBackColor = true;
-            // 
-            // diceRollerTableLayoutPanel
-            // 
-            diceRollerTableLayoutPanel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            diceRollerTableLayoutPanel.ColumnCount = 20;
-            diceRollerTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            diceRollerTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            diceRollerTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            diceRollerTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            diceRollerTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            diceRollerTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            diceRollerTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            diceRollerTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            diceRollerTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            diceRollerTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            diceRollerTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            diceRollerTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            diceRollerTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            diceRollerTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            diceRollerTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            diceRollerTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            diceRollerTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            diceRollerTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            diceRollerTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            diceRollerTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            diceRollerTableLayoutPanel.Controls.Add(usageTextSuccessDiceRollerLabel, 10, 2);
-            diceRollerTableLayoutPanel.Controls.Add(usageTextSumDiceRollerLabel, 0, 2);
-            diceRollerTableLayoutPanel.Controls.Add(headerTextSumDiceRollerLabel, 0, 0);
-            diceRollerTableLayoutPanel.Controls.Add(headerTextSuccessDiceRollerLabel, 10, 0);
-            diceRollerTableLayoutPanel.Controls.Add(sumDiceRollerPanel, 0, 4);
-            diceRollerTableLayoutPanel.Controls.Add(successDiceRollerPanel, 10, 4);
-            diceRollerTableLayoutPanel.Dock = DockStyle.Fill;
-            diceRollerTableLayoutPanel.Location = new Point(0, 0);
-            diceRollerTableLayoutPanel.Margin = new Padding(0);
-            diceRollerTableLayoutPanel.Name = "diceRollerTableLayoutPanel";
-            diceRollerTableLayoutPanel.RowCount = 20;
-            diceRollerTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            diceRollerTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            diceRollerTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            diceRollerTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            diceRollerTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            diceRollerTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            diceRollerTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            diceRollerTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            diceRollerTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            diceRollerTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            diceRollerTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            diceRollerTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            diceRollerTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            diceRollerTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            diceRollerTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            diceRollerTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            diceRollerTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            diceRollerTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            diceRollerTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            diceRollerTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            diceRollerTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            diceRollerTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            diceRollerTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            diceRollerTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            diceRollerTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            diceRollerTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            diceRollerTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            diceRollerTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            diceRollerTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            diceRollerTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            diceRollerTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            diceRollerTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            diceRollerTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            diceRollerTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            diceRollerTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            diceRollerTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            diceRollerTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            diceRollerTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            diceRollerTableLayoutPanel.Size = new Size(801, 308);
-            diceRollerTableLayoutPanel.TabIndex = 0;
-            // 
-            // usageTextSuccessDiceRollerLabel
-            // 
-            usageTextSuccessDiceRollerLabel.Anchor = AnchorStyles.None;
-            usageTextSuccessDiceRollerLabel.AutoSize = true;
-            diceRollerTableLayoutPanel.SetColumnSpan(usageTextSuccessDiceRollerLabel, 10);
-            usageTextSuccessDiceRollerLabel.Location = new Point(409, 35);
-            usageTextSuccessDiceRollerLabel.Margin = new Padding(0);
-            usageTextSuccessDiceRollerLabel.MaximumSize = new Size(402, 0);
-            usageTextSuccessDiceRollerLabel.Name = "usageTextSuccessDiceRollerLabel";
-            diceRollerTableLayoutPanel.SetRowSpan(usageTextSuccessDiceRollerLabel, 2);
-            usageTextSuccessDiceRollerLabel.Size = new Size(382, 19);
-            usageTextSuccessDiceRollerLabel.TabIndex = 0;
-            usageTextSuccessDiceRollerLabel.Text = "Fill in the info above, then press 'Run' below to roll some dice";
-            usageTextSuccessDiceRollerLabel.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // usageTextSumDiceRollerLabel
-            // 
-            usageTextSumDiceRollerLabel.Anchor = AnchorStyles.None;
-            usageTextSumDiceRollerLabel.AutoSize = true;
-            diceRollerTableLayoutPanel.SetColumnSpan(usageTextSumDiceRollerLabel, 10);
-            usageTextSumDiceRollerLabel.Location = new Point(9, 35);
-            usageTextSumDiceRollerLabel.Margin = new Padding(0);
-            usageTextSumDiceRollerLabel.MaximumSize = new Size(402, 0);
-            usageTextSumDiceRollerLabel.Name = "usageTextSumDiceRollerLabel";
-            diceRollerTableLayoutPanel.SetRowSpan(usageTextSumDiceRollerLabel, 2);
-            usageTextSumDiceRollerLabel.Size = new Size(382, 19);
-            usageTextSumDiceRollerLabel.TabIndex = 0;
-            usageTextSumDiceRollerLabel.Text = "Fill in the info above, then press 'Run' below to roll some dice";
-            usageTextSumDiceRollerLabel.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // headerTextSumDiceRollerLabel
-            // 
-            headerTextSumDiceRollerLabel.Anchor = AnchorStyles.None;
-            headerTextSumDiceRollerLabel.AutoSize = true;
-            diceRollerTableLayoutPanel.SetColumnSpan(headerTextSumDiceRollerLabel, 10);
-            headerTextSumDiceRollerLabel.Font = new Font("Segoe UI", 12F);
-            headerTextSumDiceRollerLabel.Location = new Point(161, 4);
-            headerTextSumDiceRollerLabel.Name = "headerTextSumDiceRollerLabel";
-            diceRollerTableLayoutPanel.SetRowSpan(headerTextSumDiceRollerLabel, 2);
-            headerTextSumDiceRollerLabel.Size = new Size(78, 21);
-            headerTextSumDiceRollerLabel.TabIndex = 0;
-            headerTextSumDiceRollerLabel.Text = "Total Sum";
-            headerTextSumDiceRollerLabel.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // headerTextSuccessDiceRollerLabel
-            // 
-            headerTextSuccessDiceRollerLabel.Anchor = AnchorStyles.None;
-            headerTextSuccessDiceRollerLabel.AutoSize = true;
-            diceRollerTableLayoutPanel.SetColumnSpan(headerTextSuccessDiceRollerLabel, 10);
-            headerTextSuccessDiceRollerLabel.Font = new Font("Segoe UI", 12F);
-            headerTextSuccessDiceRollerLabel.Location = new Point(543, 4);
-            headerTextSuccessDiceRollerLabel.Name = "headerTextSuccessDiceRollerLabel";
-            diceRollerTableLayoutPanel.SetRowSpan(headerTextSuccessDiceRollerLabel, 2);
-            headerTextSuccessDiceRollerLabel.Size = new Size(115, 21);
-            headerTextSuccessDiceRollerLabel.TabIndex = 1;
-            headerTextSuccessDiceRollerLabel.Text = "Total Successes";
-            headerTextSuccessDiceRollerLabel.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // sumDiceRollerPanel
-            // 
-            sumDiceRollerPanel.AutoScroll = true;
-            sumDiceRollerPanel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            diceRollerTableLayoutPanel.SetColumnSpan(sumDiceRollerPanel, 10);
-            sumDiceRollerPanel.Controls.Add(bodyTextSumDiceRollerLabel);
-            sumDiceRollerPanel.Dock = DockStyle.Fill;
-            sumDiceRollerPanel.Location = new Point(0, 60);
-            sumDiceRollerPanel.Margin = new Padding(0);
-            sumDiceRollerPanel.Name = "sumDiceRollerPanel";
-            diceRollerTableLayoutPanel.SetRowSpan(sumDiceRollerPanel, 16);
-            sumDiceRollerPanel.Size = new Size(400, 248);
-            sumDiceRollerPanel.TabIndex = 2;
-            // 
-            // bodyTextSumDiceRollerLabel
-            // 
-            bodyTextSumDiceRollerLabel.AutoSize = true;
-            bodyTextSumDiceRollerLabel.Location = new Point(0, 0);
-            bodyTextSumDiceRollerLabel.Margin = new Padding(0);
-            bodyTextSumDiceRollerLabel.MaximumSize = new Size(402, 0);
-            bodyTextSumDiceRollerLabel.Name = "bodyTextSumDiceRollerLabel";
-            bodyTextSumDiceRollerLabel.Padding = new Padding(3);
-            bodyTextSumDiceRollerLabel.Size = new Size(6, 25);
-            bodyTextSumDiceRollerLabel.TabIndex = 0;
-            bodyTextSumDiceRollerLabel.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // successDiceRollerPanel
-            // 
-            successDiceRollerPanel.AutoScroll = true;
-            successDiceRollerPanel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            diceRollerTableLayoutPanel.SetColumnSpan(successDiceRollerPanel, 10);
-            successDiceRollerPanel.Controls.Add(bodyTextSuccessDiceRollerLabel);
-            successDiceRollerPanel.Dock = DockStyle.Fill;
-            successDiceRollerPanel.Location = new Point(400, 60);
-            successDiceRollerPanel.Margin = new Padding(0);
-            successDiceRollerPanel.Name = "successDiceRollerPanel";
-            diceRollerTableLayoutPanel.SetRowSpan(successDiceRollerPanel, 16);
-            successDiceRollerPanel.Size = new Size(401, 248);
-            successDiceRollerPanel.TabIndex = 3;
-            // 
-            // bodyTextSuccessDiceRollerLabel
-            // 
-            bodyTextSuccessDiceRollerLabel.AutoSize = true;
-            bodyTextSuccessDiceRollerLabel.Location = new Point(0, 0);
-            bodyTextSuccessDiceRollerLabel.Margin = new Padding(0);
-            bodyTextSuccessDiceRollerLabel.MaximumSize = new Size(402, 0);
-            bodyTextSuccessDiceRollerLabel.Name = "bodyTextSuccessDiceRollerLabel";
-            bodyTextSuccessDiceRollerLabel.Padding = new Padding(3);
-            bodyTextSuccessDiceRollerLabel.Size = new Size(6, 25);
-            bodyTextSuccessDiceRollerLabel.TabIndex = 0;
-            bodyTextSuccessDiceRollerLabel.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // probabilityDisplaysTabPage
-            // 
-            probabilityDisplaysTabPage.Controls.Add(probabilityDisplayTableLayoutPanel);
-            probabilityDisplaysTabPage.Font = new Font("Segoe UI", 10F);
-            probabilityDisplaysTabPage.Location = new Point(4, 24);
-            probabilityDisplaysTabPage.Margin = new Padding(0);
-            probabilityDisplaysTabPage.Name = "probabilityDisplaysTabPage";
-            probabilityDisplaysTabPage.Size = new Size(801, 308);
-            probabilityDisplaysTabPage.TabIndex = 1;
-            probabilityDisplaysTabPage.Text = "Probability Displays";
-            probabilityDisplaysTabPage.UseVisualStyleBackColor = true;
-            // 
-            // probabilityDisplayTableLayoutPanel
-            // 
-            probabilityDisplayTableLayoutPanel.AutoSize = true;
-            probabilityDisplayTableLayoutPanel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            probabilityDisplayTableLayoutPanel.ColumnCount = 20;
-            probabilityDisplayTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            probabilityDisplayTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            probabilityDisplayTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            probabilityDisplayTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            probabilityDisplayTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            probabilityDisplayTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            probabilityDisplayTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            probabilityDisplayTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            probabilityDisplayTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            probabilityDisplayTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            probabilityDisplayTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            probabilityDisplayTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            probabilityDisplayTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            probabilityDisplayTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            probabilityDisplayTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            probabilityDisplayTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            probabilityDisplayTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            probabilityDisplayTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            probabilityDisplayTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            probabilityDisplayTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            probabilityDisplayTableLayoutPanel.Controls.Add(usageTextSuccessProbabilityDisplayLabel, 10, 2);
-            probabilityDisplayTableLayoutPanel.Controls.Add(usageTextSumProbabilityDisplayLabel, 0, 2);
-            probabilityDisplayTableLayoutPanel.Controls.Add(headerTextSumProbabilityDisplayLabel, 0, 0);
-            probabilityDisplayTableLayoutPanel.Controls.Add(headerTextSuccessProbabilityDisplayLabel, 10, 0);
-            probabilityDisplayTableLayoutPanel.Controls.Add(sumProbabilityDisplayPanel, 0, 4);
-            probabilityDisplayTableLayoutPanel.Controls.Add(successProbabilityDisplayPanel, 10, 4);
-            probabilityDisplayTableLayoutPanel.Dock = DockStyle.Fill;
-            probabilityDisplayTableLayoutPanel.Location = new Point(0, 0);
-            probabilityDisplayTableLayoutPanel.Margin = new Padding(0);
-            probabilityDisplayTableLayoutPanel.Name = "probabilityDisplayTableLayoutPanel";
-            probabilityDisplayTableLayoutPanel.RowCount = 20;
-            probabilityDisplayTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            probabilityDisplayTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            probabilityDisplayTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            probabilityDisplayTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            probabilityDisplayTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            probabilityDisplayTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            probabilityDisplayTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            probabilityDisplayTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            probabilityDisplayTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            probabilityDisplayTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            probabilityDisplayTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            probabilityDisplayTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            probabilityDisplayTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            probabilityDisplayTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            probabilityDisplayTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            probabilityDisplayTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            probabilityDisplayTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            probabilityDisplayTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            probabilityDisplayTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            probabilityDisplayTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            probabilityDisplayTableLayoutPanel.Size = new Size(801, 308);
-            probabilityDisplayTableLayoutPanel.TabIndex = 0;
-            // 
-            // usageTextSuccessProbabilityDisplayLabel
-            // 
-            usageTextSuccessProbabilityDisplayLabel.Anchor = AnchorStyles.None;
-            usageTextSuccessProbabilityDisplayLabel.AutoSize = true;
-            probabilityDisplayTableLayoutPanel.SetColumnSpan(usageTextSuccessProbabilityDisplayLabel, 10);
-            usageTextSuccessProbabilityDisplayLabel.Location = new Point(415, 35);
-            usageTextSuccessProbabilityDisplayLabel.Margin = new Padding(0);
-            usageTextSuccessProbabilityDisplayLabel.MaximumSize = new Size(402, 0);
-            usageTextSuccessProbabilityDisplayLabel.Name = "usageTextSuccessProbabilityDisplayLabel";
-            probabilityDisplayTableLayoutPanel.SetRowSpan(usageTextSuccessProbabilityDisplayLabel, 2);
-            usageTextSuccessProbabilityDisplayLabel.Size = new Size(370, 19);
-            usageTextSuccessProbabilityDisplayLabel.TabIndex = 0;
-            usageTextSuccessProbabilityDisplayLabel.Text = "Fill in the info above, then press 'Run' below to see chances";
-            usageTextSuccessProbabilityDisplayLabel.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // usageTextSumProbabilityDisplayLabel
-            // 
-            usageTextSumProbabilityDisplayLabel.Anchor = AnchorStyles.None;
-            usageTextSumProbabilityDisplayLabel.AutoSize = true;
-            probabilityDisplayTableLayoutPanel.SetColumnSpan(usageTextSumProbabilityDisplayLabel, 10);
-            usageTextSumProbabilityDisplayLabel.Location = new Point(15, 35);
-            usageTextSumProbabilityDisplayLabel.Margin = new Padding(0);
-            usageTextSumProbabilityDisplayLabel.MaximumSize = new Size(402, 0);
-            usageTextSumProbabilityDisplayLabel.Name = "usageTextSumProbabilityDisplayLabel";
-            probabilityDisplayTableLayoutPanel.SetRowSpan(usageTextSumProbabilityDisplayLabel, 2);
-            usageTextSumProbabilityDisplayLabel.Size = new Size(370, 19);
-            usageTextSumProbabilityDisplayLabel.TabIndex = 0;
-            usageTextSumProbabilityDisplayLabel.Text = "Fill in the info above, then press 'Run' below to see chances";
-            usageTextSumProbabilityDisplayLabel.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // headerTextSumProbabilityDisplayLabel
-            // 
-            headerTextSumProbabilityDisplayLabel.Anchor = AnchorStyles.None;
-            headerTextSumProbabilityDisplayLabel.AutoSize = true;
-            probabilityDisplayTableLayoutPanel.SetColumnSpan(headerTextSumProbabilityDisplayLabel, 10);
-            headerTextSumProbabilityDisplayLabel.Font = new Font("Segoe UI", 12F);
-            headerTextSumProbabilityDisplayLabel.Location = new Point(145, 4);
-            headerTextSumProbabilityDisplayLabel.Name = "headerTextSumProbabilityDisplayLabel";
-            probabilityDisplayTableLayoutPanel.SetRowSpan(headerTextSumProbabilityDisplayLabel, 2);
-            headerTextSumProbabilityDisplayLabel.Size = new Size(110, 21);
-            headerTextSumProbabilityDisplayLabel.TabIndex = 0;
-            headerTextSumProbabilityDisplayLabel.Text = "Stats for Sums";
-            headerTextSumProbabilityDisplayLabel.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // headerTextSuccessProbabilityDisplayLabel
-            // 
-            headerTextSuccessProbabilityDisplayLabel.Anchor = AnchorStyles.None;
-            headerTextSuccessProbabilityDisplayLabel.AutoSize = true;
-            probabilityDisplayTableLayoutPanel.SetColumnSpan(headerTextSuccessProbabilityDisplayLabel, 10);
-            headerTextSuccessProbabilityDisplayLabel.Font = new Font("Segoe UI", 12F);
-            headerTextSuccessProbabilityDisplayLabel.Location = new Point(530, 4);
-            headerTextSuccessProbabilityDisplayLabel.Name = "headerTextSuccessProbabilityDisplayLabel";
-            probabilityDisplayTableLayoutPanel.SetRowSpan(headerTextSuccessProbabilityDisplayLabel, 2);
-            headerTextSuccessProbabilityDisplayLabel.Size = new Size(140, 21);
-            headerTextSuccessProbabilityDisplayLabel.TabIndex = 1;
-            headerTextSuccessProbabilityDisplayLabel.Text = "Stats for Successes";
-            headerTextSuccessProbabilityDisplayLabel.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // sumProbabilityDisplayPanel
-            // 
-            sumProbabilityDisplayPanel.AutoScroll = true;
-            sumProbabilityDisplayPanel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            probabilityDisplayTableLayoutPanel.SetColumnSpan(sumProbabilityDisplayPanel, 10);
-            sumProbabilityDisplayPanel.Controls.Add(bodyTextSumProbabilityDisplayLabel);
-            sumProbabilityDisplayPanel.Dock = DockStyle.Fill;
-            sumProbabilityDisplayPanel.Location = new Point(0, 60);
-            sumProbabilityDisplayPanel.Margin = new Padding(0);
-            sumProbabilityDisplayPanel.Name = "sumProbabilityDisplayPanel";
-            probabilityDisplayTableLayoutPanel.SetRowSpan(sumProbabilityDisplayPanel, 16);
-            sumProbabilityDisplayPanel.Size = new Size(400, 248);
-            sumProbabilityDisplayPanel.TabIndex = 2;
-            // 
-            // bodyTextSumProbabilityDisplayLabel
-            // 
-            bodyTextSumProbabilityDisplayLabel.AutoSize = true;
-            bodyTextSumProbabilityDisplayLabel.Location = new Point(0, 0);
-            bodyTextSumProbabilityDisplayLabel.Margin = new Padding(0);
-            bodyTextSumProbabilityDisplayLabel.MaximumSize = new Size(402, 0);
-            bodyTextSumProbabilityDisplayLabel.Name = "bodyTextSumProbabilityDisplayLabel";
-            bodyTextSumProbabilityDisplayLabel.Padding = new Padding(3);
-            bodyTextSumProbabilityDisplayLabel.Size = new Size(6, 25);
-            bodyTextSumProbabilityDisplayLabel.TabIndex = 0;
-            bodyTextSumProbabilityDisplayLabel.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // successProbabilityDisplayPanel
-            // 
-            successProbabilityDisplayPanel.AutoScroll = true;
-            successProbabilityDisplayPanel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            probabilityDisplayTableLayoutPanel.SetColumnSpan(successProbabilityDisplayPanel, 10);
-            successProbabilityDisplayPanel.Controls.Add(bodyTextSuccessProbabilityDisplayLabel);
-            successProbabilityDisplayPanel.Dock = DockStyle.Fill;
-            successProbabilityDisplayPanel.Location = new Point(400, 60);
-            successProbabilityDisplayPanel.Margin = new Padding(0);
-            successProbabilityDisplayPanel.Name = "successProbabilityDisplayPanel";
-            probabilityDisplayTableLayoutPanel.SetRowSpan(successProbabilityDisplayPanel, 16);
-            successProbabilityDisplayPanel.Size = new Size(401, 248);
-            successProbabilityDisplayPanel.TabIndex = 3;
-            // 
-            // bodyTextSuccessProbabilityDisplayLabel
-            // 
-            bodyTextSuccessProbabilityDisplayLabel.AutoSize = true;
-            bodyTextSuccessProbabilityDisplayLabel.Location = new Point(0, 0);
-            bodyTextSuccessProbabilityDisplayLabel.Margin = new Padding(0);
-            bodyTextSuccessProbabilityDisplayLabel.MaximumSize = new Size(402, 0);
-            bodyTextSuccessProbabilityDisplayLabel.Name = "bodyTextSuccessProbabilityDisplayLabel";
-            bodyTextSuccessProbabilityDisplayLabel.Padding = new Padding(3);
-            bodyTextSuccessProbabilityDisplayLabel.Size = new Size(6, 25);
-            bodyTextSuccessProbabilityDisplayLabel.TabIndex = 0;
-            bodyTextSuccessProbabilityDisplayLabel.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // valueFinderTabPage
-            // 
-            valueFinderTabPage.Controls.Add(valueFinderTableLayoutPanel);
-            valueFinderTabPage.Font = new Font("Segoe UI", 10F);
-            valueFinderTabPage.Location = new Point(4, 24);
-            valueFinderTabPage.Margin = new Padding(0);
-            valueFinderTabPage.Name = "valueFinderTabPage";
-            valueFinderTabPage.Size = new Size(801, 308);
-            valueFinderTabPage.TabIndex = 2;
-            valueFinderTabPage.Text = "Value Finder";
-            valueFinderTabPage.UseVisualStyleBackColor = true;
-            // 
-            // valueFinderTableLayoutPanel
-            // 
-            valueFinderTableLayoutPanel.AutoSize = true;
-            valueFinderTableLayoutPanel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            valueFinderTableLayoutPanel.ColumnCount = 20;
-            valueFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            valueFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            valueFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            valueFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            valueFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            valueFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            valueFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            valueFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            valueFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            valueFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            valueFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            valueFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            valueFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            valueFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            valueFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            valueFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            valueFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            valueFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            valueFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            valueFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            valueFinderTableLayoutPanel.Controls.Add(valueFinderUsageTextLabel, 0, 0);
-            valueFinderTableLayoutPanel.Controls.Add(difficultyValueFinderTextBox, 4, 2);
-            valueFinderTableLayoutPanel.Controls.Add(numDiceValueFinderTextBox, 9, 2);
-            valueFinderTableLayoutPanel.Controls.Add(successChanceValueFinderTextBox, 14, 2);
-            valueFinderTableLayoutPanel.Controls.Add(difficultyValueFinderLabel, 4, 4);
-            valueFinderTableLayoutPanel.Controls.Add(numDiceValueFinderLabel, 8, 4);
-            valueFinderTableLayoutPanel.Controls.Add(successChanceValueFinderLabel, 12, 4);
-            valueFinderTableLayoutPanel.Controls.Add(valueFinderPanel, 0, 5);
-            valueFinderTableLayoutPanel.Dock = DockStyle.Fill;
-            valueFinderTableLayoutPanel.Location = new Point(0, 0);
-            valueFinderTableLayoutPanel.Margin = new Padding(0);
-            valueFinderTableLayoutPanel.Name = "valueFinderTableLayoutPanel";
-            valueFinderTableLayoutPanel.RowCount = 20;
-            valueFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            valueFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            valueFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            valueFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            valueFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            valueFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            valueFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            valueFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            valueFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            valueFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            valueFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            valueFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            valueFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            valueFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            valueFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            valueFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            valueFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            valueFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            valueFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            valueFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            valueFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            valueFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            valueFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            valueFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            valueFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            valueFinderTableLayoutPanel.Size = new Size(801, 308);
-            valueFinderTableLayoutPanel.TabIndex = 0;
-            // 
-            // valueFinderUsageTextLabel
-            // 
-            valueFinderUsageTextLabel.AutoSize = true;
-            valueFinderTableLayoutPanel.SetColumnSpan(valueFinderUsageTextLabel, 20);
-            valueFinderUsageTextLabel.Dock = DockStyle.Fill;
-            valueFinderUsageTextLabel.Location = new Point(0, 0);
-            valueFinderUsageTextLabel.Margin = new Padding(0);
-            valueFinderUsageTextLabel.Name = "valueFinderUsageTextLabel";
-            valueFinderTableLayoutPanel.SetRowSpan(valueFinderUsageTextLabel, 2);
-            valueFinderUsageTextLabel.Size = new Size(801, 30);
-            valueFinderUsageTextLabel.TabIndex = 0;
-            valueFinderUsageTextLabel.Text = "Fill in two of the three options below, then press 'Run' at the bottom to find whichever value you left blank";
-            valueFinderUsageTextLabel.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // difficultyValueFinderTextBox
-            // 
-            difficultyValueFinderTextBox.Anchor = AnchorStyles.Top;
-            valueFinderTableLayoutPanel.SetColumnSpan(difficultyValueFinderTextBox, 2);
-            difficultyValueFinderTextBox.Location = new Point(160, 30);
-            difficultyValueFinderTextBox.Margin = new Padding(0);
-            difficultyValueFinderTextBox.Name = "difficultyValueFinderTextBox";
-            difficultyValueFinderTextBox.PlaceholderText = "Ex: 1";
-            valueFinderTableLayoutPanel.SetRowSpan(difficultyValueFinderTextBox, 2);
-            difficultyValueFinderTextBox.Size = new Size(80, 25);
-            difficultyValueFinderTextBox.TabIndex = 1;
-            difficultyValueFinderTextBox.TextAlign = HorizontalAlignment.Center;
-            difficultyValueFinderTextBox.Validating += difficultyValueFinderTextBox_Validating;
-            // 
-            // numDiceValueFinderTextBox
-            // 
-            numDiceValueFinderTextBox.Anchor = AnchorStyles.Top;
-            valueFinderTableLayoutPanel.SetColumnSpan(numDiceValueFinderTextBox, 2);
-            numDiceValueFinderTextBox.Location = new Point(360, 30);
-            numDiceValueFinderTextBox.Margin = new Padding(0);
-            numDiceValueFinderTextBox.Name = "numDiceValueFinderTextBox";
-            numDiceValueFinderTextBox.PlaceholderText = "Ex: 1";
-            valueFinderTableLayoutPanel.SetRowSpan(numDiceValueFinderTextBox, 2);
-            numDiceValueFinderTextBox.Size = new Size(80, 25);
-            numDiceValueFinderTextBox.TabIndex = 2;
-            numDiceValueFinderTextBox.TextAlign = HorizontalAlignment.Center;
-            numDiceValueFinderTextBox.Validating += numDiceValueFinderTextBox_Validating;
-            // 
-            // successChanceValueFinderTextBox
-            // 
-            successChanceValueFinderTextBox.Anchor = AnchorStyles.Top;
-            valueFinderTableLayoutPanel.SetColumnSpan(successChanceValueFinderTextBox, 2);
-            successChanceValueFinderTextBox.Location = new Point(560, 30);
-            successChanceValueFinderTextBox.Margin = new Padding(0);
-            successChanceValueFinderTextBox.Name = "successChanceValueFinderTextBox";
-            successChanceValueFinderTextBox.PlaceholderText = "Ex: 50%";
-            valueFinderTableLayoutPanel.SetRowSpan(successChanceValueFinderTextBox, 2);
-            successChanceValueFinderTextBox.Size = new Size(80, 25);
-            successChanceValueFinderTextBox.TabIndex = 3;
-            successChanceValueFinderTextBox.TextAlign = HorizontalAlignment.Center;
-            successChanceValueFinderTextBox.Validating += successChanceValueFinderTextBox_Validating;
-            // 
-            // difficultyValueFinderLabel
-            // 
-            difficultyValueFinderLabel.Anchor = AnchorStyles.None;
-            difficultyValueFinderLabel.AutoSize = true;
-            valueFinderTableLayoutPanel.SetColumnSpan(difficultyValueFinderLabel, 2);
-            difficultyValueFinderLabel.Font = new Font("Segoe UI", 9F);
-            difficultyValueFinderLabel.Location = new Point(172, 60);
-            difficultyValueFinderLabel.Margin = new Padding(0);
-            difficultyValueFinderLabel.Name = "difficultyValueFinderLabel";
-            difficultyValueFinderLabel.Size = new Size(55, 15);
-            difficultyValueFinderLabel.TabIndex = 4;
-            difficultyValueFinderLabel.Text = "Difficulty";
-            difficultyValueFinderLabel.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // numDiceValueFinderLabel
-            // 
-            numDiceValueFinderLabel.Anchor = AnchorStyles.None;
-            numDiceValueFinderLabel.AutoSize = true;
-            valueFinderTableLayoutPanel.SetColumnSpan(numDiceValueFinderLabel, 4);
-            numDiceValueFinderLabel.Font = new Font("Segoe UI", 9F);
-            numDiceValueFinderLabel.Location = new Point(354, 60);
-            numDiceValueFinderLabel.Margin = new Padding(0);
-            numDiceValueFinderLabel.Name = "numDiceValueFinderLabel";
-            numDiceValueFinderLabel.Size = new Size(91, 15);
-            numDiceValueFinderLabel.TabIndex = 5;
-            numDiceValueFinderLabel.Text = "Number of Dice";
-            numDiceValueFinderLabel.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // successChanceValueFinderLabel
-            // 
-            successChanceValueFinderLabel.Anchor = AnchorStyles.None;
-            successChanceValueFinderLabel.AutoSize = true;
-            valueFinderTableLayoutPanel.SetColumnSpan(successChanceValueFinderLabel, 6);
-            successChanceValueFinderLabel.Font = new Font("Segoe UI", 9F);
-            successChanceValueFinderLabel.Location = new Point(511, 60);
-            successChanceValueFinderLabel.Name = "successChanceValueFinderLabel";
-            successChanceValueFinderLabel.Size = new Size(178, 15);
-            successChanceValueFinderLabel.TabIndex = 6;
-            successChanceValueFinderLabel.Text = "Overall Attempt Success Chance";
-            successChanceValueFinderLabel.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // valueFinderPanel
-            // 
-            valueFinderPanel.AutoScroll = true;
-            valueFinderPanel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            valueFinderTableLayoutPanel.SetColumnSpan(valueFinderPanel, 20);
-            valueFinderPanel.Controls.Add(bodyTextValueFinderLabel);
-            valueFinderPanel.Dock = DockStyle.Fill;
-            valueFinderPanel.Location = new Point(0, 75);
-            valueFinderPanel.Margin = new Padding(0);
-            valueFinderPanel.Name = "valueFinderPanel";
-            valueFinderTableLayoutPanel.SetRowSpan(valueFinderPanel, 15);
-            valueFinderPanel.Size = new Size(801, 233);
-            valueFinderPanel.TabIndex = 7;
-            // 
-            // bodyTextValueFinderLabel
-            // 
-            bodyTextValueFinderLabel.AutoSize = true;
-            bodyTextValueFinderLabel.Location = new Point(0, 0);
-            bodyTextValueFinderLabel.MaximumSize = new Size(801, 0);
-            bodyTextValueFinderLabel.Name = "bodyTextValueFinderLabel";
-            bodyTextValueFinderLabel.Padding = new Padding(3);
-            bodyTextValueFinderLabel.Size = new Size(6, 25);
-            bodyTextValueFinderLabel.TabIndex = 0;
-            bodyTextValueFinderLabel.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // diceFinderTabPage
-            // 
-            diceFinderTabPage.Controls.Add(diceFinderTableLayoutPanel);
-            diceFinderTabPage.Font = new Font("Segoe UI", 10F);
-            diceFinderTabPage.Location = new Point(4, 24);
-            diceFinderTabPage.Margin = new Padding(0);
-            diceFinderTabPage.Name = "diceFinderTabPage";
-            diceFinderTabPage.Size = new Size(801, 308);
-            diceFinderTabPage.TabIndex = 3;
-            diceFinderTabPage.Text = "Dice Finder";
-            diceFinderTabPage.UseVisualStyleBackColor = true;
-            // 
-            // diceFinderTableLayoutPanel
-            // 
-            diceFinderTableLayoutPanel.AutoSize = true;
-            diceFinderTableLayoutPanel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            diceFinderTableLayoutPanel.ColumnCount = 20;
-            diceFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            diceFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            diceFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            diceFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            diceFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            diceFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            diceFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            diceFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            diceFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            diceFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            diceFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            diceFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            diceFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            diceFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            diceFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            diceFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            diceFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            diceFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            diceFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            diceFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            diceFinderTableLayoutPanel.Controls.Add(diceFinderUsageTextLabel, 0, 0);
-            diceFinderTableLayoutPanel.Controls.Add(sumDiceFinderTextBox, 9, 2);
-            diceFinderTableLayoutPanel.Controls.Add(sumDiceFinderLabel, 9, 4);
-            diceFinderTableLayoutPanel.Controls.Add(diceFinderPanel, 0, 5);
-            diceFinderTableLayoutPanel.Dock = DockStyle.Fill;
-            diceFinderTableLayoutPanel.Location = new Point(0, 0);
-            diceFinderTableLayoutPanel.Margin = new Padding(0);
-            diceFinderTableLayoutPanel.Name = "diceFinderTableLayoutPanel";
-            diceFinderTableLayoutPanel.RowCount = 20;
-            diceFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            diceFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            diceFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            diceFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            diceFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            diceFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            diceFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            diceFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            diceFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            diceFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            diceFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            diceFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            diceFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            diceFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            diceFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            diceFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            diceFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            diceFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            diceFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            diceFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            diceFinderTableLayoutPanel.Size = new Size(801, 308);
-            diceFinderTableLayoutPanel.TabIndex = 0;
-            // 
-            // diceFinderUsageTextLabel
-            // 
-            diceFinderUsageTextLabel.AutoSize = true;
-            diceFinderTableLayoutPanel.SetColumnSpan(diceFinderUsageTextLabel, 20);
-            diceFinderUsageTextLabel.Dock = DockStyle.Fill;
-            diceFinderUsageTextLabel.Location = new Point(0, 0);
-            diceFinderUsageTextLabel.Margin = new Padding(0);
-            diceFinderUsageTextLabel.Name = "diceFinderUsageTextLabel";
-            diceFinderTableLayoutPanel.SetRowSpan(diceFinderUsageTextLabel, 2);
-            diceFinderUsageTextLabel.Size = new Size(801, 30);
-            diceFinderUsageTextLabel.TabIndex = 0;
-            diceFinderUsageTextLabel.Text = "Enter a sum, then press 'Run' at the bottom to find the different ways to reach that sum";
-            diceFinderUsageTextLabel.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // sumDiceFinderTextBox
-            // 
-            sumDiceFinderTextBox.Anchor = AnchorStyles.Top;
-            diceFinderTableLayoutPanel.SetColumnSpan(sumDiceFinderTextBox, 2);
-            sumDiceFinderTextBox.Location = new Point(360, 30);
-            sumDiceFinderTextBox.Margin = new Padding(0);
-            sumDiceFinderTextBox.Name = "sumDiceFinderTextBox";
-            sumDiceFinderTextBox.PlaceholderText = "10";
-            sumDiceFinderTextBox.Size = new Size(80, 25);
-            sumDiceFinderTextBox.TabIndex = 1;
-            sumDiceFinderTextBox.TextAlign = HorizontalAlignment.Center;
-            sumDiceFinderTextBox.Validating += sumDiceFinderTextBox_Validating;
-            // 
-            // sumDiceFinderLabel
-            // 
-            sumDiceFinderLabel.Anchor = AnchorStyles.None;
-            sumDiceFinderLabel.AutoSize = true;
-            diceFinderTableLayoutPanel.SetColumnSpan(sumDiceFinderLabel, 2);
-            sumDiceFinderLabel.Font = new Font("Segoe UI", 9F);
-            sumDiceFinderLabel.Location = new Point(360, 60);
-            sumDiceFinderLabel.Margin = new Padding(0);
-            sumDiceFinderLabel.Name = "sumDiceFinderLabel";
-            sumDiceFinderLabel.Size = new Size(80, 15);
-            sumDiceFinderLabel.TabIndex = 2;
-            sumDiceFinderLabel.Text = "Sum to Reach";
-            sumDiceFinderLabel.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // diceFinderPanel
-            // 
-            diceFinderPanel.AutoScroll = true;
-            diceFinderPanel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            diceFinderTableLayoutPanel.SetColumnSpan(diceFinderPanel, 20);
-            diceFinderPanel.Controls.Add(bodyTextDiceFinderLabel);
-            diceFinderPanel.Dock = DockStyle.Fill;
-            diceFinderPanel.Location = new Point(0, 75);
-            diceFinderPanel.Margin = new Padding(0);
-            diceFinderPanel.Name = "diceFinderPanel";
-            diceFinderTableLayoutPanel.SetRowSpan(diceFinderPanel, 15);
-            diceFinderPanel.Size = new Size(801, 233);
-            diceFinderPanel.TabIndex = 3;
-            // 
-            // bodyTextDiceFinderLabel
-            // 
-            bodyTextDiceFinderLabel.AutoSize = true;
-            bodyTextDiceFinderLabel.Location = new Point(0, 0);
-            bodyTextDiceFinderLabel.Margin = new Padding(0);
-            bodyTextDiceFinderLabel.MaximumSize = new Size(801, 0);
-            bodyTextDiceFinderLabel.Name = "bodyTextDiceFinderLabel";
-            bodyTextDiceFinderLabel.Padding = new Padding(3);
-            bodyTextDiceFinderLabel.Size = new Size(6, 25);
-            bodyTextDiceFinderLabel.TabIndex = 0;
-            bodyTextDiceFinderLabel.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // errorProvider
-            // 
-            errorProvider.ContainerControl = this;
+            // OverallTableLayoutPanel
+            // 
+            OverallTableLayoutPanel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            OverallTableLayoutPanel.ColumnCount = 20;
+            OverallTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            OverallTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            OverallTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            OverallTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            OverallTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            OverallTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            OverallTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            OverallTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            OverallTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            OverallTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            OverallTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            OverallTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            OverallTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            OverallTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            OverallTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            OverallTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            OverallTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            OverallTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            OverallTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            OverallTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            OverallTableLayoutPanel.Controls.Add(OverallUsageTextLabel, 0, 0);
+            OverallTableLayoutPanel.Controls.Add(RunButton, 9, 19);
+            OverallTableLayoutPanel.Controls.Add(AdvantageStateGroupBox, 14, 1);
+            OverallTableLayoutPanel.Controls.Add(TypeDiceTextBox, 3, 2);
+            OverallTableLayoutPanel.Controls.Add(NumDiceTextBox, 7, 2);
+            OverallTableLayoutPanel.Controls.Add(SuccessThresholdTextBox, 11, 2);
+            OverallTableLayoutPanel.Controls.Add(TypeDiceLabel, 3, 3);
+            OverallTableLayoutPanel.Controls.Add(NumDiceLabel, 6, 3);
+            OverallTableLayoutPanel.Controls.Add(SuccessThresholdLabel, 10, 3);
+            OverallTableLayoutPanel.Controls.Add(FunctionOptionsTabControl, 0, 5);
+            OverallTableLayoutPanel.Location = new Point(9, 9);
+            OverallTableLayoutPanel.Margin = new Padding(0);
+            OverallTableLayoutPanel.Name = "OverallTableLayoutPanel";
+            OverallTableLayoutPanel.RowCount = 20;
+            OverallTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            OverallTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            OverallTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            OverallTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            OverallTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            OverallTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            OverallTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            OverallTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            OverallTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            OverallTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            OverallTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            OverallTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            OverallTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            OverallTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            OverallTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            OverallTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            OverallTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            OverallTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            OverallTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            OverallTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            OverallTableLayoutPanel.Size = new Size(809, 499);
+            OverallTableLayoutPanel.TabIndex = 0;
+            // 
+            // OverallUsageTextLabel
+            // 
+            OverallUsageTextLabel.Anchor = AnchorStyles.None;
+            OverallUsageTextLabel.AutoSize = true;
+            OverallTableLayoutPanel.SetColumnSpan(OverallUsageTextLabel, 20);
+            OverallUsageTextLabel.Font = new Font("Segoe UI", 10F);
+            OverallUsageTextLabel.Location = new Point(139, 2);
+            OverallUsageTextLabel.Name = "OverallUsageTextLabel";
+            OverallUsageTextLabel.Size = new Size(531, 19);
+            OverallUsageTextLabel.TabIndex = 0;
+            OverallUsageTextLabel.Text = "Welcome to the CNH Value Finder! Fill in the basic info, then pick a tab to get started!";
+            OverallUsageTextLabel.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // RunButton
+            // 
+            RunButton.Anchor = AnchorStyles.None;
+            RunButton.AutoSize = true;
+            OverallTableLayoutPanel.SetColumnSpan(RunButton, 2);
+            RunButton.Location = new Point(381, 465);
+            RunButton.MinimumSize = new Size(34, 20);
+            RunButton.Name = "RunButton";
+            RunButton.Size = new Size(38, 25);
+            RunButton.TabIndex = 1;
+            RunButton.Text = "Run";
+            RunButton.UseVisualStyleBackColor = true;
+            RunButton.Click += RunButton_Click;
+            // 
+            // AdvantageStateGroupBox
+            // 
+            AdvantageStateGroupBox.Anchor = AnchorStyles.Top;
+            AdvantageStateGroupBox.AutoSize = true;
+            AdvantageStateGroupBox.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            OverallTableLayoutPanel.SetColumnSpan(AdvantageStateGroupBox, 4);
+            AdvantageStateGroupBox.Controls.Add(DisadvantageRadioButton);
+            AdvantageStateGroupBox.Controls.Add(NeutralRadioButton);
+            AdvantageStateGroupBox.Controls.Add(AdvantageRadioButton);
+            AdvantageStateGroupBox.Location = new Point(586, 27);
+            AdvantageStateGroupBox.MinimumSize = new Size(107, 0);
+            AdvantageStateGroupBox.Name = "AdvantageStateGroupBox";
+            OverallTableLayoutPanel.SetRowSpan(AdvantageStateGroupBox, 4);
+            AdvantageStateGroupBox.Size = new Size(107, 79);
+            AdvantageStateGroupBox.TabIndex = 2;
+            AdvantageStateGroupBox.TabStop = false;
+            AdvantageStateGroupBox.Text = "Advantage State";
+            // 
+            // DisadvantageRadioButton
+            // 
+            DisadvantageRadioButton.AutoSize = true;
+            DisadvantageRadioButton.Dock = DockStyle.Fill;
+            DisadvantageRadioButton.Location = new Point(3, 57);
+            DisadvantageRadioButton.Name = "DisadvantageRadioButton";
+            DisadvantageRadioButton.Size = new Size(101, 19);
+            DisadvantageRadioButton.TabIndex = 2;
+            DisadvantageRadioButton.TabStop = true;
+            DisadvantageRadioButton.Text = "Disadvantage";
+            DisadvantageRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // NeutralRadioButton
+            // 
+            NeutralRadioButton.AutoSize = true;
+            NeutralRadioButton.Checked = true;
+            NeutralRadioButton.Dock = DockStyle.Top;
+            NeutralRadioButton.Location = new Point(3, 38);
+            NeutralRadioButton.Name = "NeutralRadioButton";
+            NeutralRadioButton.Size = new Size(101, 19);
+            NeutralRadioButton.TabIndex = 1;
+            NeutralRadioButton.TabStop = true;
+            NeutralRadioButton.Text = "Neutral";
+            NeutralRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // AdvantageRadioButton
+            // 
+            AdvantageRadioButton.AutoSize = true;
+            AdvantageRadioButton.Dock = DockStyle.Top;
+            AdvantageRadioButton.Location = new Point(3, 19);
+            AdvantageRadioButton.Name = "AdvantageRadioButton";
+            AdvantageRadioButton.Size = new Size(101, 19);
+            AdvantageRadioButton.TabIndex = 0;
+            AdvantageRadioButton.Text = "Advantage";
+            AdvantageRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // TypeDiceTextBox
+            // 
+            TypeDiceTextBox.Anchor = AnchorStyles.Top;
+            OverallTableLayoutPanel.SetColumnSpan(TypeDiceTextBox, 2);
+            TypeDiceTextBox.Font = new Font("Segoe UI", 10F);
+            TypeDiceTextBox.Location = new Point(120, 48);
+            TypeDiceTextBox.Margin = new Padding(0);
+            TypeDiceTextBox.Name = "TypeDiceTextBox";
+            TypeDiceTextBox.PlaceholderText = "d6";
+            TypeDiceTextBox.Size = new Size(80, 25);
+            TypeDiceTextBox.TabIndex = 3;
+            TypeDiceTextBox.TextAlign = HorizontalAlignment.Center;
+            TypeDiceTextBox.Validating += TypeDiceTextBox_Validating;
+            // 
+            // NumDiceTextBox
+            // 
+            NumDiceTextBox.Anchor = AnchorStyles.Top;
+            OverallTableLayoutPanel.SetColumnSpan(NumDiceTextBox, 2);
+            NumDiceTextBox.Font = new Font("Segoe UI", 10F);
+            NumDiceTextBox.Location = new Point(280, 48);
+            NumDiceTextBox.Margin = new Padding(0);
+            NumDiceTextBox.Name = "NumDiceTextBox";
+            NumDiceTextBox.PlaceholderText = "1";
+            NumDiceTextBox.Size = new Size(80, 25);
+            NumDiceTextBox.TabIndex = 4;
+            NumDiceTextBox.TextAlign = HorizontalAlignment.Center;
+            NumDiceTextBox.Validating += NumDiceTextBox_Validating;
+            // 
+            // SuccessThresholdTextBox
+            // 
+            SuccessThresholdTextBox.Anchor = AnchorStyles.Top;
+            OverallTableLayoutPanel.SetColumnSpan(SuccessThresholdTextBox, 2);
+            SuccessThresholdTextBox.Font = new Font("Segoe UI", 10F);
+            SuccessThresholdTextBox.Location = new Point(440, 48);
+            SuccessThresholdTextBox.Margin = new Padding(0);
+            SuccessThresholdTextBox.Name = "SuccessThresholdTextBox";
+            SuccessThresholdTextBox.PlaceholderText = "4";
+            SuccessThresholdTextBox.Size = new Size(80, 25);
+            SuccessThresholdTextBox.TabIndex = 5;
+            SuccessThresholdTextBox.TextAlign = HorizontalAlignment.Center;
+            SuccessThresholdTextBox.Validating += SuccessThresholdTextBox_Validating;
+            // 
+            // TypeDiceLabel
+            // 
+            TypeDiceLabel.Anchor = AnchorStyles.None;
+            TypeDiceLabel.AutoSize = true;
+            OverallTableLayoutPanel.SetColumnSpan(TypeDiceLabel, 2);
+            TypeDiceLabel.Location = new Point(124, 76);
+            TypeDiceLabel.Margin = new Padding(0);
+            TypeDiceLabel.Name = "TypeDiceLabel";
+            TypeDiceLabel.Size = new Size(72, 15);
+            TypeDiceLabel.TabIndex = 6;
+            TypeDiceLabel.Text = "Type of Dice";
+            TypeDiceLabel.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // NumDiceLabel
+            // 
+            NumDiceLabel.Anchor = AnchorStyles.None;
+            NumDiceLabel.AutoSize = true;
+            OverallTableLayoutPanel.SetColumnSpan(NumDiceLabel, 4);
+            NumDiceLabel.Location = new Point(274, 76);
+            NumDiceLabel.Margin = new Padding(0);
+            NumDiceLabel.Name = "NumDiceLabel";
+            NumDiceLabel.Size = new Size(91, 15);
+            NumDiceLabel.TabIndex = 7;
+            NumDiceLabel.Text = "Number of Dice";
+            NumDiceLabel.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // SuccessThresholdLabel
+            // 
+            SuccessThresholdLabel.Anchor = AnchorStyles.None;
+            SuccessThresholdLabel.AutoSize = true;
+            OverallTableLayoutPanel.SetColumnSpan(SuccessThresholdLabel, 4);
+            SuccessThresholdLabel.Location = new Point(428, 76);
+            SuccessThresholdLabel.Margin = new Padding(0);
+            SuccessThresholdLabel.Name = "SuccessThresholdLabel";
+            SuccessThresholdLabel.Size = new Size(104, 15);
+            SuccessThresholdLabel.TabIndex = 8;
+            SuccessThresholdLabel.Text = "Success Threshold";
+            SuccessThresholdLabel.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // FunctionOptionsTabControl
+            // 
+            OverallTableLayoutPanel.SetColumnSpan(FunctionOptionsTabControl, 20);
+            FunctionOptionsTabControl.Controls.Add(DiceRollerTabPage);
+            FunctionOptionsTabControl.Controls.Add(ProbabilityDisplaysTabPage);
+            FunctionOptionsTabControl.Controls.Add(ValueFinderTabPage);
+            FunctionOptionsTabControl.Controls.Add(DiceFinderTabPage);
+            FunctionOptionsTabControl.Dock = DockStyle.Fill;
+            FunctionOptionsTabControl.Location = new Point(0, 120);
+            FunctionOptionsTabControl.Margin = new Padding(0);
+            FunctionOptionsTabControl.Name = "FunctionOptionsTabControl";
+            OverallTableLayoutPanel.SetRowSpan(FunctionOptionsTabControl, 14);
+            FunctionOptionsTabControl.SelectedIndex = 0;
+            FunctionOptionsTabControl.Size = new Size(809, 336);
+            FunctionOptionsTabControl.TabIndex = 9;
+            FunctionOptionsTabControl.SelectedIndexChanged += FunctionOptionsTabControl_SelectedIndexChanged;
+            // 
+            // DiceRollerTabPage
+            // 
+            DiceRollerTabPage.Controls.Add(DiceRollerTableLayoutPanel);
+            DiceRollerTabPage.Font = new Font("Segoe UI", 10F);
+            DiceRollerTabPage.Location = new Point(4, 24);
+            DiceRollerTabPage.Margin = new Padding(0);
+            DiceRollerTabPage.Name = "DiceRollerTabPage";
+            DiceRollerTabPage.Size = new Size(801, 308);
+            DiceRollerTabPage.TabIndex = 0;
+            DiceRollerTabPage.Text = "Dice Roller";
+            DiceRollerTabPage.UseVisualStyleBackColor = true;
+            // 
+            // DiceRollerTableLayoutPanel
+            // 
+            DiceRollerTableLayoutPanel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            DiceRollerTableLayoutPanel.ColumnCount = 20;
+            DiceRollerTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            DiceRollerTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            DiceRollerTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            DiceRollerTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            DiceRollerTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            DiceRollerTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            DiceRollerTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            DiceRollerTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            DiceRollerTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            DiceRollerTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            DiceRollerTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            DiceRollerTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            DiceRollerTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            DiceRollerTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            DiceRollerTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            DiceRollerTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            DiceRollerTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            DiceRollerTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            DiceRollerTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            DiceRollerTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            DiceRollerTableLayoutPanel.Controls.Add(UsageTextSuccessDiceRollerLabel, 10, 2);
+            DiceRollerTableLayoutPanel.Controls.Add(UsageTextSumDiceRollerLabel, 0, 2);
+            DiceRollerTableLayoutPanel.Controls.Add(HeaderTextSumDiceRollerLabel, 0, 0);
+            DiceRollerTableLayoutPanel.Controls.Add(HeaderTextSuccessDiceRollerLabel, 10, 0);
+            DiceRollerTableLayoutPanel.Controls.Add(SumDiceRollerPanel, 0, 4);
+            DiceRollerTableLayoutPanel.Controls.Add(SuccessDiceRollerPanel, 10, 4);
+            DiceRollerTableLayoutPanel.Dock = DockStyle.Fill;
+            DiceRollerTableLayoutPanel.Location = new Point(0, 0);
+            DiceRollerTableLayoutPanel.Margin = new Padding(0);
+            DiceRollerTableLayoutPanel.Name = "DiceRollerTableLayoutPanel";
+            DiceRollerTableLayoutPanel.RowCount = 20;
+            DiceRollerTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            DiceRollerTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            DiceRollerTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            DiceRollerTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            DiceRollerTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            DiceRollerTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            DiceRollerTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            DiceRollerTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            DiceRollerTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            DiceRollerTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            DiceRollerTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            DiceRollerTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            DiceRollerTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            DiceRollerTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            DiceRollerTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            DiceRollerTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            DiceRollerTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            DiceRollerTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            DiceRollerTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            DiceRollerTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            DiceRollerTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            DiceRollerTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            DiceRollerTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            DiceRollerTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            DiceRollerTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            DiceRollerTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            DiceRollerTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            DiceRollerTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            DiceRollerTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            DiceRollerTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            DiceRollerTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            DiceRollerTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            DiceRollerTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            DiceRollerTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            DiceRollerTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            DiceRollerTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            DiceRollerTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            DiceRollerTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            DiceRollerTableLayoutPanel.Size = new Size(801, 308);
+            DiceRollerTableLayoutPanel.TabIndex = 0;
+            // 
+            // UsageTextSuccessDiceRollerLabel
+            // 
+            UsageTextSuccessDiceRollerLabel.Anchor = AnchorStyles.None;
+            UsageTextSuccessDiceRollerLabel.AutoSize = true;
+            DiceRollerTableLayoutPanel.SetColumnSpan(UsageTextSuccessDiceRollerLabel, 10);
+            UsageTextSuccessDiceRollerLabel.Location = new Point(409, 35);
+            UsageTextSuccessDiceRollerLabel.Margin = new Padding(0);
+            UsageTextSuccessDiceRollerLabel.MaximumSize = new Size(402, 0);
+            UsageTextSuccessDiceRollerLabel.Name = "UsageTextSuccessDiceRollerLabel";
+            DiceRollerTableLayoutPanel.SetRowSpan(UsageTextSuccessDiceRollerLabel, 2);
+            UsageTextSuccessDiceRollerLabel.Size = new Size(382, 19);
+            UsageTextSuccessDiceRollerLabel.TabIndex = 0;
+            UsageTextSuccessDiceRollerLabel.Text = "Fill in the info above, then press 'Run' below to roll some dice";
+            UsageTextSuccessDiceRollerLabel.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // UsageTextSumDiceRollerLabel
+            // 
+            UsageTextSumDiceRollerLabel.Anchor = AnchorStyles.None;
+            UsageTextSumDiceRollerLabel.AutoSize = true;
+            DiceRollerTableLayoutPanel.SetColumnSpan(UsageTextSumDiceRollerLabel, 10);
+            UsageTextSumDiceRollerLabel.Location = new Point(9, 35);
+            UsageTextSumDiceRollerLabel.Margin = new Padding(0);
+            UsageTextSumDiceRollerLabel.MaximumSize = new Size(402, 0);
+            UsageTextSumDiceRollerLabel.Name = "UsageTextSumDiceRollerLabel";
+            DiceRollerTableLayoutPanel.SetRowSpan(UsageTextSumDiceRollerLabel, 2);
+            UsageTextSumDiceRollerLabel.Size = new Size(382, 19);
+            UsageTextSumDiceRollerLabel.TabIndex = 0;
+            UsageTextSumDiceRollerLabel.Text = "Fill in the info above, then press 'Run' below to roll some dice";
+            UsageTextSumDiceRollerLabel.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // HeaderTextSumDiceRollerLabel
+            // 
+            HeaderTextSumDiceRollerLabel.Anchor = AnchorStyles.None;
+            HeaderTextSumDiceRollerLabel.AutoSize = true;
+            DiceRollerTableLayoutPanel.SetColumnSpan(HeaderTextSumDiceRollerLabel, 10);
+            HeaderTextSumDiceRollerLabel.Font = new Font("Segoe UI", 12F);
+            HeaderTextSumDiceRollerLabel.Location = new Point(161, 4);
+            HeaderTextSumDiceRollerLabel.Name = "HeaderTextSumDiceRollerLabel";
+            DiceRollerTableLayoutPanel.SetRowSpan(HeaderTextSumDiceRollerLabel, 2);
+            HeaderTextSumDiceRollerLabel.Size = new Size(78, 21);
+            HeaderTextSumDiceRollerLabel.TabIndex = 0;
+            HeaderTextSumDiceRollerLabel.Text = "Total Sum";
+            HeaderTextSumDiceRollerLabel.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // HeaderTextSuccessDiceRollerLabel
+            // 
+            HeaderTextSuccessDiceRollerLabel.Anchor = AnchorStyles.None;
+            HeaderTextSuccessDiceRollerLabel.AutoSize = true;
+            DiceRollerTableLayoutPanel.SetColumnSpan(HeaderTextSuccessDiceRollerLabel, 10);
+            HeaderTextSuccessDiceRollerLabel.Font = new Font("Segoe UI", 12F);
+            HeaderTextSuccessDiceRollerLabel.Location = new Point(543, 4);
+            HeaderTextSuccessDiceRollerLabel.Name = "HeaderTextSuccessDiceRollerLabel";
+            DiceRollerTableLayoutPanel.SetRowSpan(HeaderTextSuccessDiceRollerLabel, 2);
+            HeaderTextSuccessDiceRollerLabel.Size = new Size(115, 21);
+            HeaderTextSuccessDiceRollerLabel.TabIndex = 1;
+            HeaderTextSuccessDiceRollerLabel.Text = "Total Successes";
+            HeaderTextSuccessDiceRollerLabel.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // SumDiceRollerPanel
+            // 
+            SumDiceRollerPanel.AutoScroll = true;
+            SumDiceRollerPanel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            DiceRollerTableLayoutPanel.SetColumnSpan(SumDiceRollerPanel, 10);
+            SumDiceRollerPanel.Controls.Add(BodyTextSumDiceRollerLabel);
+            SumDiceRollerPanel.Dock = DockStyle.Fill;
+            SumDiceRollerPanel.Location = new Point(0, 60);
+            SumDiceRollerPanel.Margin = new Padding(0);
+            SumDiceRollerPanel.Name = "SumDiceRollerPanel";
+            DiceRollerTableLayoutPanel.SetRowSpan(SumDiceRollerPanel, 16);
+            SumDiceRollerPanel.Size = new Size(400, 248);
+            SumDiceRollerPanel.TabIndex = 2;
+            // 
+            // BodyTextSumDiceRollerLabel
+            // 
+            BodyTextSumDiceRollerLabel.AutoSize = true;
+            BodyTextSumDiceRollerLabel.Location = new Point(0, 0);
+            BodyTextSumDiceRollerLabel.Margin = new Padding(0);
+            BodyTextSumDiceRollerLabel.Name = "BodyTextSumDiceRollerLabel";
+            BodyTextSumDiceRollerLabel.Padding = new Padding(3);
+            BodyTextSumDiceRollerLabel.Size = new Size(6, 25);
+            BodyTextSumDiceRollerLabel.TabIndex = 0;
+            BodyTextSumDiceRollerLabel.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // SuccessDiceRollerPanel
+            // 
+            SuccessDiceRollerPanel.AutoScroll = true;
+            SuccessDiceRollerPanel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            DiceRollerTableLayoutPanel.SetColumnSpan(SuccessDiceRollerPanel, 10);
+            SuccessDiceRollerPanel.Controls.Add(BodyTextSuccessDiceRollerLabel);
+            SuccessDiceRollerPanel.Dock = DockStyle.Fill;
+            SuccessDiceRollerPanel.Location = new Point(400, 60);
+            SuccessDiceRollerPanel.Margin = new Padding(0);
+            SuccessDiceRollerPanel.Name = "SuccessDiceRollerPanel";
+            DiceRollerTableLayoutPanel.SetRowSpan(SuccessDiceRollerPanel, 16);
+            SuccessDiceRollerPanel.Size = new Size(401, 248);
+            SuccessDiceRollerPanel.TabIndex = 3;
+            // 
+            // BodyTextSuccessDiceRollerLabel
+            // 
+            BodyTextSuccessDiceRollerLabel.AutoSize = true;
+            BodyTextSuccessDiceRollerLabel.Location = new Point(0, 0);
+            BodyTextSuccessDiceRollerLabel.Margin = new Padding(0);
+            BodyTextSuccessDiceRollerLabel.Name = "BodyTextSuccessDiceRollerLabel";
+            BodyTextSuccessDiceRollerLabel.Padding = new Padding(3);
+            BodyTextSuccessDiceRollerLabel.Size = new Size(6, 25);
+            BodyTextSuccessDiceRollerLabel.TabIndex = 0;
+            BodyTextSuccessDiceRollerLabel.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // ProbabilityDisplaysTabPage
+            // 
+            ProbabilityDisplaysTabPage.Controls.Add(ProbabilityDisplayTableLayoutPanel);
+            ProbabilityDisplaysTabPage.Font = new Font("Segoe UI", 10F);
+            ProbabilityDisplaysTabPage.Location = new Point(4, 24);
+            ProbabilityDisplaysTabPage.Margin = new Padding(0);
+            ProbabilityDisplaysTabPage.Name = "ProbabilityDisplaysTabPage";
+            ProbabilityDisplaysTabPage.Size = new Size(801, 308);
+            ProbabilityDisplaysTabPage.TabIndex = 1;
+            ProbabilityDisplaysTabPage.Text = "Probability Displays";
+            ProbabilityDisplaysTabPage.UseVisualStyleBackColor = true;
+            // 
+            // ProbabilityDisplayTableLayoutPanel
+            // 
+            ProbabilityDisplayTableLayoutPanel.AutoSize = true;
+            ProbabilityDisplayTableLayoutPanel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            ProbabilityDisplayTableLayoutPanel.ColumnCount = 20;
+            ProbabilityDisplayTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            ProbabilityDisplayTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            ProbabilityDisplayTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            ProbabilityDisplayTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            ProbabilityDisplayTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            ProbabilityDisplayTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            ProbabilityDisplayTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            ProbabilityDisplayTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            ProbabilityDisplayTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            ProbabilityDisplayTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            ProbabilityDisplayTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            ProbabilityDisplayTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            ProbabilityDisplayTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            ProbabilityDisplayTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            ProbabilityDisplayTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            ProbabilityDisplayTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            ProbabilityDisplayTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            ProbabilityDisplayTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            ProbabilityDisplayTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            ProbabilityDisplayTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            ProbabilityDisplayTableLayoutPanel.Controls.Add(UsageTextSuccessProbabilityDisplayLabel, 10, 2);
+            ProbabilityDisplayTableLayoutPanel.Controls.Add(UsageTextSumProbabilityDisplayLabel, 0, 2);
+            ProbabilityDisplayTableLayoutPanel.Controls.Add(HeaderTextSumProbabilityDisplayLabel, 0, 0);
+            ProbabilityDisplayTableLayoutPanel.Controls.Add(HeaderTextSuccessProbabilityDisplayLabel, 10, 0);
+            ProbabilityDisplayTableLayoutPanel.Controls.Add(SumProbabilityDisplayPanel, 0, 4);
+            ProbabilityDisplayTableLayoutPanel.Controls.Add(SuccessProbabilityDisplayPanel, 10, 4);
+            ProbabilityDisplayTableLayoutPanel.Dock = DockStyle.Fill;
+            ProbabilityDisplayTableLayoutPanel.Location = new Point(0, 0);
+            ProbabilityDisplayTableLayoutPanel.Margin = new Padding(0);
+            ProbabilityDisplayTableLayoutPanel.Name = "ProbabilityDisplayTableLayoutPanel";
+            ProbabilityDisplayTableLayoutPanel.RowCount = 20;
+            ProbabilityDisplayTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            ProbabilityDisplayTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            ProbabilityDisplayTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            ProbabilityDisplayTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            ProbabilityDisplayTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            ProbabilityDisplayTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            ProbabilityDisplayTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            ProbabilityDisplayTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            ProbabilityDisplayTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            ProbabilityDisplayTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            ProbabilityDisplayTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            ProbabilityDisplayTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            ProbabilityDisplayTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            ProbabilityDisplayTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            ProbabilityDisplayTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            ProbabilityDisplayTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            ProbabilityDisplayTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            ProbabilityDisplayTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            ProbabilityDisplayTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            ProbabilityDisplayTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            ProbabilityDisplayTableLayoutPanel.Size = new Size(801, 308);
+            ProbabilityDisplayTableLayoutPanel.TabIndex = 0;
+            // 
+            // UsageTextSuccessProbabilityDisplayLabel
+            // 
+            UsageTextSuccessProbabilityDisplayLabel.Anchor = AnchorStyles.None;
+            UsageTextSuccessProbabilityDisplayLabel.AutoSize = true;
+            ProbabilityDisplayTableLayoutPanel.SetColumnSpan(UsageTextSuccessProbabilityDisplayLabel, 10);
+            UsageTextSuccessProbabilityDisplayLabel.Location = new Point(415, 35);
+            UsageTextSuccessProbabilityDisplayLabel.Margin = new Padding(0);
+            UsageTextSuccessProbabilityDisplayLabel.MaximumSize = new Size(402, 0);
+            UsageTextSuccessProbabilityDisplayLabel.Name = "UsageTextSuccessProbabilityDisplayLabel";
+            ProbabilityDisplayTableLayoutPanel.SetRowSpan(UsageTextSuccessProbabilityDisplayLabel, 2);
+            UsageTextSuccessProbabilityDisplayLabel.Size = new Size(370, 19);
+            UsageTextSuccessProbabilityDisplayLabel.TabIndex = 0;
+            UsageTextSuccessProbabilityDisplayLabel.Text = "Fill in the info above, then press 'Run' below to see chances";
+            UsageTextSuccessProbabilityDisplayLabel.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // UsageTextSumProbabilityDisplayLabel
+            // 
+            UsageTextSumProbabilityDisplayLabel.Anchor = AnchorStyles.None;
+            UsageTextSumProbabilityDisplayLabel.AutoSize = true;
+            ProbabilityDisplayTableLayoutPanel.SetColumnSpan(UsageTextSumProbabilityDisplayLabel, 10);
+            UsageTextSumProbabilityDisplayLabel.Location = new Point(15, 35);
+            UsageTextSumProbabilityDisplayLabel.Margin = new Padding(0);
+            UsageTextSumProbabilityDisplayLabel.MaximumSize = new Size(402, 0);
+            UsageTextSumProbabilityDisplayLabel.Name = "UsageTextSumProbabilityDisplayLabel";
+            ProbabilityDisplayTableLayoutPanel.SetRowSpan(UsageTextSumProbabilityDisplayLabel, 2);
+            UsageTextSumProbabilityDisplayLabel.Size = new Size(370, 19);
+            UsageTextSumProbabilityDisplayLabel.TabIndex = 0;
+            UsageTextSumProbabilityDisplayLabel.Text = "Fill in the info above, then press 'Run' below to see chances";
+            UsageTextSumProbabilityDisplayLabel.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // HeaderTextSumProbabilityDisplayLabel
+            // 
+            HeaderTextSumProbabilityDisplayLabel.Anchor = AnchorStyles.None;
+            HeaderTextSumProbabilityDisplayLabel.AutoSize = true;
+            ProbabilityDisplayTableLayoutPanel.SetColumnSpan(HeaderTextSumProbabilityDisplayLabel, 10);
+            HeaderTextSumProbabilityDisplayLabel.Font = new Font("Segoe UI", 12F);
+            HeaderTextSumProbabilityDisplayLabel.Location = new Point(145, 4);
+            HeaderTextSumProbabilityDisplayLabel.Name = "HeaderTextSumProbabilityDisplayLabel";
+            ProbabilityDisplayTableLayoutPanel.SetRowSpan(HeaderTextSumProbabilityDisplayLabel, 2);
+            HeaderTextSumProbabilityDisplayLabel.Size = new Size(110, 21);
+            HeaderTextSumProbabilityDisplayLabel.TabIndex = 0;
+            HeaderTextSumProbabilityDisplayLabel.Text = "Stats for Sums";
+            HeaderTextSumProbabilityDisplayLabel.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // HeaderTextSuccessProbabilityDisplayLabel
+            // 
+            HeaderTextSuccessProbabilityDisplayLabel.Anchor = AnchorStyles.None;
+            HeaderTextSuccessProbabilityDisplayLabel.AutoSize = true;
+            ProbabilityDisplayTableLayoutPanel.SetColumnSpan(HeaderTextSuccessProbabilityDisplayLabel, 10);
+            HeaderTextSuccessProbabilityDisplayLabel.Font = new Font("Segoe UI", 12F);
+            HeaderTextSuccessProbabilityDisplayLabel.Location = new Point(530, 4);
+            HeaderTextSuccessProbabilityDisplayLabel.Name = "HeaderTextSuccessProbabilityDisplayLabel";
+            ProbabilityDisplayTableLayoutPanel.SetRowSpan(HeaderTextSuccessProbabilityDisplayLabel, 2);
+            HeaderTextSuccessProbabilityDisplayLabel.Size = new Size(140, 21);
+            HeaderTextSuccessProbabilityDisplayLabel.TabIndex = 1;
+            HeaderTextSuccessProbabilityDisplayLabel.Text = "Stats for Successes";
+            HeaderTextSuccessProbabilityDisplayLabel.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // SumProbabilityDisplayPanel
+            // 
+            SumProbabilityDisplayPanel.AutoScroll = true;
+            SumProbabilityDisplayPanel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            ProbabilityDisplayTableLayoutPanel.SetColumnSpan(SumProbabilityDisplayPanel, 10);
+            SumProbabilityDisplayPanel.Controls.Add(BodyTextSumProbabilityDisplayLabel);
+            SumProbabilityDisplayPanel.Dock = DockStyle.Fill;
+            SumProbabilityDisplayPanel.Location = new Point(0, 60);
+            SumProbabilityDisplayPanel.Margin = new Padding(0);
+            SumProbabilityDisplayPanel.Name = "SumProbabilityDisplayPanel";
+            ProbabilityDisplayTableLayoutPanel.SetRowSpan(SumProbabilityDisplayPanel, 16);
+            SumProbabilityDisplayPanel.Size = new Size(400, 248);
+            SumProbabilityDisplayPanel.TabIndex = 2;
+            // 
+            // BodyTextSumProbabilityDisplayLabel
+            // 
+            BodyTextSumProbabilityDisplayLabel.AutoSize = true;
+            BodyTextSumProbabilityDisplayLabel.Location = new Point(0, 0);
+            BodyTextSumProbabilityDisplayLabel.Margin = new Padding(0);
+            BodyTextSumProbabilityDisplayLabel.Name = "BodyTextSumProbabilityDisplayLabel";
+            BodyTextSumProbabilityDisplayLabel.Padding = new Padding(3);
+            BodyTextSumProbabilityDisplayLabel.Size = new Size(6, 25);
+            BodyTextSumProbabilityDisplayLabel.TabIndex = 0;
+            BodyTextSumProbabilityDisplayLabel.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // SuccessProbabilityDisplayPanel
+            // 
+            SuccessProbabilityDisplayPanel.AutoScroll = true;
+            SuccessProbabilityDisplayPanel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            ProbabilityDisplayTableLayoutPanel.SetColumnSpan(SuccessProbabilityDisplayPanel, 10);
+            SuccessProbabilityDisplayPanel.Controls.Add(BodyTextSuccessProbabilityDisplayLabel);
+            SuccessProbabilityDisplayPanel.Dock = DockStyle.Fill;
+            SuccessProbabilityDisplayPanel.Location = new Point(400, 60);
+            SuccessProbabilityDisplayPanel.Margin = new Padding(0);
+            SuccessProbabilityDisplayPanel.Name = "SuccessProbabilityDisplayPanel";
+            ProbabilityDisplayTableLayoutPanel.SetRowSpan(SuccessProbabilityDisplayPanel, 16);
+            SuccessProbabilityDisplayPanel.Size = new Size(401, 248);
+            SuccessProbabilityDisplayPanel.TabIndex = 3;
+            // 
+            // BodyTextSuccessProbabilityDisplayLabel
+            // 
+            BodyTextSuccessProbabilityDisplayLabel.AutoSize = true;
+            BodyTextSuccessProbabilityDisplayLabel.Location = new Point(0, 0);
+            BodyTextSuccessProbabilityDisplayLabel.Margin = new Padding(0);
+            BodyTextSuccessProbabilityDisplayLabel.Name = "BodyTextSuccessProbabilityDisplayLabel";
+            BodyTextSuccessProbabilityDisplayLabel.Padding = new Padding(3);
+            BodyTextSuccessProbabilityDisplayLabel.Size = new Size(6, 25);
+            BodyTextSuccessProbabilityDisplayLabel.TabIndex = 0;
+            BodyTextSuccessProbabilityDisplayLabel.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // ValueFinderTabPage
+            // 
+            ValueFinderTabPage.Controls.Add(ValueFinderTableLayoutPanel);
+            ValueFinderTabPage.Font = new Font("Segoe UI", 10F);
+            ValueFinderTabPage.Location = new Point(4, 24);
+            ValueFinderTabPage.Margin = new Padding(0);
+            ValueFinderTabPage.Name = "ValueFinderTabPage";
+            ValueFinderTabPage.Size = new Size(801, 308);
+            ValueFinderTabPage.TabIndex = 2;
+            ValueFinderTabPage.Text = "Value Finder";
+            ValueFinderTabPage.UseVisualStyleBackColor = true;
+            // 
+            // ValueFinderTableLayoutPanel
+            // 
+            ValueFinderTableLayoutPanel.AutoSize = true;
+            ValueFinderTableLayoutPanel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            ValueFinderTableLayoutPanel.ColumnCount = 20;
+            ValueFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            ValueFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            ValueFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            ValueFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            ValueFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            ValueFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            ValueFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            ValueFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            ValueFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            ValueFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            ValueFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            ValueFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            ValueFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            ValueFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            ValueFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            ValueFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            ValueFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            ValueFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            ValueFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            ValueFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            ValueFinderTableLayoutPanel.Controls.Add(ValueFinderUsageTextLabel, 0, 0);
+            ValueFinderTableLayoutPanel.Controls.Add(DifficultyValueFinderTextBox, 4, 2);
+            ValueFinderTableLayoutPanel.Controls.Add(NumDiceValueFinderTextBox, 9, 2);
+            ValueFinderTableLayoutPanel.Controls.Add(SuccessChanceValueFinderTextBox, 14, 2);
+            ValueFinderTableLayoutPanel.Controls.Add(DifficultyValueFinderLabel, 4, 4);
+            ValueFinderTableLayoutPanel.Controls.Add(NumDiceValueFinderLabel, 8, 4);
+            ValueFinderTableLayoutPanel.Controls.Add(SuccessChanceValueFinderLabel, 12, 4);
+            ValueFinderTableLayoutPanel.Controls.Add(ValueFinderPanel, 0, 5);
+            ValueFinderTableLayoutPanel.Dock = DockStyle.Fill;
+            ValueFinderTableLayoutPanel.Location = new Point(0, 0);
+            ValueFinderTableLayoutPanel.Margin = new Padding(0);
+            ValueFinderTableLayoutPanel.Name = "ValueFinderTableLayoutPanel";
+            ValueFinderTableLayoutPanel.RowCount = 20;
+            ValueFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            ValueFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            ValueFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            ValueFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            ValueFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            ValueFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            ValueFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            ValueFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            ValueFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            ValueFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            ValueFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            ValueFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            ValueFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            ValueFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            ValueFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            ValueFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            ValueFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            ValueFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            ValueFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            ValueFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            ValueFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            ValueFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            ValueFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            ValueFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            ValueFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            ValueFinderTableLayoutPanel.Size = new Size(801, 308);
+            ValueFinderTableLayoutPanel.TabIndex = 0;
+            // 
+            // ValueFinderUsageTextLabel
+            // 
+            ValueFinderUsageTextLabel.AutoSize = true;
+            ValueFinderTableLayoutPanel.SetColumnSpan(ValueFinderUsageTextLabel, 20);
+            ValueFinderUsageTextLabel.Dock = DockStyle.Fill;
+            ValueFinderUsageTextLabel.Location = new Point(0, 0);
+            ValueFinderUsageTextLabel.Margin = new Padding(0);
+            ValueFinderUsageTextLabel.Name = "ValueFinderUsageTextLabel";
+            ValueFinderTableLayoutPanel.SetRowSpan(ValueFinderUsageTextLabel, 2);
+            ValueFinderUsageTextLabel.Size = new Size(801, 30);
+            ValueFinderUsageTextLabel.TabIndex = 0;
+            ValueFinderUsageTextLabel.Text = "Fill in two of the three options below, then press 'Run' at the bottom to find whichever value you left blank";
+            ValueFinderUsageTextLabel.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // DifficultyValueFinderTextBox
+            // 
+            DifficultyValueFinderTextBox.Anchor = AnchorStyles.Top;
+            ValueFinderTableLayoutPanel.SetColumnSpan(DifficultyValueFinderTextBox, 2);
+            DifficultyValueFinderTextBox.Location = new Point(160, 30);
+            DifficultyValueFinderTextBox.Margin = new Padding(0);
+            DifficultyValueFinderTextBox.Name = "DifficultyValueFinderTextBox";
+            DifficultyValueFinderTextBox.PlaceholderText = "Ex: 1";
+            ValueFinderTableLayoutPanel.SetRowSpan(DifficultyValueFinderTextBox, 2);
+            DifficultyValueFinderTextBox.Size = new Size(80, 25);
+            DifficultyValueFinderTextBox.TabIndex = 1;
+            DifficultyValueFinderTextBox.TextAlign = HorizontalAlignment.Center;
+            DifficultyValueFinderTextBox.Validating += DifficultyValueFinderTextBox_Validating;
+            // 
+            // NumDiceValueFinderTextBox
+            // 
+            NumDiceValueFinderTextBox.Anchor = AnchorStyles.Top;
+            ValueFinderTableLayoutPanel.SetColumnSpan(NumDiceValueFinderTextBox, 2);
+            NumDiceValueFinderTextBox.Location = new Point(360, 30);
+            NumDiceValueFinderTextBox.Margin = new Padding(0);
+            NumDiceValueFinderTextBox.Name = "NumDiceValueFinderTextBox";
+            NumDiceValueFinderTextBox.PlaceholderText = "Ex: 1";
+            ValueFinderTableLayoutPanel.SetRowSpan(NumDiceValueFinderTextBox, 2);
+            NumDiceValueFinderTextBox.Size = new Size(80, 25);
+            NumDiceValueFinderTextBox.TabIndex = 2;
+            NumDiceValueFinderTextBox.TextAlign = HorizontalAlignment.Center;
+            NumDiceValueFinderTextBox.Validating += NumDiceValueFinderTextBox_Validating;
+            // 
+            // SuccessChanceValueFinderTextBox
+            // 
+            SuccessChanceValueFinderTextBox.Anchor = AnchorStyles.Top;
+            ValueFinderTableLayoutPanel.SetColumnSpan(SuccessChanceValueFinderTextBox, 2);
+            SuccessChanceValueFinderTextBox.Location = new Point(560, 30);
+            SuccessChanceValueFinderTextBox.Margin = new Padding(0);
+            SuccessChanceValueFinderTextBox.Name = "SuccessChanceValueFinderTextBox";
+            SuccessChanceValueFinderTextBox.PlaceholderText = "Ex: 50%";
+            ValueFinderTableLayoutPanel.SetRowSpan(SuccessChanceValueFinderTextBox, 2);
+            SuccessChanceValueFinderTextBox.Size = new Size(80, 25);
+            SuccessChanceValueFinderTextBox.TabIndex = 3;
+            SuccessChanceValueFinderTextBox.TextAlign = HorizontalAlignment.Center;
+            SuccessChanceValueFinderTextBox.Validating += SuccessChanceValueFinderTextBox_Validating;
+            // 
+            // DifficultyValueFinderLabel
+            // 
+            DifficultyValueFinderLabel.Anchor = AnchorStyles.None;
+            DifficultyValueFinderLabel.AutoSize = true;
+            ValueFinderTableLayoutPanel.SetColumnSpan(DifficultyValueFinderLabel, 2);
+            DifficultyValueFinderLabel.Font = new Font("Segoe UI", 9F);
+            DifficultyValueFinderLabel.Location = new Point(172, 60);
+            DifficultyValueFinderLabel.Margin = new Padding(0);
+            DifficultyValueFinderLabel.Name = "DifficultyValueFinderLabel";
+            DifficultyValueFinderLabel.Size = new Size(55, 15);
+            DifficultyValueFinderLabel.TabIndex = 4;
+            DifficultyValueFinderLabel.Text = "Difficulty";
+            DifficultyValueFinderLabel.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // NumDiceValueFinderLabel
+            // 
+            NumDiceValueFinderLabel.Anchor = AnchorStyles.None;
+            NumDiceValueFinderLabel.AutoSize = true;
+            ValueFinderTableLayoutPanel.SetColumnSpan(NumDiceValueFinderLabel, 4);
+            NumDiceValueFinderLabel.Font = new Font("Segoe UI", 9F);
+            NumDiceValueFinderLabel.Location = new Point(354, 60);
+            NumDiceValueFinderLabel.Margin = new Padding(0);
+            NumDiceValueFinderLabel.Name = "NumDiceValueFinderLabel";
+            NumDiceValueFinderLabel.Size = new Size(91, 15);
+            NumDiceValueFinderLabel.TabIndex = 5;
+            NumDiceValueFinderLabel.Text = "Number of Dice";
+            NumDiceValueFinderLabel.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // SuccessChanceValueFinderLabel
+            // 
+            SuccessChanceValueFinderLabel.Anchor = AnchorStyles.None;
+            SuccessChanceValueFinderLabel.AutoSize = true;
+            ValueFinderTableLayoutPanel.SetColumnSpan(SuccessChanceValueFinderLabel, 6);
+            SuccessChanceValueFinderLabel.Font = new Font("Segoe UI", 9F);
+            SuccessChanceValueFinderLabel.Location = new Point(511, 60);
+            SuccessChanceValueFinderLabel.Name = "SuccessChanceValueFinderLabel";
+            SuccessChanceValueFinderLabel.Size = new Size(178, 15);
+            SuccessChanceValueFinderLabel.TabIndex = 6;
+            SuccessChanceValueFinderLabel.Text = "Overall Attempt Success Chance";
+            SuccessChanceValueFinderLabel.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // ValueFinderPanel
+            // 
+            ValueFinderPanel.AutoScroll = true;
+            ValueFinderPanel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            ValueFinderTableLayoutPanel.SetColumnSpan(ValueFinderPanel, 20);
+            ValueFinderPanel.Controls.Add(BodyTextValueFinderLabel);
+            ValueFinderPanel.Dock = DockStyle.Fill;
+            ValueFinderPanel.Location = new Point(0, 75);
+            ValueFinderPanel.Margin = new Padding(0);
+            ValueFinderPanel.Name = "ValueFinderPanel";
+            ValueFinderTableLayoutPanel.SetRowSpan(ValueFinderPanel, 15);
+            ValueFinderPanel.Size = new Size(801, 233);
+            ValueFinderPanel.TabIndex = 7;
+            // 
+            // BodyTextValueFinderLabel
+            // 
+            BodyTextValueFinderLabel.AutoSize = true;
+            BodyTextValueFinderLabel.Location = new Point(0, 0);
+            BodyTextValueFinderLabel.Name = "BodyTextValueFinderLabel";
+            BodyTextValueFinderLabel.Padding = new Padding(3);
+            BodyTextValueFinderLabel.Size = new Size(6, 25);
+            BodyTextValueFinderLabel.TabIndex = 0;
+            BodyTextValueFinderLabel.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // DiceFinderTabPage
+            // 
+            DiceFinderTabPage.Controls.Add(DiceFinderTableLayoutPanel);
+            DiceFinderTabPage.Font = new Font("Segoe UI", 10F);
+            DiceFinderTabPage.Location = new Point(4, 24);
+            DiceFinderTabPage.Margin = new Padding(0);
+            DiceFinderTabPage.Name = "DiceFinderTabPage";
+            DiceFinderTabPage.Size = new Size(801, 308);
+            DiceFinderTabPage.TabIndex = 3;
+            DiceFinderTabPage.Text = "Dice Finder";
+            DiceFinderTabPage.UseVisualStyleBackColor = true;
+            // 
+            // DiceFinderTableLayoutPanel
+            // 
+            DiceFinderTableLayoutPanel.AutoSize = true;
+            DiceFinderTableLayoutPanel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            DiceFinderTableLayoutPanel.ColumnCount = 20;
+            DiceFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            DiceFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            DiceFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            DiceFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            DiceFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            DiceFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            DiceFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            DiceFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            DiceFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            DiceFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            DiceFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            DiceFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            DiceFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            DiceFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            DiceFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            DiceFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            DiceFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            DiceFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            DiceFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            DiceFinderTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            DiceFinderTableLayoutPanel.Controls.Add(DiceFinderUsageTextLabel, 0, 0);
+            DiceFinderTableLayoutPanel.Controls.Add(SumDiceFinderTextBox, 9, 2);
+            DiceFinderTableLayoutPanel.Controls.Add(SumDiceFinderLabel, 9, 4);
+            DiceFinderTableLayoutPanel.Controls.Add(DiceFinderPanel, 0, 5);
+            DiceFinderTableLayoutPanel.Dock = DockStyle.Fill;
+            DiceFinderTableLayoutPanel.Location = new Point(0, 0);
+            DiceFinderTableLayoutPanel.Margin = new Padding(0);
+            DiceFinderTableLayoutPanel.Name = "DiceFinderTableLayoutPanel";
+            DiceFinderTableLayoutPanel.RowCount = 20;
+            DiceFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            DiceFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            DiceFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            DiceFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            DiceFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            DiceFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            DiceFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            DiceFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            DiceFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            DiceFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            DiceFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            DiceFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            DiceFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            DiceFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            DiceFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            DiceFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            DiceFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            DiceFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            DiceFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            DiceFinderTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            DiceFinderTableLayoutPanel.Size = new Size(801, 308);
+            DiceFinderTableLayoutPanel.TabIndex = 0;
+            // 
+            // DiceFinderUsageTextLabel
+            // 
+            DiceFinderUsageTextLabel.AutoSize = true;
+            DiceFinderTableLayoutPanel.SetColumnSpan(DiceFinderUsageTextLabel, 20);
+            DiceFinderUsageTextLabel.Dock = DockStyle.Fill;
+            DiceFinderUsageTextLabel.Location = new Point(0, 0);
+            DiceFinderUsageTextLabel.Margin = new Padding(0);
+            DiceFinderUsageTextLabel.Name = "DiceFinderUsageTextLabel";
+            DiceFinderTableLayoutPanel.SetRowSpan(DiceFinderUsageTextLabel, 2);
+            DiceFinderUsageTextLabel.Size = new Size(801, 30);
+            DiceFinderUsageTextLabel.TabIndex = 0;
+            DiceFinderUsageTextLabel.Text = "Enter a sum, then press 'Run' at the bottom to find the different ways to reach that sum";
+            DiceFinderUsageTextLabel.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // SumDiceFinderTextBox
+            // 
+            SumDiceFinderTextBox.Anchor = AnchorStyles.Top;
+            DiceFinderTableLayoutPanel.SetColumnSpan(SumDiceFinderTextBox, 2);
+            SumDiceFinderTextBox.Location = new Point(360, 30);
+            SumDiceFinderTextBox.Margin = new Padding(0);
+            SumDiceFinderTextBox.Name = "SumDiceFinderTextBox";
+            SumDiceFinderTextBox.PlaceholderText = "10";
+            SumDiceFinderTextBox.Size = new Size(80, 25);
+            SumDiceFinderTextBox.TabIndex = 1;
+            SumDiceFinderTextBox.TextAlign = HorizontalAlignment.Center;
+            SumDiceFinderTextBox.Validating += SumDiceFinderTextBox_Validating;
+            // 
+            // SumDiceFinderLabel
+            // 
+            SumDiceFinderLabel.Anchor = AnchorStyles.None;
+            SumDiceFinderLabel.AutoSize = true;
+            DiceFinderTableLayoutPanel.SetColumnSpan(SumDiceFinderLabel, 2);
+            SumDiceFinderLabel.Font = new Font("Segoe UI", 9F);
+            SumDiceFinderLabel.Location = new Point(360, 60);
+            SumDiceFinderLabel.Margin = new Padding(0);
+            SumDiceFinderLabel.Name = "SumDiceFinderLabel";
+            SumDiceFinderLabel.Size = new Size(80, 15);
+            SumDiceFinderLabel.TabIndex = 2;
+            SumDiceFinderLabel.Text = "Sum to Reach";
+            SumDiceFinderLabel.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // DiceFinderPanel
+            // 
+            DiceFinderPanel.AutoScroll = true;
+            DiceFinderPanel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            DiceFinderTableLayoutPanel.SetColumnSpan(DiceFinderPanel, 20);
+            DiceFinderPanel.Controls.Add(BodyTextDiceFinderLabel);
+            DiceFinderPanel.Dock = DockStyle.Fill;
+            DiceFinderPanel.Location = new Point(0, 75);
+            DiceFinderPanel.Margin = new Padding(0);
+            DiceFinderPanel.Name = "DiceFinderPanel";
+            DiceFinderTableLayoutPanel.SetRowSpan(DiceFinderPanel, 15);
+            DiceFinderPanel.Size = new Size(801, 233);
+            DiceFinderPanel.TabIndex = 3;
+            // 
+            // BodyTextDiceFinderLabel
+            // 
+            BodyTextDiceFinderLabel.AutoSize = true;
+            BodyTextDiceFinderLabel.Location = new Point(0, 0);
+            BodyTextDiceFinderLabel.Margin = new Padding(0);
+            BodyTextDiceFinderLabel.Name = "BodyTextDiceFinderLabel";
+            BodyTextDiceFinderLabel.Padding = new Padding(3);
+            BodyTextDiceFinderLabel.Size = new Size(6, 25);
+            BodyTextDiceFinderLabel.TabIndex = 0;
+            BodyTextDiceFinderLabel.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // ErrorProvider
+            // 
+            ErrorProvider.ContainerControl = this;
             // 
             // MainWindowForm
             // 
-            AcceptButton = runButton;
+            AcceptButton = RunButton;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(827, 517);
-            Controls.Add(overallTableLayoutPanel);
+            Controls.Add(OverallTableLayoutPanel);
             Name = "MainWindowForm";
             Text = "CNH Value Finder";
-            overallTableLayoutPanel.ResumeLayout(false);
-            overallTableLayoutPanel.PerformLayout();
-            advantageStateGroupBox.ResumeLayout(false);
-            advantageStateGroupBox.PerformLayout();
-            functionOptionsTabControl.ResumeLayout(false);
-            diceRollerTabPage.ResumeLayout(false);
-            diceRollerTableLayoutPanel.ResumeLayout(false);
-            diceRollerTableLayoutPanel.PerformLayout();
-            sumDiceRollerPanel.ResumeLayout(false);
-            sumDiceRollerPanel.PerformLayout();
-            successDiceRollerPanel.ResumeLayout(false);
-            successDiceRollerPanel.PerformLayout();
-            probabilityDisplaysTabPage.ResumeLayout(false);
-            probabilityDisplaysTabPage.PerformLayout();
-            probabilityDisplayTableLayoutPanel.ResumeLayout(false);
-            probabilityDisplayTableLayoutPanel.PerformLayout();
-            sumProbabilityDisplayPanel.ResumeLayout(false);
-            sumProbabilityDisplayPanel.PerformLayout();
-            successProbabilityDisplayPanel.ResumeLayout(false);
-            successProbabilityDisplayPanel.PerformLayout();
-            valueFinderTabPage.ResumeLayout(false);
-            valueFinderTabPage.PerformLayout();
-            valueFinderTableLayoutPanel.ResumeLayout(false);
-            valueFinderTableLayoutPanel.PerformLayout();
-            valueFinderPanel.ResumeLayout(false);
-            valueFinderPanel.PerformLayout();
-            diceFinderTabPage.ResumeLayout(false);
-            diceFinderTabPage.PerformLayout();
-            diceFinderTableLayoutPanel.ResumeLayout(false);
-            diceFinderTableLayoutPanel.PerformLayout();
-            diceFinderPanel.ResumeLayout(false);
-            diceFinderPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)errorProvider).EndInit();
+            OverallTableLayoutPanel.ResumeLayout(false);
+            OverallTableLayoutPanel.PerformLayout();
+            AdvantageStateGroupBox.ResumeLayout(false);
+            AdvantageStateGroupBox.PerformLayout();
+            FunctionOptionsTabControl.ResumeLayout(false);
+            DiceRollerTabPage.ResumeLayout(false);
+            DiceRollerTableLayoutPanel.ResumeLayout(false);
+            DiceRollerTableLayoutPanel.PerformLayout();
+            SumDiceRollerPanel.ResumeLayout(false);
+            SumDiceRollerPanel.PerformLayout();
+            SuccessDiceRollerPanel.ResumeLayout(false);
+            SuccessDiceRollerPanel.PerformLayout();
+            ProbabilityDisplaysTabPage.ResumeLayout(false);
+            ProbabilityDisplaysTabPage.PerformLayout();
+            ProbabilityDisplayTableLayoutPanel.ResumeLayout(false);
+            ProbabilityDisplayTableLayoutPanel.PerformLayout();
+            SumProbabilityDisplayPanel.ResumeLayout(false);
+            SumProbabilityDisplayPanel.PerformLayout();
+            SuccessProbabilityDisplayPanel.ResumeLayout(false);
+            SuccessProbabilityDisplayPanel.PerformLayout();
+            ValueFinderTabPage.ResumeLayout(false);
+            ValueFinderTabPage.PerformLayout();
+            ValueFinderTableLayoutPanel.ResumeLayout(false);
+            ValueFinderTableLayoutPanel.PerformLayout();
+            ValueFinderPanel.ResumeLayout(false);
+            ValueFinderPanel.PerformLayout();
+            DiceFinderTabPage.ResumeLayout(false);
+            DiceFinderTabPage.PerformLayout();
+            DiceFinderTableLayoutPanel.ResumeLayout(false);
+            DiceFinderTableLayoutPanel.PerformLayout();
+            DiceFinderPanel.ResumeLayout(false);
+            DiceFinderPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)ErrorProvider).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private TableLayoutPanel overallTableLayoutPanel;
-        private Label overallUsageTextLabel;
-        private Button runButton;
-        private GroupBox advantageStateGroupBox;
-        private RadioButton advantageRadioButton;
-        private RadioButton disadvantageRadioButton;
-        private RadioButton neutralRadioButton;
-        private TextBox typeDiceTextBox;
-        private TextBox numDiceTextBox;
-        private TextBox successThresholdTextBox;
-        private Label typeDiceLabel;
-        private Label numDiceLabel;
-        private Label successThresholdLabel;
-        private TabControl functionOptionsTabControl;
-        private TabPage diceRollerTabPage;
-        private TabPage probabilityDisplaysTabPage;
-        private TabPage valueFinderTabPage;
-        private TableLayoutPanel diceRollerTableLayoutPanel;
-        private TableLayoutPanel probabilityDisplayTableLayoutPanel;
-        private TableLayoutPanel valueFinderTableLayoutPanel;
-        private Label headerTextSumDiceRollerLabel;
-        private Label headerTextSuccessDiceRollerLabel;
-        private Panel sumDiceRollerPanel;
-        private Panel successDiceRollerPanel;
-        private Label usageTextSumDiceRollerLabel;
-        private Label usageTextSuccessDiceRollerLabel;
-        private Label headerTextSumProbabilityDisplayLabel;
-        private Label headerTextSuccessProbabilityDisplayLabel;
-        private Panel sumProbabilityDisplayPanel;
-        private Label usageTextSumProbabilityDisplayLabel;
-        private Panel successProbabilityDisplayPanel;
-        private Label usageTextSuccessProbabilityDisplayLabel;
-        private Label valueFinderUsageTextLabel;
-        private TextBox difficultyValueFinderTextBox;
-        private TextBox numDiceValueFinderTextBox;
-        private TextBox successChanceValueFinderTextBox;
-        private Label difficultyValueFinderLabel;
-        private Label numDiceValueFinderLabel;
-        private Label successChanceValueFinderLabel;
-        private Panel valueFinderPanel;
-        private Label bodyTextValueFinderLabel;
-        private TabPage diceFinderTabPage;
-        private TableLayoutPanel diceFinderTableLayoutPanel;
-        private Label diceFinderUsageTextLabel;
-        private TextBox sumDiceFinderTextBox;
-        private Label sumDiceFinderLabel;
-        private Panel diceFinderPanel;
-        private Label bodyTextDiceFinderLabel;
-        private ErrorProvider errorProvider;
-        private Label bodyTextSumDiceRollerLabel;
-        private Label bodyTextSuccessDiceRollerLabel;
-        private Label bodyTextSumProbabilityDisplayLabel;
-        private Label bodyTextSuccessProbabilityDisplayLabel;
+        private TableLayoutPanel OverallTableLayoutPanel;
+        private Label OverallUsageTextLabel;
+        private Button RunButton;
+        private GroupBox AdvantageStateGroupBox;
+        private RadioButton AdvantageRadioButton;
+        private RadioButton DisadvantageRadioButton;
+        private RadioButton NeutralRadioButton;
+        private TextBox TypeDiceTextBox;
+        private TextBox NumDiceTextBox;
+        private TextBox SuccessThresholdTextBox;
+        private Label TypeDiceLabel;
+        private Label NumDiceLabel;
+        private Label SuccessThresholdLabel;
+        private TabControl FunctionOptionsTabControl;
+        private TabPage DiceRollerTabPage;
+        private TabPage ProbabilityDisplaysTabPage;
+        private TabPage ValueFinderTabPage;
+        private TableLayoutPanel DiceRollerTableLayoutPanel;
+        private TableLayoutPanel ProbabilityDisplayTableLayoutPanel;
+        private TableLayoutPanel ValueFinderTableLayoutPanel;
+        private Label HeaderTextSumDiceRollerLabel;
+        private Label HeaderTextSuccessDiceRollerLabel;
+        private Panel SumDiceRollerPanel;
+        private Panel SuccessDiceRollerPanel;
+        private Label UsageTextSumDiceRollerLabel;
+        private Label UsageTextSuccessDiceRollerLabel;
+        private Label HeaderTextSumProbabilityDisplayLabel;
+        private Label HeaderTextSuccessProbabilityDisplayLabel;
+        private Panel SumProbabilityDisplayPanel;
+        private Label UsageTextSumProbabilityDisplayLabel;
+        private Panel SuccessProbabilityDisplayPanel;
+        private Label UsageTextSuccessProbabilityDisplayLabel;
+        private Label ValueFinderUsageTextLabel;
+        private TextBox DifficultyValueFinderTextBox;
+        private TextBox NumDiceValueFinderTextBox;
+        private TextBox SuccessChanceValueFinderTextBox;
+        private Label DifficultyValueFinderLabel;
+        private Label NumDiceValueFinderLabel;
+        private Label SuccessChanceValueFinderLabel;
+        private Panel ValueFinderPanel;
+        private Label BodyTextValueFinderLabel;
+        private TabPage DiceFinderTabPage;
+        private TableLayoutPanel DiceFinderTableLayoutPanel;
+        private Label DiceFinderUsageTextLabel;
+        private TextBox SumDiceFinderTextBox;
+        private Label SumDiceFinderLabel;
+        private Panel DiceFinderPanel;
+        private Label BodyTextDiceFinderLabel;
+        private ErrorProvider ErrorProvider;
+        private Label BodyTextSumDiceRollerLabel;
+        private Label BodyTextSuccessDiceRollerLabel;
+        private Label BodyTextSumProbabilityDisplayLabel;
+        private Label BodyTextSuccessProbabilityDisplayLabel;
     }
 }

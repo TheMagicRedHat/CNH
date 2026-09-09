@@ -52,6 +52,12 @@
         "net10.0-windows": {
           "framework": "net10.0-windows7.0",
           "targetAlias": "net10.0-windows",
+          "dependencies": {
+            "ExtendedNumerics.BigRational": {
+              "target": "Package",
+              "version": "[3000.0.2.132, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

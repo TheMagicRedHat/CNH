@@ -5,7 +5,24 @@
   },
   "compilationOptions": {},
   "targets": {
-    ".NETCoreApp,Version=v10.0": {}
+    ".NETCoreApp,Version=v10.0": {
+      "ExtendedNumerics.BigRational/3000.0.2.132": {
+        "runtime": {
+          "lib/net7.0/ExtendedNumerics.BigRational.dll": {
+            "assemblyVersion": "3000.0.2.132",
+            "fileVersion": "3000.0.2.132"
+          }
+        }
+      }
+    }
   },
-  "libraries": {}
+  "libraries": {
+    "ExtendedNumerics.BigRational/3000.0.2.132": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Hb5jQsseiLtRhk+O132hkq3ibO4/6v6WyPu714GwYtHje3HNWoItnaNy7DVhcA8wanhwku6sUk40R8/fBiX7tA==",
+      "path": "extendednumerics.bigrational/3000.0.2.132",
+      "hashPath": "extendednumerics.bigrational.3000.0.2.132.nupkg.sha512"
+    }
+  }
 }
