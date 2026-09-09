@@ -6,12 +6,19 @@ namespace CNH_Value_Finder
     public partial class MainWindowForm : Form
     {
         private int typeDice = 6; // How many sides the dice have
+        private int defaultTypeDice = 6;
         private int numDice = 1; // How many dice there are
+        private int defaultNumDice = 1;
         private int successThreshold = 4; // The lowest possible die face that counts as a Success
+        private int defaultSuccessThreshold = 4;
         private int difficulty = 0; // The difficulty of the simulated Attempt
+        private int defaultDifficulty = 0;
         private int valueFinderNumDice = 0; // How many dice are used in the simulated Attempt
+        private int defaultValueFinderNumDice = 0;
         private double successChance = 0; // The overall simulated Attempt's success chance
+        private double defaultSuccessChance = 0;
         private int diceSum = 10; // The sum of the dice to simulate
+        private int defaultDiceSum = 10;
 
         // Standard constructor
         public MainWindowForm()
@@ -20,7 +27,7 @@ namespace CNH_Value_Finder
         }
 
         /* Calculates the number of ways to choose k items from n total items where order doesn't matter
-         * Implementation of the Combination mathematical function
+         * Implementation of the Combination (or Binomial Coefficient) mathematical function
          * @param n <int> The total number of items to 'choose' from
          * @param k <int> The number of items 'chosen'
          * @return <BigInteger> The number of ways to pick k items from n total items (order doesn't matter)
@@ -536,7 +543,45 @@ namespace CNH_Value_Finder
         // All of the code for calculating various desired CNH values
         private void RunValueFinder()
         {
-            return;
+            // First do error checking to make absolutely sure that calculations can be run
+            // Of the three Value Finder fields (difficulty, numDice, successChance)
+            //  *exactly* one of them *must* be empty and the other two *must* be filled
+            string errorText = "Please leave exactly one of the above textboxes blank and provide valid inputs for the other two";
+            if (difficulty == 0)
+            {
+                if (valueFinderNumDice == 0)
+                {
+                    BodyTextValueFinderLabel.Text = errorText;
+                    return;
+                }
+                else
+                {
+                    if (successChance == 0)
+                    {
+                        BodyTextValueFinderLabel.Text = errorText;
+                        return;
+                    }
+                }
+            }
+            else
+            {
+                if (valueFinderNumDice == 0)
+                {
+                    if (successChance == 0)
+                    {
+                        BodyTextValueFinderLabel.Text = errorText;
+                        return;
+                    }
+                }
+                else
+                {
+                    if (successChance != 0)
+                    {
+                        BodyTextValueFinderLabel.Text = errorText;
+                        return;
+                    }
+                }
+            }
         }
 
         // All of the code for calculating various ways to reach a dice sum
@@ -584,14 +629,6 @@ namespace CNH_Value_Finder
                 NumDiceTextBox.Visible = false;
                 NumDiceTextBox.Enabled = false;
                 NumDiceLabel.Visible = false;
-                // Maybe enable 'Run' button, under the right conditions
-                RunButton.Enabled = false;
-                if ((difficulty == 0 & valueFinderNumDice != 0 & successChance != 0) ||
-                    (difficulty != 0 & valueFinderNumDice == 0 & successChance != 0) ||
-                    (difficulty != 0 & valueFinderNumDice != 0 & successChance == 0))
-                {
-                    RunButton.Enabled = true;
-                }
             }
             /* When switching off of the Value Finder tab page:
              *  The 'Number of Dice' text box needs to "move" out of the tab page
@@ -611,8 +648,6 @@ namespace CNH_Value_Finder
                 NumDiceTextBox.Visible = true;
                 NumDiceTextBox.Enabled = true;
                 NumDiceLabel.Visible = true;
-                // Re-enable 'Run' button
-                RunButton.Enabled = true;
             }
         }
 
@@ -627,7 +662,7 @@ namespace CNH_Value_Finder
                 // Default value of d6
                 if (string.IsNullOrEmpty(TypeDiceTextBox.Text))
                 {
-                    x = 6;
+                    x = defaultTypeDice;
                 }
                 // Since we only use the number, strip the 'd' if it exists
                 else if (Char.ToLower(TypeDiceTextBox.Text[0]) == 'd')
@@ -642,6 +677,7 @@ namespace CNH_Value_Finder
                 if (x < 1)
                 {
                     x = 1;
+                    TypeDiceTextBox.Text = "1";
                 }
                 // Assign variables and enable everything since we passed validation
                 typeDice = x;
@@ -660,15 +696,20 @@ namespace CNH_Value_Finder
                     successThreshold = x;
                     SuccessThresholdTextBox.PlaceholderText = successThreshold.ToString();
                 }
-                SuccessThresholdTextBox.Enabled = true;
-                RunButton.Enabled = true;
+                else if (Int32.Parse(SuccessThresholdTextBox.Text) > typeDice)
+                {
+                    successThreshold = typeDice;
+                    SuccessThresholdTextBox.Text = $"{typeDice}";
+                }
                 ErrorProvider.SetError(TypeDiceTextBox, "");
             }
             catch (Exception ex)
             {
                 // Disable the Success Threshold textbox, since it needs a valid dice type for error checking
-                SuccessThresholdTextBox.Enabled = false;
-                RunButton.Enabled = false;
+                TypeDiceTextBox.Text = "";
+                SuccessThresholdTextBox.Text = "";
+                typeDice = defaultTypeDice;
+                successThreshold = defaultSuccessThreshold;
                 ErrorProvider.SetError(TypeDiceTextBox, "Invalid value - Enter an integer greater than 0 optionally preceeded by a 'd'");
             }
         }
@@ -681,7 +722,7 @@ namespace CNH_Value_Finder
                 // Default value of 1 die
                 if (string.IsNullOrEmpty(NumDiceTextBox.Text))
                 {
-                    x = 1;
+                    x = defaultNumDice;
                 }
                 else
                 {
@@ -691,15 +732,17 @@ namespace CNH_Value_Finder
                 if (x < 1)
                 {
                     x = 1;
+                    NumDiceTextBox.Text = "1";
                 }
                 // Assign variables and enable everything since we passed validation
                 numDice = x;
-                RunButton.Enabled = true;
                 ErrorProvider.SetError(NumDiceTextBox, "");
             }
             catch (Exception ex)
             {
-                RunButton.Enabled = false;
+                NumDiceTextBox.Text = "";
+                numDice = defaultNumDice;
+                valueFinderNumDice = defaultValueFinderNumDice;
                 ErrorProvider.SetError(NumDiceTextBox, "Invalid value - Enter an integer greater than 0");
             }
         }
@@ -731,28 +774,37 @@ namespace CNH_Value_Finder
                 if (x < 1)
                 {
                     x = 1;
+                    SuccessThresholdTextBox.Text = "1";
                 }
                 else if (x > typeDice)
                 {
                     x = typeDice;
+                    SuccessThresholdTextBox.Text = $"{typeDice}";
                 }
                 // Assign variables and enable everything since we passed validation
                 successThreshold = x;
-                RunButton.Enabled = true;
                 ErrorProvider.SetError(SuccessThresholdTextBox, "");
             }
             catch (Exception ex)
             {
-                RunButton.Enabled = false;
                 // Customize error message since "Enter an integer between 1 and 1" sounds clunky
                 String errorString;
                 if (typeDice == 1)
                 {
-                    errorString = "Invalid value - Must be 1 since you a d1 dice type is being used";
+                    errorString = "Invalid value - Must be 1 since a one-sided dice type is being used";
                 }
                 else
                 {
                     errorString = $"Invalid value - Enter an integer between 1 and {typeDice}, inclusive";
+                }
+                SuccessThresholdTextBox.Text = "";
+                if (typeDice % 2 == 0)
+                {
+                    successThreshold = (typeDice / 2) + 1;
+                }
+                else
+                {
+                    successThreshold = (int)Math.Ceiling((double)typeDice / 2);
                 }
                 ErrorProvider.SetError(SuccessThresholdTextBox, errorString);
             }
@@ -767,7 +819,7 @@ namespace CNH_Value_Finder
                 // NOTE - This is used for checking which value needs to be calculated
                 if (string.IsNullOrEmpty(DifficultyValueFinderTextBox.Text))
                 {
-                    x = 0;
+                    x = defaultDifficulty;
                 }
                 else
                 {
@@ -776,22 +828,17 @@ namespace CNH_Value_Finder
                     if (x < 1)
                     {
                         x = 1;
+                        DifficultyValueFinderTextBox.Text = "1";
                     }
                 }
                 // Assign variables and enable the 'Run' button if *exactly* one of the Value Finder options is empty, since we passed validation
                 difficulty = x;
-                RunButton.Enabled = false;
-                if ((difficulty == 0 & valueFinderNumDice != 0 & successChance != 0) ||
-                    (difficulty != 0 & valueFinderNumDice == 0 & successChance != 0) ||
-                    (difficulty != 0 & valueFinderNumDice != 0 & successChance == 0))
-                {
-                    RunButton.Enabled = true;
-                }
                 ErrorProvider.SetError(DifficultyValueFinderTextBox, "");
             }
             catch (Exception ex)
             {
-                RunButton.Enabled = false;
+                DifficultyValueFinderTextBox.Text = "";
+                difficulty = defaultDifficulty;
                 ErrorProvider.SetError(DifficultyValueFinderTextBox, "Invalid value - Enter an integer greater than 0");
             }
         }
@@ -805,7 +852,7 @@ namespace CNH_Value_Finder
                 // NOTE - This is used for checking which value needs to be calculated
                 if (string.IsNullOrEmpty(NumDiceValueFinderTextBox.Text))
                 {
-                    x = 0;
+                    x = defaultValueFinderNumDice;
                 }
                 else
                 {
@@ -814,22 +861,18 @@ namespace CNH_Value_Finder
                     if (x < 1)
                     {
                         x = 1;
+                        NumDiceValueFinderTextBox.Text = "1";
                     }
                 }
                 // Assign variables and enable the 'Run' button if *exactly* one of the Value Finder options is empty, since we passed validation
                 valueFinderNumDice = x;
-                RunButton.Enabled = false;
-                if ((difficulty == 0 & valueFinderNumDice != 0 & successChance != 0) ||
-                    (difficulty != 0 & valueFinderNumDice == 0 & successChance != 0) ||
-                    (difficulty != 0 & valueFinderNumDice != 0 & successChance == 0))
-                {
-                    RunButton.Enabled = true;
-                }
                 ErrorProvider.SetError(NumDiceValueFinderTextBox, "");
             }
             catch (Exception ex)
             {
-                RunButton.Enabled = false;
+                NumDiceValueFinderTextBox.Text = "";
+                numDice = defaultNumDice;
+                valueFinderNumDice = defaultValueFinderNumDice;
                 ErrorProvider.SetError(NumDiceValueFinderTextBox, "Invalid value - Enter an integer greater than 0");
             }
         }
@@ -843,7 +886,7 @@ namespace CNH_Value_Finder
                 // NOTE - This is used for checking which value needs to be calculated
                 if (string.IsNullOrEmpty(SuccessChanceValueFinderTextBox.Text))
                 {
-                    x = 0;
+                    x = defaultSuccessChance;
                 }
                 // If user input has a '%' symbol at the end, strip it and treat the value as a percent (divide by 100)
                 else if (SuccessChanceValueFinderTextBox.Text[SuccessChanceValueFinderTextBox.Text.Length - 1] == '%')
@@ -854,10 +897,12 @@ namespace CNH_Value_Finder
                     if (x <= 0)
                     {
                         x = 0.01;
+                        SuccessChanceValueFinderTextBox.Text = "1%";
                     }
                     else if (x >= 1)
                     {
                         x = 0.99;
+                        SuccessChanceValueFinderTextBox.Text = "99%";
                     }
                 }
                 else
@@ -872,26 +917,22 @@ namespace CNH_Value_Finder
                     if (x <= 0)
                     {
                         x = 0.01;
+                        SuccessChanceValueFinderTextBox.Text = "1%";
                     }
                     else if (x >= 1)
                     {
                         x = 0.99;
+                        SuccessChanceValueFinderTextBox.Text = "99%";
                     }
                 }
                 // Assign variables and enable the 'Run' button if *exactly* one of the Value Finder options is empty, since we passed validation
                 successChance = x;
-                RunButton.Enabled = false;
-                if ((difficulty == 0 & valueFinderNumDice != 0 & successChance != 0) ||
-                    (difficulty != 0 & valueFinderNumDice == 0 & successChance != 0) ||
-                    (difficulty != 0 & valueFinderNumDice != 0 & successChance == 0))
-                {
-                    RunButton.Enabled = true;
-                }
                 ErrorProvider.SetError(SuccessChanceValueFinderTextBox, "");
             }
             catch (Exception ex)
             {
-                RunButton.Enabled = false;
+                SuccessChanceValueFinderTextBox.Text = "";
+                successChance = defaultSuccessChance;
                 ErrorProvider.SetError(SuccessChanceValueFinderTextBox, "Invalid value - Enter a number between 0 and 100, exclusive, optionally followed by a '%'");
             }
         }
@@ -904,7 +945,7 @@ namespace CNH_Value_Finder
                 // Default value of a dice sum of 1
                 if (string.IsNullOrEmpty(SumDiceFinderTextBox.Text))
                 {
-                    x = 1;
+                    x = defaultDiceSum;
                 }
                 else
                 {
@@ -914,15 +955,16 @@ namespace CNH_Value_Finder
                 if (x < 1)
                 {
                     x = 1;
+                    SumDiceFinderTextBox.Text = "1";
                 }
                 // Assign variables and enable everything since we passed validation
                 diceSum = x;
-                RunButton.Enabled = true;
                 ErrorProvider.SetError(SumDiceFinderTextBox, "");
             }
             catch (Exception ex)
             {
-                RunButton.Enabled = false;
+                SumDiceFinderTextBox.Text = "";
+                diceSum = defaultDiceSum;
                 ErrorProvider.SetError(SumDiceFinderTextBox, "Invalid value - Enter an integer greater than 0");
             }
         }
