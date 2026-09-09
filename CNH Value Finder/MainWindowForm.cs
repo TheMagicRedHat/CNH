@@ -582,6 +582,22 @@ namespace CNH_Value_Finder
                     }
                 }
             }
+            // Value finding begins here
+            // Find the difficulty given overall success chance and number of dice
+            if (difficulty == 0)
+            {
+                return;
+            }
+            // Find the number of dice needed for an overall success chance and a difficulty
+            else if (valueFinderNumDice == 0)
+            {
+                return;
+            }
+            // Find the overall success chance given a number of dice and a difficulty
+            else if (successChance == 0)
+            {
+                return;
+            }
         }
 
         // All of the code for calculating various ways to reach a dice sum
