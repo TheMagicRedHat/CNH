@@ -910,6 +910,7 @@
             // 
             BodyTextValueFinderLabel.AutoSize = true;
             BodyTextValueFinderLabel.Location = new Point(0, 0);
+            BodyTextValueFinderLabel.Margin = new Padding(0);
             BodyTextValueFinderLabel.Name = "BodyTextValueFinderLabel";
             BodyTextValueFinderLabel.Padding = new Padding(3);
             BodyTextValueFinderLabel.Size = new Size(6, 25);
