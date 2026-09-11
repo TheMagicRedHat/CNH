@@ -596,7 +596,47 @@ namespace CNH_Value_Finder
             // Find the overall success chance given a number of dice and a difficulty
             else if (successChance == 0)
             {
-                return;
+                // Ensure that the correct value is set for Number of Dice
+                numDice = valueFinderNumDice;
+                // Calculate the probability distribution of every possible result
+                double[] probabilities = GenerateSuccessDistribution();
+                // Start building the output text
+                string text = $"\nProbability of at least {difficulty} Success";
+                // Add an appropriate plural if using a Difficulty of more than 1
+                if (difficulty == 1)
+                {
+                    text = $"{text} when rolling {numDice} ";
+                }
+                else
+                {
+                    text = $"{text}es when rolling {numDice} ";
+                }
+                // Add an appropriate plural if using more than 1 for Number of Dice
+                if (numDice == 1)
+                {
+                    text = $"{text}die ";
+                }
+                else
+                {
+                    text = $"{text}dice ";
+                }
+                // Add text confirming advantage state
+                // The actual value to display is the sum of all probabilities that have results that are
+                //  greater than or equal to the difficulty
+                if (AdvantageRadioButton.Checked == true)
+                {
+                    text = $"{text}with advantage: {probabilities[difficulty..].Sum().ToString("P")}";
+                }
+                else if (DisadvantageRadioButton.Checked == true)
+                {
+                    text = $"{text}with disadvantage: {probabilities[difficulty..].Sum().ToString("P")}";
+                }
+                else
+                {
+                    text = $"{text}: {probabilities[difficulty..].Sum().ToString("P")}";
+                }
+                // Set the text
+                BodyTextValueFinderLabel.Text = text;
             }
         }
 
@@ -639,6 +679,7 @@ namespace CNH_Value_Finder
             {
                 // Copy settings
                 NumDiceValueFinderTextBox.Text = NumDiceTextBox.Text;
+                valueFinderNumDice = numDice;
                 // Reset
                 NumDiceTextBox.Text = "";
                 // Hide
@@ -657,6 +698,7 @@ namespace CNH_Value_Finder
                 if (!string.IsNullOrEmpty(NumDiceValueFinderTextBox.Text))
                 {
                     NumDiceTextBox.Text = NumDiceValueFinderTextBox.Text;
+                    numDice = valueFinderNumDice;
                 }
                 // Reset
                 NumDiceValueFinderTextBox.Text = "";
