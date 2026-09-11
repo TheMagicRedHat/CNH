@@ -586,7 +586,57 @@ namespace CNH_Value_Finder
             // Find the difficulty given overall success chance and number of dice
             if (difficulty == 0)
             {
-                return;
+                // Ensure that the correct value is set for Number of Dice
+                numDice = valueFinderNumDice;
+                // Calculate the probability distribution of every possible result
+                double[] probabilities = GenerateSuccessDistribution();
+                // Use the probability distribution to get a cumulative probability distribution
+                //  that represents the overall chance of success if the array's positions
+                //  represent the difficulty
+                // NOTE - The overall distribution is flipped in reverse so Binary Search functions correctly
+                //        Since by default, overall distribution would start at 1 and gradually decrease
+                double[] overallDistribution = new double[probabilities.Length];
+                for (int i = 0; i < probabilities.Length; i++)
+                {
+                    overallDistribution[i] = probabilities[(probabilities.Length - i - 1)..].Sum();
+                }
+                // Use binary search to find the ideal difficulty
+                int difficulty = Array.BinarySearch(overallDistribution, successChance);
+                // If the exact value wasn't found, use the closest value that's still higher than the desired overall chance
+                if (difficulty < 0)
+                {
+                    difficulty = ~difficulty;
+                }
+                // Display the results - start by building the initial text
+                string text = $"\nMaximum possible difficulty when rolling {numDice}";
+                // Add an appropriate plural if using more than 1 for Number of Dice
+                if (numDice == 1)
+                {
+                    text = $"{text} die";
+                }
+                else
+                {
+                    text = $"{text} dice";
+                }
+                // Add text confirming advantage state
+                if (AdvantageRadioButton.Checked == true)
+                {
+                    text = $"{text} with advantage to have at least a {successChance.ToString("P")} chance of success:";
+                }
+                else if (DisadvantageRadioButton.Checked == true)
+                {
+                    text = $"{text} with disadvantage to have at least a {successChance.ToString("P")} chance of success:";
+                }
+                else
+                {
+                    text = $"{text} to have at least a {successChance.ToString("P")} chance of success:";
+                }
+                // The final value to display is the previously found difficulty
+                //  (plus the exact chance of overall success with that difficulty)
+                // NOTE - The difficulty needs to be flipped to be right, since the original overall distribution
+                //        array needed to be flipped for binary search
+                text = $"{text} {probabilities.Length - difficulty - 1} (which results in a {overallDistribution[difficulty].ToString("P")} chance)";
+                BodyTextValueFinderLabel.Text = text;
             }
             // Find the number of dice needed for an overall success chance and a difficulty
             else if (valueFinderNumDice == 0)
@@ -605,31 +655,31 @@ namespace CNH_Value_Finder
                 // Add an appropriate plural if using a Difficulty of more than 1
                 if (difficulty == 1)
                 {
-                    text = $"{text} when rolling {numDice} ";
+                    text = $"{text} when rolling {numDice}";
                 }
                 else
                 {
-                    text = $"{text}es when rolling {numDice} ";
+                    text = $"{text}es when rolling {numDice}";
                 }
                 // Add an appropriate plural if using more than 1 for Number of Dice
                 if (numDice == 1)
                 {
-                    text = $"{text}die ";
+                    text = $"{text} die";
                 }
                 else
                 {
-                    text = $"{text}dice ";
+                    text = $"{text} dice";
                 }
                 // Add text confirming advantage state
                 // The actual value to display is the sum of all probabilities that have results that are
                 //  greater than or equal to the difficulty
                 if (AdvantageRadioButton.Checked == true)
                 {
-                    text = $"{text}with advantage: {probabilities[difficulty..].Sum().ToString("P")}";
+                    text = $"{text} with advantage: {probabilities[difficulty..].Sum().ToString("P")}";
                 }
                 else if (DisadvantageRadioButton.Checked == true)
                 {
-                    text = $"{text}with disadvantage: {probabilities[difficulty..].Sum().ToString("P")}";
+                    text = $"{text} with disadvantage: {probabilities[difficulty..].Sum().ToString("P")}";
                 }
                 else
                 {
