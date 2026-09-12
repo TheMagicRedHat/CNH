@@ -99,18 +99,19 @@ namespace CNH_Value_Finder
         }
 
         /* Generate an array of the probability distribution for the range of possible sums with the current number of dice
+         * @param numberOfDice <int> The number of dice to usse when making calculations
          * @return <double[]> The array of probabilities where the position of each value corresponds to a total sum
          */
-        private double[] GenerateSumDistribution()
+        private double[] GenerateSumDistribution(int numberOfDice)
         {
             // Establish the base probability distribution (ignore Advantage/Disadvantage)
-            double[] baseDistribution = new double[(typeDice * numDice) + 1];
+            double[] baseDistribution = new double[(typeDice * numberOfDice) + 1];
             for (int sum = 0; sum < baseDistribution.Length; sum++)
             {
                 // Initialize value to 0
                 // The first set of values stay 0 since you can't roll a sum less than the number of dice used
                 baseDistribution[sum] = 0.0;
-                if (sum >= numDice)
+                if (sum >= numberOfDice)
                 {
                     // Value is the number of combinations that yield the exact sum divided by the total number of possible sums
                     // NOTE - There is a fairly easy recursive implementation for finding the number of combinations for an exact sum
@@ -118,11 +119,11 @@ namespace CNH_Value_Finder
                     //        The only downside is that the formula is unintuitive and somewhat inscrutable
                     //        This is mostly due to the fact that each die can only contribute up to <largest face value> to the sum
                     BigInteger numerator = 0;
-                    for (int i = 0; i <= Math.Floor((double)(sum - numDice) / typeDice); i++)
+                    for (int i = 0; i <= Math.Floor((double)(sum - numberOfDice) / typeDice); i++)
                     {
-                        numerator += BigInteger.Pow(-1, i) * Choose(numDice, i) * Choose(sum - 1 - (typeDice * i), numDice - 1);
+                        numerator += BigInteger.Pow(-1, i) * Choose(numberOfDice, i) * Choose(sum - 1 - (typeDice * i), numberOfDice - 1);
                     }
-                    BigInteger denominator = BigInteger.Pow(typeDice, numDice);
+                    BigInteger denominator = BigInteger.Pow(typeDice, numberOfDice);
                     BigRational probability = new BigRational(numerator, denominator);
                     baseDistribution[sum] = Math.Round((double)probability, 15);
                 }
@@ -133,7 +134,7 @@ namespace CNH_Value_Finder
                 return baseDistribution;
             }
             // If there's Advantage/Disadvantage, we need a new distribution
-            double[] finalDistribution = new double[(typeDice * numDice) + 1];
+            double[] finalDistribution = new double[(typeDice * numberOfDice) + 1];
             // For Advantage, the new distribution for any given sum is:
             //  The probability of rolling that sum twice (base probability squared)
             //  PLUS
@@ -144,7 +145,7 @@ namespace CNH_Value_Finder
             {
                 for (int i = 0; i < finalDistribution.Length; i++)
                 {
-                    if (i >= numDice)
+                    if (i >= numberOfDice)
                     {
                         double value = (Math.Pow(baseDistribution[i], 2)) + (2 * baseDistribution[i] * baseDistribution[numDice..i].Sum());
                         finalDistribution[i] = Math.Round(value, 15);
@@ -161,7 +162,7 @@ namespace CNH_Value_Finder
             {
                 for (int i = 0; i < finalDistribution.Length; i++)
                 {
-                    if (i >= numDice)
+                    if (i >= numberOfDice)
                     {
                         double value = (Math.Pow(baseDistribution[i], 2)) + (2 * baseDistribution[i] * baseDistribution[(i + 1)..].Sum());
                         finalDistribution[i] = Math.Round(value, 15);
@@ -171,19 +172,20 @@ namespace CNH_Value_Finder
             return finalDistribution;
         }
 
-        /* Generate an array of the probability distribution for the range of possible Successes with the current number of dice
+        /* Generate an array of the probability distribution for the range of possible Successes with an amount of dice
+         * @param numberOfDice <int> The number of dice to usse when making calculations
          * @return <double[]> The array of probabilities where the position of each value corresponds to that many successes
          */
-        private double[] GenerateSuccessDistribution()
+        private double[] GenerateSuccessDistribution(int numberOfDice)
         {
             // Odds that any single die roll is a Success
             BigRational successProbability = new BigRational((typeDice + 1 - successThreshold), typeDice);
             // Establish the base probability distribution (ignore Advantage/Disadvantage)
-            double[] baseDistribution = new double[numDice + 1];
+            double[] baseDistribution = new double[numberOfDice + 1];
             for (int i = 0; i < baseDistribution.Length; i++)
             {
                 // Value is standard binomial probability formula for each amount of Successes
-                BigRational value = new BigRational(Choose(numDice, i) * (BigRational.Pow(successProbability, i)) * (BigRational.Pow(1 - successProbability, numDice - i)));
+                BigRational value = new BigRational(Choose(numberOfDice, i) * (BigRational.Pow(successProbability, i)) * (BigRational.Pow(1 - successProbability, numberOfDice - i)));
                 baseDistribution[i] = Math.Round((double)value, 15);
             }
             // If there's no Advantage/Disadvantage, then we're done
@@ -192,7 +194,7 @@ namespace CNH_Value_Finder
                 return baseDistribution;
             }
             // If there's Advantage/Disadvantage, we need a new distribution
-            double[] finalDistribution = new double[numDice + 1];
+            double[] finalDistribution = new double[numberOfDice + 1];
             // For Advantage, the new distribution for any given amount of successes is:
             //  The probability of rolling that many successes twice (base probability squared)
             //  PLUS
@@ -449,7 +451,7 @@ namespace CNH_Value_Finder
         private void RunProbabilityDisplays()
         {
             // Find sum average and standard deviation
-            double[] sumDistribution = GenerateSumDistribution();
+            double[] sumDistribution = GenerateSumDistribution(numDice);
             double average = Average(sumDistribution);
             double stdDeviation = StandardDeviation(sumDistribution);
             // Convert the sum average info to text
@@ -491,7 +493,7 @@ namespace CNH_Value_Finder
                 }
             }
             // Repeat the process with successes now
-            double[] successDistribution = GenerateSuccessDistribution();
+            double[] successDistribution = GenerateSuccessDistribution(numDice);
             average = Average(successDistribution);
             stdDeviation = StandardDeviation(successDistribution);
             // Convert the success average info to text
@@ -586,10 +588,8 @@ namespace CNH_Value_Finder
             // Find the difficulty given overall success chance and number of dice
             if (difficulty == 0)
             {
-                // Ensure that the correct value is set for Number of Dice
-                numDice = valueFinderNumDice;
                 // Calculate the probability distribution of every possible result
-                double[] probabilities = GenerateSuccessDistribution();
+                double[] probabilities = GenerateSuccessDistribution(valueFinderNumDice);
                 // Use the probability distribution to get a cumulative probability distribution
                 //  that represents the overall chance of success if the array's positions
                 //  represent the difficulty
@@ -641,28 +641,56 @@ namespace CNH_Value_Finder
             // Find the number of dice needed for an overall success chance and a difficulty
             else if (valueFinderNumDice == 0)
             {
-                return;
+                int numberOfDice = difficulty;
+                double[] probabilities = GenerateSuccessDistribution(numberOfDice);
+                // Start with the lowest possible number of dice and increment if the desired overall chance is too low
+                // Implementation can probably be optimized, but works for now
+                // TODO: Improve the logic for finding the correct number of dice
+                while (probabilities[difficulty..].Sum() < successChance)
+                {
+                    numberOfDice++;
+                    probabilities = GenerateSuccessDistribution(numberOfDice);
+                }
+                // Display the results - Start by building the text
+                string text = $"\nNumber of dice needed";
+                // Add text confirming advantage state
+                if (AdvantageRadioButton.Checked == true)
+                {
+                    text = $"{text} (with advantage)";
+                }
+                else if (DisadvantageRadioButton.Checked == true)
+                {
+                    text = $"{text} (with disadvantage)";
+                }
+                // Finish building the text
+                text = $"{text} for a difficulty of {difficulty} and at least a {successChance.ToString("P")} chance of success:";
+                text = $"{text} {numberOfDice} (which results in a {probabilities[difficulty..].Sum().ToString("P")} chance)";
+                BodyTextValueFinderLabel.Text = text;
             }
             // Find the overall success chance given a number of dice and a difficulty
             else if (successChance == 0)
             {
-                // Ensure that the correct value is set for Number of Dice
-                numDice = valueFinderNumDice;
+                // Check to make sure that it's possible to give a difficulty
+                if (difficulty > valueFinderNumDice)
+                {
+                    BodyTextValueFinderLabel.Text = "\nERROR: Cannot find an overall chance of success for a difficulty that's higher than the number of dice";
+                    return;
+                }
                 // Calculate the probability distribution of every possible result
-                double[] probabilities = GenerateSuccessDistribution();
+                double[] probabilities = GenerateSuccessDistribution(valueFinderNumDice);
                 // Start building the output text
                 string text = $"\nProbability of at least {difficulty} Success";
                 // Add an appropriate plural if using a Difficulty of more than 1
                 if (difficulty == 1)
                 {
-                    text = $"{text} when rolling {numDice}";
+                    text = $"{text} when rolling {valueFinderNumDice}";
                 }
                 else
                 {
-                    text = $"{text}es when rolling {numDice}";
+                    text = $"{text}es when rolling {valueFinderNumDice}";
                 }
                 // Add an appropriate plural if using more than 1 for Number of Dice
-                if (numDice == 1)
+                if (valueFinderNumDice == 1)
                 {
                     text = $"{text} die";
                 }
@@ -729,7 +757,10 @@ namespace CNH_Value_Finder
             {
                 // Copy settings
                 NumDiceValueFinderTextBox.Text = NumDiceTextBox.Text;
-                valueFinderNumDice = numDice;
+                if (!string.IsNullOrEmpty(NumDiceValueFinderTextBox.Text))
+                {
+                    valueFinderNumDice = numDice;
+                }
                 // Reset
                 NumDiceTextBox.Text = "";
                 // Hide
