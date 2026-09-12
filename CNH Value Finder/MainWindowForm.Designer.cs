@@ -169,6 +169,7 @@
             OverallUsageTextLabel.AutoSize = true;
             OverallTableLayoutPanel.SetColumnSpan(OverallUsageTextLabel, 20);
             OverallUsageTextLabel.Font = new Font("Segoe UI", 10F);
+            OverallUsageTextLabel.ForeColor = SystemColors.ControlLightLight;
             OverallUsageTextLabel.Location = new Point(139, 2);
             OverallUsageTextLabel.Name = "OverallUsageTextLabel";
             OverallUsageTextLabel.Size = new Size(531, 19);
@@ -180,14 +181,16 @@
             // 
             RunButton.Anchor = AnchorStyles.None;
             RunButton.AutoSize = true;
+            RunButton.BackColor = SystemColors.Desktop;
             OverallTableLayoutPanel.SetColumnSpan(RunButton, 2);
+            RunButton.ForeColor = SystemColors.ControlLightLight;
             RunButton.Location = new Point(381, 465);
             RunButton.MinimumSize = new Size(34, 20);
             RunButton.Name = "RunButton";
             RunButton.Size = new Size(38, 25);
             RunButton.TabIndex = 1;
             RunButton.Text = "Run";
-            RunButton.UseVisualStyleBackColor = true;
+            RunButton.UseVisualStyleBackColor = false;
             RunButton.Click += RunButton_Click;
             // 
             // AdvantageStateGroupBox
@@ -199,6 +202,7 @@
             AdvantageStateGroupBox.Controls.Add(DisadvantageRadioButton);
             AdvantageStateGroupBox.Controls.Add(NeutralRadioButton);
             AdvantageStateGroupBox.Controls.Add(AdvantageRadioButton);
+            AdvantageStateGroupBox.ForeColor = SystemColors.ControlLightLight;
             AdvantageStateGroupBox.Location = new Point(586, 27);
             AdvantageStateGroupBox.MinimumSize = new Size(107, 0);
             AdvantageStateGroupBox.Name = "AdvantageStateGroupBox";
@@ -247,8 +251,10 @@
             // TypeDiceTextBox
             // 
             TypeDiceTextBox.Anchor = AnchorStyles.Top;
+            TypeDiceTextBox.BackColor = SystemColors.Window;
             OverallTableLayoutPanel.SetColumnSpan(TypeDiceTextBox, 2);
             TypeDiceTextBox.Font = new Font("Segoe UI", 10F);
+            TypeDiceTextBox.ForeColor = SystemColors.WindowText;
             TypeDiceTextBox.Location = new Point(120, 48);
             TypeDiceTextBox.Margin = new Padding(0);
             TypeDiceTextBox.Name = "TypeDiceTextBox";
@@ -291,6 +297,7 @@
             TypeDiceLabel.Anchor = AnchorStyles.None;
             TypeDiceLabel.AutoSize = true;
             OverallTableLayoutPanel.SetColumnSpan(TypeDiceLabel, 2);
+            TypeDiceLabel.ForeColor = SystemColors.ControlLightLight;
             TypeDiceLabel.Location = new Point(124, 76);
             TypeDiceLabel.Margin = new Padding(0);
             TypeDiceLabel.Name = "TypeDiceLabel";
@@ -304,6 +311,7 @@
             NumDiceLabel.Anchor = AnchorStyles.None;
             NumDiceLabel.AutoSize = true;
             OverallTableLayoutPanel.SetColumnSpan(NumDiceLabel, 4);
+            NumDiceLabel.ForeColor = SystemColors.ControlLightLight;
             NumDiceLabel.Location = new Point(274, 76);
             NumDiceLabel.Margin = new Padding(0);
             NumDiceLabel.Name = "NumDiceLabel";
@@ -317,6 +325,7 @@
             SuccessThresholdLabel.Anchor = AnchorStyles.None;
             SuccessThresholdLabel.AutoSize = true;
             OverallTableLayoutPanel.SetColumnSpan(SuccessThresholdLabel, 4);
+            SuccessThresholdLabel.ForeColor = SystemColors.ControlLightLight;
             SuccessThresholdLabel.Location = new Point(428, 76);
             SuccessThresholdLabel.Margin = new Padding(0);
             SuccessThresholdLabel.Name = "SuccessThresholdLabel";
@@ -344,6 +353,7 @@
             // 
             // DiceRollerTabPage
             // 
+            DiceRollerTabPage.BackColor = Color.DimGray;
             DiceRollerTabPage.Controls.Add(DiceRollerTableLayoutPanel);
             DiceRollerTabPage.Font = new Font("Segoe UI", 10F);
             DiceRollerTabPage.Location = new Point(4, 24);
@@ -352,7 +362,6 @@
             DiceRollerTabPage.Size = new Size(801, 308);
             DiceRollerTabPage.TabIndex = 0;
             DiceRollerTabPage.Text = "Dice Roller";
-            DiceRollerTabPage.UseVisualStyleBackColor = true;
             // 
             // DiceRollerTableLayoutPanel
             // 
@@ -435,6 +444,7 @@
             UsageTextSuccessDiceRollerLabel.Anchor = AnchorStyles.None;
             UsageTextSuccessDiceRollerLabel.AutoSize = true;
             DiceRollerTableLayoutPanel.SetColumnSpan(UsageTextSuccessDiceRollerLabel, 10);
+            UsageTextSuccessDiceRollerLabel.ForeColor = SystemColors.ControlLightLight;
             UsageTextSuccessDiceRollerLabel.Location = new Point(409, 35);
             UsageTextSuccessDiceRollerLabel.Margin = new Padding(0);
             UsageTextSuccessDiceRollerLabel.MaximumSize = new Size(402, 0);
@@ -450,6 +460,7 @@
             UsageTextSumDiceRollerLabel.Anchor = AnchorStyles.None;
             UsageTextSumDiceRollerLabel.AutoSize = true;
             DiceRollerTableLayoutPanel.SetColumnSpan(UsageTextSumDiceRollerLabel, 10);
+            UsageTextSumDiceRollerLabel.ForeColor = SystemColors.ControlLightLight;
             UsageTextSumDiceRollerLabel.Location = new Point(9, 35);
             UsageTextSumDiceRollerLabel.Margin = new Padding(0);
             UsageTextSumDiceRollerLabel.MaximumSize = new Size(402, 0);
@@ -464,8 +475,10 @@
             // 
             HeaderTextSumDiceRollerLabel.Anchor = AnchorStyles.None;
             HeaderTextSumDiceRollerLabel.AutoSize = true;
+            HeaderTextSumDiceRollerLabel.BackColor = Color.DimGray;
             DiceRollerTableLayoutPanel.SetColumnSpan(HeaderTextSumDiceRollerLabel, 10);
             HeaderTextSumDiceRollerLabel.Font = new Font("Segoe UI", 12F);
+            HeaderTextSumDiceRollerLabel.ForeColor = SystemColors.ControlLightLight;
             HeaderTextSumDiceRollerLabel.Location = new Point(161, 4);
             HeaderTextSumDiceRollerLabel.Name = "HeaderTextSumDiceRollerLabel";
             DiceRollerTableLayoutPanel.SetRowSpan(HeaderTextSumDiceRollerLabel, 2);
@@ -480,6 +493,7 @@
             HeaderTextSuccessDiceRollerLabel.AutoSize = true;
             DiceRollerTableLayoutPanel.SetColumnSpan(HeaderTextSuccessDiceRollerLabel, 10);
             HeaderTextSuccessDiceRollerLabel.Font = new Font("Segoe UI", 12F);
+            HeaderTextSuccessDiceRollerLabel.ForeColor = SystemColors.ControlLightLight;
             HeaderTextSuccessDiceRollerLabel.Location = new Point(543, 4);
             HeaderTextSuccessDiceRollerLabel.Name = "HeaderTextSuccessDiceRollerLabel";
             DiceRollerTableLayoutPanel.SetRowSpan(HeaderTextSuccessDiceRollerLabel, 2);
@@ -492,6 +506,7 @@
             // 
             SumDiceRollerPanel.AutoScroll = true;
             SumDiceRollerPanel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            SumDiceRollerPanel.BackColor = Color.Gray;
             DiceRollerTableLayoutPanel.SetColumnSpan(SumDiceRollerPanel, 10);
             SumDiceRollerPanel.Controls.Add(BodyTextSumDiceRollerLabel);
             SumDiceRollerPanel.Dock = DockStyle.Fill;
@@ -505,6 +520,7 @@
             // BodyTextSumDiceRollerLabel
             // 
             BodyTextSumDiceRollerLabel.AutoSize = true;
+            BodyTextSumDiceRollerLabel.ForeColor = SystemColors.ControlLightLight;
             BodyTextSumDiceRollerLabel.Location = new Point(0, 0);
             BodyTextSumDiceRollerLabel.Margin = new Padding(0);
             BodyTextSumDiceRollerLabel.Name = "BodyTextSumDiceRollerLabel";
@@ -517,6 +533,7 @@
             // 
             SuccessDiceRollerPanel.AutoScroll = true;
             SuccessDiceRollerPanel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            SuccessDiceRollerPanel.BackColor = Color.Gray;
             DiceRollerTableLayoutPanel.SetColumnSpan(SuccessDiceRollerPanel, 10);
             SuccessDiceRollerPanel.Controls.Add(BodyTextSuccessDiceRollerLabel);
             SuccessDiceRollerPanel.Dock = DockStyle.Fill;
@@ -530,6 +547,7 @@
             // BodyTextSuccessDiceRollerLabel
             // 
             BodyTextSuccessDiceRollerLabel.AutoSize = true;
+            BodyTextSuccessDiceRollerLabel.ForeColor = SystemColors.ControlLightLight;
             BodyTextSuccessDiceRollerLabel.Location = new Point(0, 0);
             BodyTextSuccessDiceRollerLabel.Margin = new Padding(0);
             BodyTextSuccessDiceRollerLabel.Name = "BodyTextSuccessDiceRollerLabel";
@@ -540,6 +558,7 @@
             // 
             // ProbabilityDisplaysTabPage
             // 
+            ProbabilityDisplaysTabPage.BackColor = Color.DimGray;
             ProbabilityDisplaysTabPage.Controls.Add(ProbabilityDisplayTableLayoutPanel);
             ProbabilityDisplaysTabPage.Font = new Font("Segoe UI", 10F);
             ProbabilityDisplaysTabPage.Location = new Point(4, 24);
@@ -548,7 +567,6 @@
             ProbabilityDisplaysTabPage.Size = new Size(801, 308);
             ProbabilityDisplaysTabPage.TabIndex = 1;
             ProbabilityDisplaysTabPage.Text = "Probability Displays";
-            ProbabilityDisplaysTabPage.UseVisualStyleBackColor = true;
             // 
             // ProbabilityDisplayTableLayoutPanel
             // 
@@ -614,6 +632,7 @@
             UsageTextSuccessProbabilityDisplayLabel.Anchor = AnchorStyles.None;
             UsageTextSuccessProbabilityDisplayLabel.AutoSize = true;
             ProbabilityDisplayTableLayoutPanel.SetColumnSpan(UsageTextSuccessProbabilityDisplayLabel, 10);
+            UsageTextSuccessProbabilityDisplayLabel.ForeColor = SystemColors.ControlLightLight;
             UsageTextSuccessProbabilityDisplayLabel.Location = new Point(415, 35);
             UsageTextSuccessProbabilityDisplayLabel.Margin = new Padding(0);
             UsageTextSuccessProbabilityDisplayLabel.MaximumSize = new Size(402, 0);
@@ -629,6 +648,7 @@
             UsageTextSumProbabilityDisplayLabel.Anchor = AnchorStyles.None;
             UsageTextSumProbabilityDisplayLabel.AutoSize = true;
             ProbabilityDisplayTableLayoutPanel.SetColumnSpan(UsageTextSumProbabilityDisplayLabel, 10);
+            UsageTextSumProbabilityDisplayLabel.ForeColor = SystemColors.ControlLightLight;
             UsageTextSumProbabilityDisplayLabel.Location = new Point(15, 35);
             UsageTextSumProbabilityDisplayLabel.Margin = new Padding(0);
             UsageTextSumProbabilityDisplayLabel.MaximumSize = new Size(402, 0);
@@ -645,6 +665,7 @@
             HeaderTextSumProbabilityDisplayLabel.AutoSize = true;
             ProbabilityDisplayTableLayoutPanel.SetColumnSpan(HeaderTextSumProbabilityDisplayLabel, 10);
             HeaderTextSumProbabilityDisplayLabel.Font = new Font("Segoe UI", 12F);
+            HeaderTextSumProbabilityDisplayLabel.ForeColor = SystemColors.ControlLightLight;
             HeaderTextSumProbabilityDisplayLabel.Location = new Point(145, 4);
             HeaderTextSumProbabilityDisplayLabel.Name = "HeaderTextSumProbabilityDisplayLabel";
             ProbabilityDisplayTableLayoutPanel.SetRowSpan(HeaderTextSumProbabilityDisplayLabel, 2);
@@ -659,6 +680,7 @@
             HeaderTextSuccessProbabilityDisplayLabel.AutoSize = true;
             ProbabilityDisplayTableLayoutPanel.SetColumnSpan(HeaderTextSuccessProbabilityDisplayLabel, 10);
             HeaderTextSuccessProbabilityDisplayLabel.Font = new Font("Segoe UI", 12F);
+            HeaderTextSuccessProbabilityDisplayLabel.ForeColor = SystemColors.ControlLightLight;
             HeaderTextSuccessProbabilityDisplayLabel.Location = new Point(530, 4);
             HeaderTextSuccessProbabilityDisplayLabel.Name = "HeaderTextSuccessProbabilityDisplayLabel";
             ProbabilityDisplayTableLayoutPanel.SetRowSpan(HeaderTextSuccessProbabilityDisplayLabel, 2);
@@ -671,6 +693,7 @@
             // 
             SumProbabilityDisplayPanel.AutoScroll = true;
             SumProbabilityDisplayPanel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            SumProbabilityDisplayPanel.BackColor = Color.Gray;
             ProbabilityDisplayTableLayoutPanel.SetColumnSpan(SumProbabilityDisplayPanel, 10);
             SumProbabilityDisplayPanel.Controls.Add(BodyTextSumProbabilityDisplayLabel);
             SumProbabilityDisplayPanel.Dock = DockStyle.Fill;
@@ -684,6 +707,7 @@
             // BodyTextSumProbabilityDisplayLabel
             // 
             BodyTextSumProbabilityDisplayLabel.AutoSize = true;
+            BodyTextSumProbabilityDisplayLabel.ForeColor = SystemColors.ControlLightLight;
             BodyTextSumProbabilityDisplayLabel.Location = new Point(0, 0);
             BodyTextSumProbabilityDisplayLabel.Margin = new Padding(0);
             BodyTextSumProbabilityDisplayLabel.Name = "BodyTextSumProbabilityDisplayLabel";
@@ -696,6 +720,7 @@
             // 
             SuccessProbabilityDisplayPanel.AutoScroll = true;
             SuccessProbabilityDisplayPanel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            SuccessProbabilityDisplayPanel.BackColor = Color.Gray;
             ProbabilityDisplayTableLayoutPanel.SetColumnSpan(SuccessProbabilityDisplayPanel, 10);
             SuccessProbabilityDisplayPanel.Controls.Add(BodyTextSuccessProbabilityDisplayLabel);
             SuccessProbabilityDisplayPanel.Dock = DockStyle.Fill;
@@ -709,6 +734,7 @@
             // BodyTextSuccessProbabilityDisplayLabel
             // 
             BodyTextSuccessProbabilityDisplayLabel.AutoSize = true;
+            BodyTextSuccessProbabilityDisplayLabel.ForeColor = SystemColors.ControlLightLight;
             BodyTextSuccessProbabilityDisplayLabel.Location = new Point(0, 0);
             BodyTextSuccessProbabilityDisplayLabel.Margin = new Padding(0);
             BodyTextSuccessProbabilityDisplayLabel.Name = "BodyTextSuccessProbabilityDisplayLabel";
@@ -719,6 +745,7 @@
             // 
             // ValueFinderTabPage
             // 
+            ValueFinderTabPage.BackColor = Color.DimGray;
             ValueFinderTabPage.Controls.Add(ValueFinderTableLayoutPanel);
             ValueFinderTabPage.Font = new Font("Segoe UI", 10F);
             ValueFinderTabPage.Location = new Point(4, 24);
@@ -727,7 +754,6 @@
             ValueFinderTabPage.Size = new Size(801, 308);
             ValueFinderTabPage.TabIndex = 2;
             ValueFinderTabPage.Text = "Value Finder";
-            ValueFinderTabPage.UseVisualStyleBackColor = true;
             // 
             // ValueFinderTableLayoutPanel
             // 
@@ -800,6 +826,7 @@
             ValueFinderUsageTextLabel.AutoSize = true;
             ValueFinderTableLayoutPanel.SetColumnSpan(ValueFinderUsageTextLabel, 20);
             ValueFinderUsageTextLabel.Dock = DockStyle.Fill;
+            ValueFinderUsageTextLabel.ForeColor = SystemColors.ControlLightLight;
             ValueFinderUsageTextLabel.Location = new Point(0, 0);
             ValueFinderUsageTextLabel.Margin = new Padding(0);
             ValueFinderUsageTextLabel.Name = "ValueFinderUsageTextLabel";
@@ -857,6 +884,7 @@
             DifficultyValueFinderLabel.AutoSize = true;
             ValueFinderTableLayoutPanel.SetColumnSpan(DifficultyValueFinderLabel, 2);
             DifficultyValueFinderLabel.Font = new Font("Segoe UI", 9F);
+            DifficultyValueFinderLabel.ForeColor = SystemColors.ControlLightLight;
             DifficultyValueFinderLabel.Location = new Point(172, 60);
             DifficultyValueFinderLabel.Margin = new Padding(0);
             DifficultyValueFinderLabel.Name = "DifficultyValueFinderLabel";
@@ -871,6 +899,7 @@
             NumDiceValueFinderLabel.AutoSize = true;
             ValueFinderTableLayoutPanel.SetColumnSpan(NumDiceValueFinderLabel, 4);
             NumDiceValueFinderLabel.Font = new Font("Segoe UI", 9F);
+            NumDiceValueFinderLabel.ForeColor = SystemColors.ControlLightLight;
             NumDiceValueFinderLabel.Location = new Point(354, 60);
             NumDiceValueFinderLabel.Margin = new Padding(0);
             NumDiceValueFinderLabel.Name = "NumDiceValueFinderLabel";
@@ -885,6 +914,7 @@
             SuccessChanceValueFinderLabel.AutoSize = true;
             ValueFinderTableLayoutPanel.SetColumnSpan(SuccessChanceValueFinderLabel, 6);
             SuccessChanceValueFinderLabel.Font = new Font("Segoe UI", 9F);
+            SuccessChanceValueFinderLabel.ForeColor = SystemColors.ControlLightLight;
             SuccessChanceValueFinderLabel.Location = new Point(511, 60);
             SuccessChanceValueFinderLabel.Name = "SuccessChanceValueFinderLabel";
             SuccessChanceValueFinderLabel.Size = new Size(178, 15);
@@ -896,6 +926,7 @@
             // 
             ValueFinderPanel.AutoScroll = true;
             ValueFinderPanel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            ValueFinderPanel.BackColor = Color.Gray;
             ValueFinderTableLayoutPanel.SetColumnSpan(ValueFinderPanel, 20);
             ValueFinderPanel.Controls.Add(BodyTextValueFinderLabel);
             ValueFinderPanel.Dock = DockStyle.Fill;
@@ -909,6 +940,7 @@
             // BodyTextValueFinderLabel
             // 
             BodyTextValueFinderLabel.AutoSize = true;
+            BodyTextValueFinderLabel.ForeColor = SystemColors.ControlLightLight;
             BodyTextValueFinderLabel.Location = new Point(0, 0);
             BodyTextValueFinderLabel.Margin = new Padding(0);
             BodyTextValueFinderLabel.Name = "BodyTextValueFinderLabel";
@@ -919,6 +951,7 @@
             // 
             // DiceFinderTabPage
             // 
+            DiceFinderTabPage.BackColor = Color.DimGray;
             DiceFinderTabPage.Controls.Add(DiceFinderTableLayoutPanel);
             DiceFinderTabPage.Font = new Font("Segoe UI", 10F);
             DiceFinderTabPage.Location = new Point(4, 24);
@@ -927,7 +960,6 @@
             DiceFinderTabPage.Size = new Size(801, 308);
             DiceFinderTabPage.TabIndex = 3;
             DiceFinderTabPage.Text = "Dice Finder";
-            DiceFinderTabPage.UseVisualStyleBackColor = true;
             // 
             // DiceFinderTableLayoutPanel
             // 
@@ -989,8 +1021,10 @@
             // DiceFinderUsageTextLabel
             // 
             DiceFinderUsageTextLabel.AutoSize = true;
+            DiceFinderUsageTextLabel.BackColor = Color.DimGray;
             DiceFinderTableLayoutPanel.SetColumnSpan(DiceFinderUsageTextLabel, 20);
             DiceFinderUsageTextLabel.Dock = DockStyle.Fill;
+            DiceFinderUsageTextLabel.ForeColor = SystemColors.ControlLightLight;
             DiceFinderUsageTextLabel.Location = new Point(0, 0);
             DiceFinderUsageTextLabel.Margin = new Padding(0);
             DiceFinderUsageTextLabel.Name = "DiceFinderUsageTextLabel";
@@ -1019,6 +1053,7 @@
             SumDiceFinderLabel.AutoSize = true;
             DiceFinderTableLayoutPanel.SetColumnSpan(SumDiceFinderLabel, 2);
             SumDiceFinderLabel.Font = new Font("Segoe UI", 9F);
+            SumDiceFinderLabel.ForeColor = SystemColors.ControlLightLight;
             SumDiceFinderLabel.Location = new Point(360, 60);
             SumDiceFinderLabel.Margin = new Padding(0);
             SumDiceFinderLabel.Name = "SumDiceFinderLabel";
@@ -1031,6 +1066,7 @@
             // 
             DiceFinderPanel.AutoScroll = true;
             DiceFinderPanel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            DiceFinderPanel.BackColor = Color.Gray;
             DiceFinderTableLayoutPanel.SetColumnSpan(DiceFinderPanel, 20);
             DiceFinderPanel.Controls.Add(BodyTextDiceFinderLabel);
             DiceFinderPanel.Dock = DockStyle.Fill;
@@ -1044,6 +1080,7 @@
             // BodyTextDiceFinderLabel
             // 
             BodyTextDiceFinderLabel.AutoSize = true;
+            BodyTextDiceFinderLabel.ForeColor = SystemColors.ControlLightLight;
             BodyTextDiceFinderLabel.Location = new Point(0, 0);
             BodyTextDiceFinderLabel.Margin = new Padding(0);
             BodyTextDiceFinderLabel.Name = "BodyTextDiceFinderLabel";
@@ -1061,6 +1098,7 @@
             AcceptButton = RunButton;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.Desktop;
             ClientSize = new Size(827, 517);
             Controls.Add(OverallTableLayoutPanel);
             Name = "MainWindowForm";
