@@ -226,6 +226,90 @@ namespace CNH_Value_Finder
             return finalDistribution;
         }
 
+        /* Finds the range of dice needed to reach a sum using one of 5 methods:
+         *  Average Values
+         *  Values within 1 Upper Standard Deviation
+         *  Values within 2 Upper Standard Deviations
+         *  Values within 1 Lower Standard Deviation
+         *  Values within 2 Lower Standard Deviations
+         * @param standardDeviations <int> The number of standard deviations to use
+         *                                 for calculations (can be -2, -1, 0, 1, or 2)
+         * @return <Dictionary<int, double>> The associated range for the sum
+         *         The keys are the bounds for the range of dice needed for the sum
+         *         The values are the associated sums for that number of dice
+         *         Can have a size of 1 key-value pair (if the sum for that number
+         *                             of dice exactly matches)
+         *                            OR
+         *                            2 key-value pairs (for the smallest range that
+         *                             encompasses the desired sum)
+         */
+        private Dictionary<int, double> FindDiceSum(int standardDeviations)
+        {
+            Dictionary<int, double> results = new Dictionary<int, double>();
+            // If an invalid choice was made for number of standard deviations
+            //  throw an appropriate exception
+            if (standardDeviations < -2 || standardDeviations > 2)
+            {
+                throw new ArgumentOutOfRangeException("Parameter must be -2, -1, 0, 1, or 2", nameof(standardDeviations));
+            }
+            // Utilize binary search to find the correct number of dice
+            // numberOfDice will be the final result that we care about
+            int numberOfDice = (int)Math.Floor((double)diceSum / (double)typeDice);
+            // The low/high amounts are the boundaries for binary search
+            int lowAmount = (int)Math.Floor((double)diceSum / (double)typeDice);
+            int highAmount = diceSum;
+            // This is the current expected sum of the starting number of dice
+            //  This is used for the binary search comparison
+            double[] currentProbabilities = GenerateSumDistribution(numberOfDice);
+            double currentSum = Average(currentProbabilities) + (standardDeviations * StandardDeviation(currentProbabilities));
+            // Binary search implementation
+            while (lowAmount <= highAmount)
+            {
+                // Find the number of dice exactly between the high and low boundaries
+                //  Also find its associated expected sum
+                int middleAmount = lowAmount + (highAmount - lowAmount) / 2;
+                double[] middleProbabilities = GenerateSumDistribution(middleAmount);
+                double middleSum = Average(middleProbabilities) + (standardDeviations * StandardDeviation(middleProbabilities));
+                // Update the number of dice if the sum for the middle amount is closer than the current amount
+                //  Also keep track of the expected sum
+                if (Math.Abs(diceSum - middleSum) < Math.Abs(diceSum - currentSum))
+                {
+                    numberOfDice = middleAmount;
+                    currentSum = middleSum;
+                }
+                // Update the lower boundary of amount of dice to be one above the middle
+                //  if the desired sum is higher than the middle sum
+                if (middleSum < diceSum)
+                {
+                    lowAmount = middleAmount + 1;
+                }
+                // Otherwise update the higher boundary if the desired sum is lower than the middle sum
+                else if (middleSum > diceSum)
+                {
+                    highAmount = middleAmount - 1;
+                }
+            }
+            // Add the correct number of dice and its associated expected sum
+            results.Add(numberOfDice, currentSum);
+            // If the exact dice sum hasn't been found, get the missing end of the range
+            if (Math.Round(currentSum, 2) != diceSum)
+            {
+                if (currentSum < diceSum)
+                {
+                    numberOfDice++;
+                }
+                else
+                {
+                    numberOfDice--;
+                }
+                currentProbabilities = GenerateSumDistribution(numberOfDice);
+                currentSum = Average(currentProbabilities) + (standardDeviations * StandardDeviation(currentProbabilities));
+                results.Add(numberOfDice, currentSum);
+            }
+            // Return the final results
+            return results;
+        }
+
         // All of the code for simulating dice rolls
         private void RunDiceRoller()
         {
@@ -548,7 +632,7 @@ namespace CNH_Value_Finder
             // First do error checking to make absolutely sure that calculations can be run
             // Of the three Value Finder fields (difficulty, numDice, successChance)
             //  *exactly* one of them *must* be empty and the other two *must* be filled
-            string errorText = "Please leave exactly one of the above textboxes blank and provide valid inputs for the other two";
+            string errorText = "\nPlease leave exactly one of the above textboxes blank and provide valid inputs for the other two";
             if (difficulty == 0)
             {
                 if (valueFinderNumDice == 0)
@@ -608,9 +692,9 @@ namespace CNH_Value_Finder
                     difficulty = ~difficulty;
                 }
                 // Display the results - start by building the initial text
-                string text = $"\nMaximum possible difficulty when rolling {numDice}";
+                string text = $"\nMaximum possible difficulty when rolling {valueFinderNumDice}";
                 // Add an appropriate plural if using more than 1 for Number of Dice
-                if (numDice == 1)
+                if (valueFinderNumDice == 1)
                 {
                     text = $"{text} die";
                 }
@@ -635,7 +719,17 @@ namespace CNH_Value_Finder
                 //  (plus the exact chance of overall success with that difficulty)
                 // NOTE - The difficulty needs to be flipped to be right, since the original overall distribution
                 //        array needed to be flipped for binary search
-                text = $"{text} {probabilities.Length - difficulty - 1} (which results in a {overallDistribution[difficulty].ToString("P")} chance)";
+                // NOTE - If the exact overall chance isn't found, display a range with closest possible values
+                if (overallDistribution[difficulty] == successChance)
+                {
+                    text = $"{text} {probabilities.Length - difficulty - 1} (which results in a {overallDistribution[difficulty].ToString("P")} chance)";
+                }
+                else
+                {
+                    text = $"{text} {probabilities.Length - difficulty - 1}-{probabilities.Length - difficulty}";
+                    text = $"{text} (which results in a {overallDistribution[difficulty].ToString("P")}-{overallDistribution[difficulty - 1].ToString("P")} chance)";
+                }
+                // Display the text
                 BodyTextValueFinderLabel.Text = text;
             }
             // Find the number of dice needed for an overall success chance and a difficulty
@@ -643,7 +737,7 @@ namespace CNH_Value_Finder
             {
                 int numberOfDice = difficulty;
                 double[] probabilities = GenerateSuccessDistribution(numberOfDice);
-                // Start with the lowest possible number of dice and increment if the desired overall chance is too low
+                // Start with the lowest possible number of dice and increment if the overall chance is too low
                 // Implementation can probably be optimized, but works for now
                 // TODO: Improve the logic for finding the correct number of dice
                 while (probabilities[difficulty..].Sum() < successChance)
@@ -663,8 +757,19 @@ namespace CNH_Value_Finder
                     text = $"{text} (with disadvantage)";
                 }
                 // Finish building the text
+                // NOTE - If the exact overall chance isn't found, display a range with closest possible values
                 text = $"{text} for a difficulty of {difficulty} and at least a {successChance.ToString("P")} chance of success:";
-                text = $"{text} {numberOfDice} (which results in a {probabilities[difficulty..].Sum().ToString("P")} chance)";
+                if (probabilities[difficulty..].Sum() == successChance)
+                {
+                    text = $"{text} {numberOfDice} (which results in a {probabilities[difficulty..].Sum().ToString("P")} chance)";
+                }
+                else
+                {
+                    double[] newProbabilities = GenerateSuccessDistribution(numberOfDice - 1);
+                    text = $"{text} {numberOfDice - 1}-{numberOfDice}";
+                    text = $"{text} (which results in a {newProbabilities[difficulty..].Sum().ToString("P")}-{probabilities[difficulty..].Sum().ToString("P")} chance)";
+                }
+                // Display the text
                 BodyTextValueFinderLabel.Text = text;
             }
             // Find the overall success chance given a number of dice and a difficulty
@@ -721,7 +826,218 @@ namespace CNH_Value_Finder
         // All of the code for calculating various ways to reach a dice sum
         private void RunDiceFinder()
         {
-            return;
+            // Number of dice needed to reach a given sum varies depending on the rolls
+            // Start with maximum rolls (like when rolling a Crit)
+            int numberOfDice = (int)Math.Ceiling((double)diceSum / (double)typeDice);
+            // Establish output text
+            string text = $"\nWith maximum rolls, you need";
+            // If the amount of dice doesn't exactly match the desired sum,
+            //  use the smallest range that still encompasses the desired sum
+            if (numberOfDice * typeDice != diceSum)
+            {
+                text = $"{text} {numberOfDice - 1}-{numberOfDice} dice to reach a sum of {diceSum} (which results in a sum of {typeDice * (numberOfDice - 1)}-{typeDice * numberOfDice})\n";
+            }
+            // Account for the correct plural
+            else if (numberOfDice == 1)
+            {
+                text = $"{text} {numberOfDice} die to reach a sum of {diceSum} (which results in a sum of {typeDice * numberOfDice})\n";
+            }
+            else
+            {
+                text = $"{text} {numberOfDice} dice to reach a sum of {diceSum} (which results in a sum of {typeDice * numberOfDice})\n";
+            }
+            // Now do average rolls
+            Dictionary<int, double> diceValues = FindDiceSum(0);
+            // Continue adding to output text
+            text = $"{text}\nWith average rolls";
+            // Account for the correct advantage state
+            if (AdvantageRadioButton.Checked == true)
+            {
+                text = $"{text} with advantage, you need";
+            }
+            else if (DisadvantageRadioButton.Checked == true)
+            {
+                text = $"{text} with disadvantage, you need";
+            }
+            else
+            {
+                text = $"{text}, you need";
+            }
+            // If the amount of dice doesn't exactly match the desired sum,
+            //  use the smallest range that still encompasses the desired sum
+            if (diceValues.Count != 1)
+            {
+                text = $"{text} {Math.Min(diceValues.Keys.ElementAt(0), diceValues.Keys.ElementAt(1))}-";
+                text = $"{text}{Math.Max(diceValues.Keys.ElementAt(0), diceValues.Keys.ElementAt(1))} dice";
+                text = $"{text} to reach a sum of {diceSum} (which results in a sum of";
+                text = $"{text} {Math.Min(diceValues.Values.ElementAt(0), diceValues.Values.ElementAt(1)).ToString("F2")}-";
+                text = $"{text}{Math.Max(diceValues.Values.ElementAt(0), diceValues.Values.ElementAt(1)).ToString("F2")})\n";
+            }
+            // Account for the correct plural
+            else if (diceValues.Values.First() == 1)
+            {
+                text = $"{text} {diceValues.Keys.First()} die to reach a sum of {diceSum} (which results in a sum of";
+                text = $"{text} {diceValues.Values.First().ToString("F2")})\n";
+            }
+            else
+            {
+                text = $"{text} {diceValues.Keys.First()} dice to reach a sum of {diceSum} (which results in a sum of";
+                text = $"{text} {diceValues.Values.First().ToString("F2")})\n";
+            }
+            // Now do sums within 1 upper standard deviation
+            diceValues = FindDiceSum(1);
+            // Continue adding to output text
+            text = $"{text}\nWith rolls of the upper bound of 1 standard deviation";
+            // Account for the correct advantage state
+            if (AdvantageRadioButton.Checked == true)
+            {
+                text = $"{text} with advantage, you need";
+            }
+            else if (DisadvantageRadioButton.Checked == true)
+            {
+                text = $"{text} with disadvantage, you need";
+            }
+            else
+            {
+                text = $"{text}, you need";
+            }
+            // If the amount of dice doesn't exactly match the desired sum,
+            //  use the smallest range that still encompasses the desired sum
+            if (diceValues.Count != 1)
+            {
+                text = $"{text} {Math.Min(diceValues.Keys.ElementAt(0), diceValues.Keys.ElementAt(1))}-";
+                text = $"{text}{Math.Max(diceValues.Keys.ElementAt(0), diceValues.Keys.ElementAt(1))} dice";
+                text = $"{text} to reach a sum of {diceSum} (which results in a sum of";
+                text = $"{text} {Math.Min(diceValues.Values.ElementAt(0), diceValues.Values.ElementAt(1)).ToString("F2")}-";
+                text = $"{text}{Math.Max(diceValues.Values.ElementAt(0), diceValues.Values.ElementAt(1)).ToString("F2")})\n";
+            }
+            // Account for the correct plural
+            else if (diceValues.Values.First() == 1)
+            {
+                text = $"{text} {diceValues.Keys.First()} die to reach a sum of {diceSum} (which results in a sum of";
+                text = $"{text} {diceValues.Values.First().ToString("F2")})\n";
+            }
+            else
+            {
+                text = $"{text} {diceValues.Keys.First()} dice to reach a sum of {diceSum} (which results in a sum of";
+                text = $"{text} {diceValues.Values.First().ToString("F2")})\n";
+            }
+            // Now do sums within 2 upper standard deviations
+            diceValues = FindDiceSum(2);
+            // Continue adding to output text
+            text = $"{text}With rolls of the upper bound of 2 standard deviations";
+            // Account for the correct advantage state
+            if (AdvantageRadioButton.Checked == true)
+            {
+                text = $"{text} with advantage, you need";
+            }
+            else if (DisadvantageRadioButton.Checked == true)
+            {
+                text = $"{text} with disadvantage, you need";
+            }
+            else
+            {
+                text = $"{text}, you need";
+            }
+            // If the amount of dice doesn't exactly match the desired sum,
+            //  use the smallest range that still encompasses the desired sum
+            if (diceValues.Count != 1)
+            {
+                text = $"{text} {Math.Min(diceValues.Keys.ElementAt(0), diceValues.Keys.ElementAt(1))}-";
+                text = $"{text}{Math.Max(diceValues.Keys.ElementAt(0), diceValues.Keys.ElementAt(1))} dice";
+                text = $"{text} to reach a sum of {diceSum} (which results in a sum of";
+                text = $"{text} {Math.Min(diceValues.Values.ElementAt(0), diceValues.Values.ElementAt(1)).ToString("F2")}-";
+                text = $"{text}{Math.Max(diceValues.Values.ElementAt(0), diceValues.Values.ElementAt(1)).ToString("F2")})\n";
+            }
+            // Account for the correct plural
+            else if (diceValues.Values.First() == 1)
+            {
+                text = $"{text} {diceValues.Keys.First()} die to reach a sum of {diceSum} (which results in a sum of";
+                text = $"{text} {diceValues.Values.First().ToString("F2")})\n";
+            }
+            else
+            {
+                text = $"{text} {diceValues.Keys.First()} dice to reach a sum of {diceSum} (which results in a sum of";
+                text = $"{text} {diceValues.Values.First().ToString("F2")})\n";
+            }
+            // Now do sums within 1 lower standard deviation
+            diceValues = FindDiceSum(-1);
+            // Continue adding to output text
+            text = $"{text}\nWith rolls of the lower bound of 1 standard deviation";
+            // Account for the correct advantage state
+            if (AdvantageRadioButton.Checked == true)
+            {
+                text = $"{text} with advantage, you need";
+            }
+            else if (DisadvantageRadioButton.Checked == true)
+            {
+                text = $"{text} with disadvantage, you need";
+            }
+            else
+            {
+                text = $"{text}, you need";
+            }
+            // If the amount of dice doesn't exactly match the desired sum,
+            //  use the smallest range that still encompasses the desired sum
+            if (diceValues.Count != 1)
+            {
+                text = $"{text} {Math.Min(diceValues.Keys.ElementAt(0), diceValues.Keys.ElementAt(1))}-";
+                text = $"{text}{Math.Max(diceValues.Keys.ElementAt(0), diceValues.Keys.ElementAt(1))} dice";
+                text = $"{text} to reach a sum of {diceSum} (which results in a sum of";
+                text = $"{text} {Math.Min(diceValues.Values.ElementAt(0), diceValues.Values.ElementAt(1)).ToString("F2")}-";
+                text = $"{text}{Math.Max(diceValues.Values.ElementAt(0), diceValues.Values.ElementAt(1)).ToString("F2")})\n";
+            }
+            // Account for the correct plural
+            else if (diceValues.Values.First() == 1)
+            {
+                text = $"{text} {diceValues.Keys.First()} die to reach a sum of {diceSum} (which results in a sum of";
+                text = $"{text} {diceValues.Values.First().ToString("F2")})\n";
+            }
+            else
+            {
+                text = $"{text} {diceValues.Keys.First()} dice to reach a sum of {diceSum} (which results in a sum of";
+                text = $"{text} {diceValues.Values.First().ToString("F2")})\n";
+            }
+            // Now do sums within 2 lower standard deviations
+            diceValues = FindDiceSum(-2);
+            // Continue adding to output text
+            text = $"{text}With rolls of the lower bound of 2 standard deviations";
+            // Account for the correct advantage state
+            if (AdvantageRadioButton.Checked == true)
+            {
+                text = $"{text} with advantage, you need";
+            }
+            else if (DisadvantageRadioButton.Checked == true)
+            {
+                text = $"{text} with disadvantage, you need";
+            }
+            else
+            {
+                text = $"{text}, you need";
+            }
+            // If the amount of dice doesn't exactly match the desired sum,
+            //  use the smallest range that still encompasses the desired sum
+            if (diceValues.Count != 1)
+            {
+                text = $"{text} {Math.Min(diceValues.Keys.ElementAt(0), diceValues.Keys.ElementAt(1))}-";
+                text = $"{text}{Math.Max(diceValues.Keys.ElementAt(0), diceValues.Keys.ElementAt(1))} dice";
+                text = $"{text} to reach a sum of {diceSum} (which results in a sum of";
+                text = $"{text} {Math.Min(diceValues.Values.ElementAt(0), diceValues.Values.ElementAt(1)).ToString("F2")}-";
+                text = $"{text}{Math.Max(diceValues.Values.ElementAt(0), diceValues.Values.ElementAt(1)).ToString("F2")})\n";
+            }
+            // Account for the correct plural
+            else if (diceValues.Values.First() == 1)
+            {
+                text = $"{text} {diceValues.Keys.First()} die to reach a sum of {diceSum} (which results in a sum of";
+                text = $"{text} {diceValues.Values.First().ToString("F2")})\n";
+            }
+            else
+            {
+                text = $"{text} {diceValues.Keys.First()} dice to reach a sum of {diceSum} (which results in a sum of";
+                text = $"{text} {diceValues.Values.First().ToString("F2")})\n";
+            }
+            // Display the text
+            BodyTextDiceFinderLabel.Text = text;
         }
 
         // What happens when the 'Run' button is used
