@@ -726,8 +726,17 @@ namespace CNH_Value_Finder
                 }
                 else
                 {
-                    text = $"{text} {probabilities.Length - difficulty - 1}-{probabilities.Length - difficulty}";
-                    text = $"{text} (which results in a {overallDistribution[difficulty].ToString("P")}-{overallDistribution[difficulty - 1].ToString("P")} chance)";
+                    // Error check to make sure that the range (if needed) is valid
+                    if (difficulty - 1 < 0)
+                    {
+                        text = $"{text} {probabilities.Length - difficulty - 1} - which doesn't quite make it, but you can't go any higher -";
+                        text = $"{text} (which results in a {overallDistribution[difficulty].ToString("P")} chance)";
+                    }
+                    else
+                    {
+                        text = $"{text} {probabilities.Length - difficulty - 1}-{probabilities.Length - difficulty}";
+                        text = $"{text} (which results in a {overallDistribution[difficulty].ToString("P")}-{overallDistribution[difficulty - 1].ToString("P")} chance)";
+                    }
                 }
                 // Display the text
                 BodyTextValueFinderLabel.Text = text;
@@ -765,9 +774,18 @@ namespace CNH_Value_Finder
                 }
                 else
                 {
-                    double[] newProbabilities = GenerateSuccessDistribution(numberOfDice - 1);
-                    text = $"{text} {numberOfDice - 1}-{numberOfDice}";
-                    text = $"{text} (which results in a {newProbabilities[difficulty..].Sum().ToString("P")}-{probabilities[difficulty..].Sum().ToString("P")} chance)";
+                    // Error check to make sure that the range (if needed) is valid
+                    if (numberOfDice - 1 < difficulty)
+                    {
+                        text = $"{text} {numberOfDice} - which doesn't quite make it, but you can't go any lower -";
+                        text = $"{text} (which results in a {probabilities[difficulty..].Sum().ToString("P")} chance)";
+                    }
+                    else
+                    {
+                        double[] newProbabilities = GenerateSuccessDistribution(numberOfDice - 1);
+                        text = $"{text} {numberOfDice - 1}-{numberOfDice}";
+                        text = $"{text} (which results in a {newProbabilities[difficulty..].Sum().ToString("P")}-{probabilities[difficulty..].Sum().ToString("P")} chance)";
+                    }
                 }
                 // Display the text
                 BodyTextValueFinderLabel.Text = text;
